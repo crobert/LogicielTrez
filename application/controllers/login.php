@@ -25,8 +25,7 @@ class Login extends CI_Controller
         ));
         $this->form_validation->set_message('required', 'Nom d\'utilisateur et/ou mot de passe incorrect');
 
-        if ($this->form_validation->run() === TRUE)
-        {
+        if ($this->form_validation->run() === TRUE) {
             // la 1ère validation est ok, on check dans la base de données
             $user = $this->user_model->validate_credentials($this->input->post('username'), $this->input->post('password'));
 
@@ -48,4 +47,10 @@ class Login extends CI_Controller
             $this->load->view('default_template', $data);
         }
 	}
+
+    function logout()
+    {
+        $this->session->sess_destroy();
+        redirect('login/index');
+    }
 }
