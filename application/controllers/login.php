@@ -4,33 +4,48 @@ class Login extends CI_Controller
 {
 	public function index()
     {
+        //$this->session->set_flashdata('page', 'login');
 
-		echo "<a href='".base_url()."accueil'>Page d'accueil</a>";
-        echo '<br/>';
-		echo "<a href='".base_url()."login/verifLogin'>Pour simuler une connexion cliquer ce lien</a>";
-		//~ $this->load->model('constantes', '', TRUE);
-		
-		//		return $query->result();
-		//$this->load->view('template/footer');
-        //var_dump($this->session->all_userdata());
-        //var_dump($this->session);
+        $this->load->library('form_validation');
+        $this->load->model('user_model');
 
-        $data['_view'] = 'login/login_view';
-        $this->load->view('default_template', $data);
-	}
-
-    public function verifLogin()
-    {
-        //TODO vérif la connexion, recharger le formulaire si les tests ne passent pas
-
-        $this->session->set_userdata(array(
-            'logged' => TRUE,
-            'username'  => 'johndoe'
+        // Validation du formulaire
+        // TODO : déplacer vers un fichier séparé
+        $this->form_validation->set_rules(array(
+            array(
+                'field' => 'username',
+                'label' =>  'nom d\'utilisateur',
+                'rules' => 'required'
+            ),
+            array(
+                'field' => 'password',
+                'label' =>  'mot de passe',
+                'rules' => 'required'
+            )
         ));
+        $this->form_validation->set_message('required', 'Nom d\'utilisateur et/ou mot de passe incorrect');
 
-        //var_dump($this->session->all_userdata());
-        // redirect(base_url(), 'refresh');
-        echo "<a href='".base_url()."'>Page d'accueil</a>";
-    }
+        if ($this->form_validation->run() === TRUE)
+        {
+            // la 1ère validation est ok, on check dans la base de données
+            $user = $this->user_model->validate_credentials($this->input->post('username'), $this->input->post('password'));
 
+            if ($user) {
+                $this->session->set_userdata(array(
+                    'logged' => TRUE,
+                    'username'  => $user->username
+                ));
+
+                $data['_view'] = 'accueil/index_view';
+                $this->load->view('default_template', $data);
+            } else {
+                //$this->session->set_flashdata('error', 'credentials_error');
+                $data['_view'] = 'login/login_view';
+                $this->load->view('default_template', $data);
+            }
+        } else {
+            $data['_view'] = 'login/login_view';
+            $this->load->view('default_template', $data);
+        }
+	}
 }
