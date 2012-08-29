@@ -10,7 +10,10 @@ class Login extends CI_Controller {
 		
 		//		return $query->result();
 		//$this->load->view('template/footer');
+        $data['_view'] = 'login';
+        $this->load->view('template', $data);
 	}
+
 }
 
 /* End of file welcome.php */

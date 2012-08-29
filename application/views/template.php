@@ -1,4 +1,5 @@
-<?php $this->load->view('template/header');?>
-<?php $this->load->view('template/menu');?>
-<?php $this->load->view($contenu);?>
-<?php $this->load->view('template/footer');?>
+<?php
+    $this->load->view('_template/header');
+    $this->load->view('_template/menu');
+    $this->load->view($_view);
+    $this->load->view('_template/footer');
