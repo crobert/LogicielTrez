@@ -1,18 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Accueil extends CI_Controller {
-
-
+class Accueil extends MY_Auth
+{
 	public function index()
 	{
-		$this->load->view('template/header');
-		$this->load->view('template/menu');
-		//~ $this->load->model('constantes', '', TRUE);
-		
-		//		return $query->result();
-		//$this->load->view('template/footer');
+        $data['_view'] = 'accueil/index_view';
+        $this->load->view('default_template', $data);
 	}
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
