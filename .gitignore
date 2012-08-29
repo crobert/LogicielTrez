@@ -3,3 +3,28 @@
 */logs/!index.html
 */cache/*
 */cache/!index.html
+
+
+# Logs and databases #
+######################
+*.log
+*.sqlite
+*.bat
+
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Perso #
+#########
+~*
+*~
