@@ -37,3 +37,5 @@ Desktop.ini
 .project
 .settings/*
 .idea/*
+
+application/config/config.php
