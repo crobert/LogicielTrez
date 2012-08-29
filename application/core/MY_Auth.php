@@ -13,12 +13,6 @@ class MY_Auth extends CI_Controller {
 		//~ }
 		
 	}
-
-	public function index()
-	{
-
-	}
-	
 }
 
 /* Fin du contrôleur admin.php */
