@@ -12,8 +12,8 @@ class Login extends CI_Controller
 		
 		//		return $query->result();
 		//$this->load->view('template/footer');
-        var_dump($this->session->userdata('logged'));
-        var_dump($this->session);
+        //var_dump($this->session->all_userdata());
+        //var_dump($this->session);
 
         $data['_view'] = 'login/login_view';
         $this->load->view('default_template', $data);
@@ -23,14 +23,13 @@ class Login extends CI_Controller
     {
         //TODO vérif la connexion, recharger le formulaire si les tests ne passent pas
 
-        $data = array(
-            'logged'    => TRUE,
-            'login'  => 'johndoe'
-        );
-        $this->session->set_userdata($data);
-        var_dump($this->session->userdata('logged'));
-        var_dump($this->session);
-      // redirect(base_url(), 'refresh');
+        $this->session->set_userdata(array(
+            'logged' => TRUE,
+            'username'  => 'johndoe'
+        ));
+
+        //var_dump($this->session->all_userdata());
+        // redirect(base_url(), 'refresh');
         echo "<a href='".base_url()."'>Page d'accueil</a>";
     }
 
