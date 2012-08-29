@@ -24,7 +24,14 @@ ehthumbs.db
 Thumbs.db
 Desktop.ini
 
+
 # Perso #
 #########
 ~*
 *~
+
+
+# ISE-specific #
+################
+.project
+.settings/*
