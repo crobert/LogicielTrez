@@ -137,13 +137,13 @@ CREATE TABLE `tiers` (
 );
 
 -- ---
--- Table 'users'
+-- Table 'user'
 --
 -- ---
 
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `user`;
 
-CREATE TABLE `users` (
+CREATE TABLE `user` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
   `login` VARCHAR(255) NULL DEFAULT NULL,
   `password` VARCHAR(255) NULL DEFAULT NULL,
@@ -183,6 +183,23 @@ KEY (`user_id`),
 );
 
 -- ---
+-- Table 'session'
+--
+-- ---
+DROP TABLE IF EXISTS `session` 
+
+CREATE TABLE IF NOT EXISTS  `session` (
+session_id varchar(40) DEFAULT '0' NOT NULL,
+ip_address varchar(16) DEFAULT '0' NOT NULL,
+user_agent varchar(50) NOT NULL,
+last_activity int(10) unsigned DEFAULT 0 NOT NULL,
+user_data text NOT NULL,
+PRIMARY KEY (session_id)
+);
+
+
+
+-- ---
 -- Foreign Keys
 -- ---
 
@@ -194,7 +211,7 @@ ALTER TABLE `ligne` ADD FOREIGN KEY (souscategorie_id) REFERENCES `souscategorie
 ALTER TABLE `facture` ADD FOREIGN KEY (ligne_id) REFERENCES `ligne` (`id`);
 ALTER TABLE `facture` ADD FOREIGN KEY (tiers_id) REFERENCES `tiers` (`id`);
 ALTER TABLE `facture` ADD FOREIGN KEY (tva_id) REFERENCES `tva` (`id`);
-ALTER TABLE `users` ADD FOREIGN KEY (id) REFERENCES `categories_users` (`user_id`);
+ALTER TABLE `user` ADD FOREIGN KEY (id) REFERENCES `categories_users` (`user_id`);
 
 -- ---
 -- Table Properties
@@ -207,7 +224,7 @@ ALTER TABLE `users` ADD FOREIGN KEY (id) REFERENCES `categories_users` (`user_id
 -- ALTER TABLE `ligne` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `facture` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `tiers` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `users` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `user` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `tva` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `categories_users` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -229,7 +246,7 @@ ALTER TABLE `users` ADD FOREIGN KEY (id) REFERENCES `categories_users` (`user_id
 -- ('','','','','','','','','','','','');
 -- INSERT INTO `tiers` (`id`,`nom`,`telephone`,`mail`,`fax`,`adresse`,`responsable`,`rib`,`ordre_cheque`,`commentaire`) VALUES
 -- ('','','','','','','','','','');
--- INSERT INTO `users` (`id`,`login`,`password`,`type`) VALUES
+-- INSERT INTO `user` (`id`,`login`,`password`,`type`) VALUES
 -- ('','','','');
 -- INSERT INTO `tva` (`id`,`type`,`montant_ht`,`montant_tva`) VALUES
 -- ('','','','');

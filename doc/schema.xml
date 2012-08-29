@@ -225,7 +225,7 @@
             <part>id</part>
         </key>
     </table>
-    <table x="135" y="301" name="users">
+    <table x="135" y="301" name="user">
         <row name="id" null="0" autoincrement="1">
             <datatype>INTEGER</datatype>
             <relation table="categories_users" row="user_id" />
