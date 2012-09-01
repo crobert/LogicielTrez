@@ -6,17 +6,18 @@ class Exercice_model extends CI_Model
       */
     public function get_exercice($id)
     {
-        $sql = 'SELECT edition FROM exercice WHERE id = ?';
-		return $this->db->query($sql, array($id))>row();
+        $sql = 'SELECT * FROM exercice WHERE id = ?';
+		return $this->db->query($sql, array($id))->row();
     }
     public function list_exercice()
     {
-        $sql = 'SELECT edition FROM exercice';
+        $sql = 'SELECT * FROM exercice ORDER BY edition DESC';
         return $this->db->query($sql)->result();
     }
     public function add_exercice($data)
     {
-        return $this->db->insert_id('exercice', $data); // va retourner l'id (MySQL seulement)
+        $this->db->insert('exercice', $data); 
+        return $this->db->insert_id(); // va retourner l'id (MySQL seulement)
     }
     public function modify_exercice($id, $data)
     {
