@@ -25,5 +25,6 @@
 			<td><?php echo form_error('annee_2');?></td>
 		</tr>
 	</table>	
-	<input type="submit" value="Créer exercice"/>
+	<input type="submit" class="btn" value="Créer exercice"/>
 </form>
+<a href="<?php echo site_url();?>exercice"><input class="btn btn-danger" value="Annuler" /></a>

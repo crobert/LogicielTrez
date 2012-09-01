@@ -27,3 +27,4 @@
 	</table>	
 	<input type="submit" value="Modifier exercice"/>
 </form>
+<a href="<?php echo site_url();?>exercice"><input class="btn btn-danger" value="Annuler" /></a>
