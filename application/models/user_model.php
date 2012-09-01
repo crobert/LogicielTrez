@@ -15,11 +15,14 @@ class User_model extends CI_Model
     /*
       * CRUD avec un item
       */
-    public function get_user($id)
+    public function get_user($id, $type = 'object')
     {
-        $sql = 'SELECT login AS username, type FROM user WHERE id = ?';
+        $sql = 'SELECT id, login AS username, type FROM user WHERE id = ?';
         $query = $this->db->query($sql, array($id));
 
+        if ($type === 'array') {
+            return $query->row_array();
+        }
         return $query->row();
     }
     public function list_user()
@@ -33,19 +36,21 @@ class User_model extends CI_Model
     {
         $data['password'] = $this->hash_password($data['password']);
 
-        return $this->db->insert_id('user', $data); // va retourner l'id (MySQL seulement)
+        $this->db->insert('user', $data); // va retourner l'id (MySQL seulement)
+
+        return $this->db->insert_id();
     }
     public function modify_user($id, $data)
     {
-        $this->db->where('id', $id)->update('user', $data);
+        if (isset($data['password'])) {
+            $data['password'] = $this->hash_password($data['password']);
+        }
 
-        return $id;
+        $this->db->where('id', $id)->update('user', $data);
     }
     public function delete_user($id)
     {
         $this->db->delete('user', array('id' => $id));
-
-        return $id;
     }
 
     /*

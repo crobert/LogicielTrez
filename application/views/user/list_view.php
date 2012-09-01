@@ -16,10 +16,16 @@
             <td><?php echo $user->username; ?></td>
             <td><?php echo $user->type; ?></td>
             <td>
-                <a href="">Modifier</a>&nbsp;
-                <a href="#">Supprimer</a>
+                <a href="<?php echo site_url('user/modify/'.$user->id); ?>">Modifier</a>&nbsp;
+                <a href="<?php echo site_url('user/delete/'.$user->id); ?>" onclick="return window.confirm('Êtes-vous sur de vouloir supprimer l\'utilisateur <?php echo $user->username; ?> ?');">Supprimer</a>
             </td>
         </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
+
+<div>
+    <a href="<?php echo site_url('user/add'); ?>" class='btn btn-primary'>
+        <i class="icon-plus"></i> Ajouter un utilisateur
+    </a>
+</div>
