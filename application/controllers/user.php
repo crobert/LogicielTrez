@@ -103,12 +103,8 @@ class User extends MY_Auth
 
     public function delete($id)
     {
-        if ($id == $this->session->userdata('user_id'))
-        {
+        if ($id == $this->session->userdata('user_id')) {
             $this->session->set_flashdata('alert', 'Vous ne pouvez pas supprimer l\'utilisateur avec lequel vous &ecirc;tes connect&eacute;');
-            redirect('user');
-        } else if ($this->user_model->last_user()) {
-            $this->session->set_flashdata('alert', 'Vous ne pouvez pas supprimer l\'unique utilisateur');
             redirect('user');
         } else {
             $this->user_model->delete_user($id);

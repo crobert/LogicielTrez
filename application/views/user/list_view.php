@@ -17,7 +17,7 @@
             <td><?php echo $user->type; ?></td>
             <td>
                 <a href="">Modifier</a>&nbsp;
-                <a href="#">Supprimer</a>
+                <a href="<?php echo site_url('user/delete/'.$user->id); ?>" onclick="return window.confirm('Êtes-vous sur de vouloir supprimer l\'utilisateur <?php echo $user->username; ?> ?');">Supprimer</a>
             </td>
         </tr>
         <?php endforeach; ?>
