@@ -32,7 +32,8 @@ class Login extends CI_Controller
             if ($user) {
                 $this->session->set_userdata(array(
                     'logged' => TRUE,
-                    'username'  => $user->username
+                    'id' => $user->id,
+                    'username' => $user->username
                 ));
 
                 $data['_view'] = 'accueil/index_view';
