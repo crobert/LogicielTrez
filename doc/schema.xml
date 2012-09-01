@@ -2,7 +2,7 @@
 <!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
 <!-- Active URL: http://localhost:8888/wwwsqldesigner-2.6/ -->
 <sql>
-    <datatypes db="mysql">
+<datatypes db="mysql">
         <group label="Numeric" color="rgb(238,238,170)">
             <type label="Integer" length="0" sql="INTEGER" re="INT" quote=""/>
             <type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
@@ -33,251 +33,251 @@
             <type label="Bit" length="0" sql="bit" quote=""/>
         </group>
     </datatypes><table x="93" y="82" name="exercice">
-    <row name="id" null="1" autoincrement="1">
-        <datatype>INTEGER</datatype>
-        <default>NULL</default></row>
-    <row name="edition" null="1" autoincrement="0">
-        <datatype>INTEGER</datatype>
-        <default>NULL</default></row>
-    <row name="annee_1" null="1" autoincrement="0">
-        <datatype>YEAR</datatype>
-        <default>NULL</default></row>
-    <row name="annee_2" null="1" autoincrement="0">
-        <datatype>YEAR</datatype>
-        <default>NULL</default></row>
-    <key type="PRIMARY" name="">
-        <part>id</part>
-    </key>
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="edition" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="annee_1" null="1" autoincrement="0">
+<datatype>YEAR</datatype>
+<default>NULL</default></row>
+<row name="annee_2" null="1" autoincrement="0">
+<datatype>YEAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
 </table>
-    <table x="362" y="99" name="budget">
-        <row name="id" null="0" autoincrement="1">
-            <datatype>INTEGER</datatype>
-        </row>
-        <row name="exercice_id" null="0" autoincrement="0">
-            <datatype>INTEGER</datatype>
-            <relation table="exercice" row="id" />
-        </row>
-        <row name="nom" null="1" autoincrement="0">
-            <datatype>VARCHAR(255)</datatype>
-            <default>NULL</default></row>
-        <key type="PRIMARY" name="">
-            <part>id</part>
-        </key>
-        <key type="INDEX" name="">
-            <part>exercice_id</part>
-        </key>
-    </table>
-    <table x="609" y="72" name="categorie">
-        <row name="id" null="0" autoincrement="1">
-            <datatype>INTEGER</datatype>
-            <relation table="categories_users" row="categorie_id" />
-        </row>
-        <row name="budget_id" null="0" autoincrement="0">
-            <datatype>INTEGER</datatype>
-            <relation table="budget" row="id" />
-        </row>
-        <row name="nom" null="1" autoincrement="0">
-            <datatype>VARCHAR(255)</datatype>
-            <default>NULL</default></row>
-        <row name="description" null="1" autoincrement="0">
-            <datatype>MEDIUMTEXT</datatype>
-            <default>NULL</default></row>
-        <key type="PRIMARY" name="">
-            <part>id</part>
-        </key>
-        <key type="INDEX" name="">
-            <part>budget_id</part>
-        </key>
-    </table>
-    <table x="982" y="74" name="souscategorie">
-        <row name="id" null="1" autoincrement="1">
-            <datatype>INTEGER</datatype>
-            <default>NULL</default></row>
-        <row name="categorie_id" null="0" autoincrement="0">
-            <datatype>INTEGER</datatype>
-            <relation table="categorie" row="id" />
-        </row>
-        <row name="nom" null="1" autoincrement="0">
-            <datatype>VARCHAR(255)</datatype>
-            <default>NULL</default></row>
-        <row name="description" null="1" autoincrement="0">
-            <datatype>MEDIUMTEXT</datatype>
-            <default>NULL</default></row>
-        <key type="PRIMARY" name="">
-            <part>id</part>
-        </key>
-        <key type="INDEX" name="">
-            <part>categorie_id</part>
-        </key>
-    </table>
-    <table x="1054" y="310" name="ligne">
-        <row name="id" null="0" autoincrement="1">
-            <datatype>INTEGER</datatype>
-        </row>
-        <row name="souscategorie_id" null="0" autoincrement="0">
-            <datatype>INTEGER</datatype>
-            <relation table="souscategorie" row="id" />
-        </row>
-        <row name="nom" null="1" autoincrement="0">
-            <datatype>VARCHAR(255)</datatype>
-            <default>NULL</default></row>
-        <row name="description" null="1" autoincrement="0">
-            <datatype>MEDIUMTEXT</datatype>
-            <default>NULL</default></row>
-        <row name="debit" null="1" autoincrement="0">
-            <datatype>INTEGER</datatype>
-            <default>NULL</default></row>
-        <row name="credit" null="1" autoincrement="0">
-            <datatype>INTEGER</datatype>
-            <default>NULL</default></row>
-        <key type="PRIMARY" name="">
-            <part>id</part>
-        </key>
-        <key type="INDEX" name="">
-            <part>souscategorie_id</part>
-        </key>
-    </table>
-    <table x="661" y="356" name="facture">
-        <row name="id" null="0" autoincrement="1">
-            <datatype>INTEGER</datatype>
-        </row>
-        <row name="ligne_id" null="1" autoincrement="0">
-            <datatype>INTEGER</datatype>
-            <default>NULL</default><relation table="ligne" row="id" />
-        </row>
-        <row name="tiers_id" null="1" autoincrement="0">
-            <datatype>INTEGER</datatype>
-            <default>NULL</default><relation table="tiers" row="id" />
-        </row>
-        <row name="type" null="1" autoincrement="0">
-            <datatype>INTEGER</datatype>
-            <default>NULL</default></row>
-        <row name="numero" null="1" autoincrement="0">
-            <datatype>INTEGER</datatype>
-            <default>NULL</default></row>
-        <row name="objet" null="1" autoincrement="0">
-            <datatype>VARCHAR(255)</datatype>
-            <default>NULL</default></row>
-        <row name="montant" null="1" autoincrement="0">
-            <datatype>INTEGER</datatype>
-            <default>NULL</default></row>
-        <row name="methode_paiement" null="1" autoincrement="0">
-            <datatype>VARCHAR(255)</datatype>
-            <default>NULL</default></row>
-        <row name="date" null="1" autoincrement="0">
-            <datatype>DATE</datatype>
-            <default>NULL</default></row>
-        <row name="date_paiement" null="1" autoincrement="0">
-            <datatype>DATE</datatype>
-            <default>NULL</default></row>
-        <row name="commentaire" null="1" autoincrement="0">
-            <datatype>MEDIUMTEXT</datatype>
-            <default>NULL</default></row>
-        <row name="tva_id" null="1" autoincrement="0">
-            <datatype>INTEGER</datatype>
-            <default>NULL</default><relation table="tva" row="id" />
-        </row>
-        <key type="PRIMARY" name="">
-            <part>id</part>
-        </key>
-        <key type="INDEX" name="">
-            <part>ligne_id</part>
-        </key>
-        <key type="INDEX" name="">
-            <part>tiers_id</part>
-        </key>
-        <key type="INDEX" name="">
-            <part>tva_id</part>
-        </key>
-    </table>
-    <table x="261" y="549" name="tiers">
-        <row name="id" null="0" autoincrement="1">
-            <datatype>INTEGER</datatype>
-        </row>
-        <row name="nom" null="1" autoincrement="0">
-            <datatype>VARCHAR(255)</datatype>
-            <default>NULL</default></row>
-        <row name="telephone" null="1" autoincrement="0">
-            <datatype>VARCHAR(255)</datatype>
-            <default>NULL</default></row>
-        <row name="mail" null="1" autoincrement="0">
-            <datatype>VARCHAR(255)</datatype>
-            <default>NULL</default></row>
-        <row name="fax" null="1" autoincrement="0">
-            <datatype>VARCHAR(255)</datatype>
-            <default>NULL</default></row>
-        <row name="adresse" null="1" autoincrement="0">
-            <datatype>MEDIUMTEXT</datatype>
-            <default>NULL</default></row>
-        <row name="responsable" null="1" autoincrement="0">
-            <datatype>VARCHAR(255)</datatype>
-            <default>NULL</default></row>
-        <row name="rib" null="1" autoincrement="0">
-            <datatype>VARCHAR(255)</datatype>
-            <default>NULL</default></row>
-        <row name="ordre_cheque" null="1" autoincrement="0">
-            <datatype>VARCHAR(255)</datatype>
-            <default>NULL</default></row>
-        <row name="commentaire" null="1" autoincrement="0">
-            <datatype>MEDIUMTEXT</datatype>
-            <default>NULL</default></row>
-        <key type="PRIMARY" name="">
-            <part>id</part>
-        </key>
-    </table>
-    <table x="135" y="301" name="user">
-        <row name="id" null="0" autoincrement="1">
-            <datatype>INTEGER</datatype>
-            <relation table="categories_users" row="user_id" />
-        </row>
-        <row name="login" null="1" autoincrement="0">
-            <datatype>VARCHAR(255)</datatype>
-            <default>NULL</default></row>
-        <row name="password" null="1" autoincrement="0">
-            <datatype>VARCHAR(255)</datatype>
-            <default>NULL</default></row>
-        <row name="type" null="1" autoincrement="0">
-            <datatype>INTEGER</datatype>
-            <default>NULL</default></row>
-        <key type="PRIMARY" name="">
-            <part>id</part>
-        </key>
-    </table>
-    <table x="1016" y="655" name="tva">
-        <row name="id" null="0" autoincrement="1">
-            <datatype>INTEGER</datatype>
-        </row>
-        <row name="type" null="1" autoincrement="0">
-            <datatype>INTEGER</datatype>
-            <default>NULL</default></row>
-        <row name="montant_ht" null="1" autoincrement="0">
-            <datatype>INTEGER</datatype>
-            <default>NULL</default></row>
-        <row name="montant_tva" null="1" autoincrement="0">
-            <datatype>INTEGER</datatype>
-            <default>NULL</default></row>
-        <key type="PRIMARY" name="">
-            <part>id</part>
-        </key>
-    </table>
-    <table x="360" y="290" name="categories_users">
-        <row name="categorie_id" null="0" autoincrement="0">
-            <datatype>INTEGER</datatype>
-        </row>
-        <row name="user_id" null="0" autoincrement="0">
-            <datatype>INTEGER</datatype>
-        </row>
-        <row name="id" null="0" autoincrement="1">
-            <datatype>INTEGER</datatype>
-        </row>
-        <key type="INDEX" name="">
-            <part>categorie_id</part>
-        </key>
-        <key type="INDEX" name="">
-            <part>user_id</part>
-        </key>
-        <key type="PRIMARY" name="">
-            <part>id</part>
-        </key>
-    </table>
+<table x="362" y="99" name="budget">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="nom" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="id_exercice" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="exercice" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<key type="INDEX" name="">
+<part>id_exercice</part>
+</key>
+</table>
+<table x="609" y="72" name="categorie">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="nom" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="id_budget" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="budget" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<key type="INDEX" name="">
+<part>id_budget</part>
+</key>
+</table>
+<table x="983" y="76" name="souscategorie">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="nom" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="id_categorie" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="categorie" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<key type="INDEX" name="">
+<part>id_categorie</part>
+</key>
+</table>
+<table x="1073" y="294" name="ligne">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="nom" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="debit" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="credit" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_souscategorie" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="souscategorie" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<key type="INDEX" name="">
+<part>id_souscategorie</part>
+</key>
+</table>
+<table x="661" y="356" name="facture">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="type" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="numero" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="objet" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="montant" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="methode_paiement" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="date" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="date_paiement" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="commentaire" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="id_ligne" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="ligne" row="id" />
+</row>
+<row name="id_tiers" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="tiers" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<key type="INDEX" name="">
+<part>id_ligne</part>
+</key>
+<key type="INDEX" name="">
+<part>id_tiers</part>
+</key>
+</table>
+<table x="261" y="549" name="tiers">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="nom" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="telephone" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="mail" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="fax" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="adresse" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="responsable" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="rib" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="ordre_cheque" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="commentaire" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="135" y="301" name="user">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="login" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="password" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="type" null="1" autoincrement="0">
+<datatype>VARCHAR(25)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1016" y="655" name="tva">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="type" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="montant_ht" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="montant_tva" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_facture" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="facture" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<key type="INDEX" name="">
+<part>id_facture</part>
+</key>
+</table>
+<table x="360" y="290" name="categories_users">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="id_user" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="user" row="id" />
+</row>
+<row name="id_categorie" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="categorie" row="id" />
+</row>
+<key type="INDEX" name="">
+<part>id_user</part>
+</key>
+<key type="INDEX" name="">
+<part>id_categorie</part>
+</key>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
 </sql>
