@@ -1,8 +1,25 @@
-<?php
-/**
- * Created by JetBrains PhpStorm.
- * User: romaricdrigon
- * Date: 01/09/12
- * Time: 22:01
- * To change this template use File | Settings | File Templates.
- */
+<h1>Liste des utilisateurs</h1>
+
+<table class="table table-stripped table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom d'utilisateur</th>
+            <th>Type</th>
+            <th width="150"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($users as $user): ?>
+        <tr>
+            <td><?php echo $user->id; ?></td>
+            <td><?php echo $user->username; ?></td>
+            <td><?php echo $user->type; ?></td>
+            <td>
+                <a href="">Modifier</a>&nbsp;
+                <a href="#">Supprimer</a>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>

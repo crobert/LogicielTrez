@@ -1,8 +1,6 @@
 <?php
 class User_model extends CI_Model
 {
-    private $salt = '';
-
     // retourne un objet utilisateur si le couple login/pass est ok
     public function validate_credentials($login, $password)
     {
@@ -26,7 +24,7 @@ class User_model extends CI_Model
     }
     public function list_user()
     {
-        $sql = 'SELECT login AS username, type FROM user';
+        $sql = 'SELECT id, login AS username, type FROM user';
         $query = $this->db->query($sql);
 
         return $query->result();
