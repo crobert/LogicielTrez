@@ -1,4 +1,4 @@
-<h1>Liste des Budgets</h1>
+<h1>Liste des budgets</h1>
 
 <table class="table table-stripped table-hover">
     <thead>
@@ -22,4 +22,9 @@
         <?php endforeach; ?>
     </tbody>
 </table>
-<a href="<?php echo site_url().'budget/add/'.$id_exercice;?>"><input class="btn" value="Créer un budget" /></a>
+
+<div>
+    <a href="<?php echo site_url('budget/add/'.$id_exercice); ?>" class='btn btn-primary'>
+        <i class="icon-plus"></i> Ajouter un budget
+    </a>
+</div>

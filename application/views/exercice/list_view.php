@@ -26,4 +26,9 @@
         <?php endforeach; ?>
     </tbody>
 </table>
-<a href="<?php echo site_url();?>exercice/add"><input class="btn" value="Créer un exercice" /></a>
+
+<div>
+    <a href="<?php echo site_url('exercice/add'); ?>" class='btn btn-primary'>
+        <i class="icon-plus"></i> Ajouter un exercice
+    </a>
+</div>

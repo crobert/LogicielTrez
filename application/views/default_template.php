@@ -31,14 +31,14 @@
                                 $this->session->flashdata('info').'</div>';
                     }
 
-                    if (isset($breadcrumbs)) {
+                    if (is_array($this->session->userdata('breadcrumbs'))) {
                         echo '<ul class="breadcrumb">';
-
-                        for ($i = 0; $i < count($breadcrumbs)-1; $i++) {
-                            echo '<li><a href="'.site_url($breadcrumbs[$i]['link']).'">'.$breadcrumbs[$i]['name'].'</a> <span class="divider">/</span></li>';
+                        $breadcrumbs = $this->session->userdata('breadcrumbs');
+                        $last = array_pop($breadcrumbs);
+                        foreach ($breadcrumbs as $bd) {
+                            echo '<li><a href="'.site_url($bd['link']).'">'.$bd['name'].'</a> <span class="divider">/</span></li>';
                         }
-                        echo '<li class="active">'.$breadcrumbs[count($breadcrumbs)-1]['name'].'</li>';
-
+                        echo '<li class="active">'.$last['name'].'</li>';
                         echo '</ul>';
                     }
 

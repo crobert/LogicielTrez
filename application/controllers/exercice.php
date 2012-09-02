@@ -1,11 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Exercice extends MY_Auth
+class Exercice extends MY_Breadcrumb
 {
 	public function index()
 	{
 		$this->load->model('exercice_model');
-		$data['exercices'] = $this->exercice_model->list_exercice(); 
+		$data['exercices'] = $this->exercice_model->list_exercice();
+
+        $this->set_breadcrumb('exercice', 'Exercices', 'exercice/index');
 		
         $data['_view'] = 'exercice/list_view';
         $this->load->view('default_template', $data);
@@ -19,14 +21,10 @@ class Exercice extends MY_Auth
 		$this->form_validation->set_rules('annee_1', 'Année d\'avant', 'trim|required|numeric|min_length[4]|max_length[4]|xss_clean');
 		$this->form_validation->set_rules('annee_2', 'Année d\'encore avant', 'trim|required|numeric|min_length[4]|max_length[4]|xss_clean');
 
-		if($this->form_validation->run() == FALSE)
-		{
-
-        $data['_view'] = 'exercice/nouveau_view';
-        $this->load->view('default_template', $data);
-		}
-		else
-		{
+		if($this->form_validation->run() === FALSE)	{
+            $data['_view'] = 'exercice/nouveau_view';
+            $this->load->view('default_template', $data);
+		} else {
 			$data= array(
 					'edition' => $this->input->post('edition'), 
 					'annee_1' => $this->input->post('annee_1'), 
@@ -49,14 +47,11 @@ class Exercice extends MY_Auth
 		$this->form_validation->set_rules('annee_1', 'Année d\'avant', 'trim|required|numeric|min_length[4]|max_length[4]|xss_clean');
 		$this->form_validation->set_rules('annee_2', 'Année d\'encore avant', 'trim|required|numeric|min_length[4]|max_length[4]|xss_clean');
 
-		if($this->form_validation->run() == FALSE)
-		{
-        $data['exercice'] = $exercice;
-        $data['_view'] = 'exercice/modifier_view';
-        $this->load->view('default_template', $data);
-		}
-		else
-		{
+		if($this->form_validation->run() === FALSE)	{
+            $data['exercice'] = $exercice;
+            $data['_view'] = 'exercice/modifier_view';
+            $this->load->view('default_template', $data);
+		} else {
 			$data= array(
 					'edition' => $this->input->post('edition'), 
 					'annee_1' => $this->input->post('annee_1'), 

@@ -2,7 +2,7 @@
 
 class MY_Auth extends CI_Controller
 {
-	function __construct()
+	public function __construct()
 	{
 		parent::__construct();
 
@@ -12,6 +12,9 @@ class MY_Auth extends CI_Controller
 			// s'il ne l'est pas on le redirige sur la page de login
 			redirect('login', 'refresh');
 		}
+
+        // on reset les éventuelles breadcrumbs
+        $this->session->unset_userdata('breadcrumbs');
 	}
 }
 
