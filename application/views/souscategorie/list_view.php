@@ -16,7 +16,7 @@
             <td><?php echo $souscategorie->nom; ?></td>
             <td><?php echo $souscategorie->description; ?></td>
             <td>
-                <a href="<?php echo site_url().'souscategorie/index/'.$souscategorie->id;?>">Accéder&nbsp;aux&nbsp;lignes</a>&nbsp;
+                <a href="<?php echo site_url().'ligne/index/'.$souscategorie->id;?>">Accéder&nbsp;aux&nbsp;lignes</a>&nbsp;
                 <a href="<?php echo site_url().'souscategorie/modify/'.$souscategorie->id.'/'.$id_categorie;?>">Modifier</a>&nbsp;
                 <a href="<?php echo site_url().'souscategorie/delete/'.$souscategorie->id.'/'.$id_categorie;?>">Supprimer</a>
             </td>
