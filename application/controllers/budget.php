@@ -7,6 +7,16 @@ class Budget extends MY_Auth
         $this->load->model('budget_model');
         $data['budgets'] = $this->budget_model->get_budget_by_exercice($id_exercice);
 
+        $data['breadcrumbs'] = array(
+            0 => array(
+              'name' => 'Budget',
+              'link' => site_url('exercice/index')
+            ),
+            1 => array(
+                'name' => $id_exercice,
+            )
+        );
+
         $data['_view'] = 'budget/list_view';
         $this->load->view('default_template', $data);
     }

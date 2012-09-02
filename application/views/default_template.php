@@ -31,6 +31,17 @@
                                 $this->session->flashdata('info').'</div>';
                     }
 
+                    if (isset($breadcrumbs)) {
+                        echo '<ul class="breadcrumb">';
+
+                        for ($i = 0; $i < count($breadcrumbs)-1; $i++) {
+                            echo '<li><a href="'.site_url($breadcrumbs[$i]['link']).'">'.$breadcrumbs[$i]['name'].'</a> <span class="divider">/</span></li>';
+                        }
+                        echo '<li class="active">'.$breadcrumbs[count($breadcrumbs)-1]['name'].'</li>';
+
+                        echo '</ul>';
+                    }
+
                     // on charge la vue demandée (juste du contenu)
                     $this->load->view($_view); // propage automatiquement les data
                 ?>
