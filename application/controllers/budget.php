@@ -7,7 +7,7 @@ class Budget extends MY_Breadcrumb
         $this->load->model('budget_model');
         $data['budgets'] = $this->budget_model->get_budget_by_exercice($id_exercice);
 
-        $this->set_breadcrumb('budget', 'Budget de '.$id_exercice, 'budget/index/'.$id_exercice);
+        $this->set_breadcrumb('budget', 'Budgets de '.$id_exercice, 'budget/index/'.$id_exercice);
 
         $data['id_exercice'] = $id_exercice;
         $data['_view'] = 'budget/list_view';
@@ -23,7 +23,7 @@ class Budget extends MY_Breadcrumb
 
         if($this->form_validation->run() === FALSE) {
             $data['id_exercice'] = $id_exercice;
-            $data['_view'] = 'budget/nouveau_view';
+            $data['_view'] = 'budget/add_view';
             $this->load->view('default_template', $data);
         } else {
             $data= array(
@@ -51,7 +51,7 @@ class Budget extends MY_Breadcrumb
         if($this->form_validation->run() === FALSE) {
 			$data['id_exercice'] = $id_exercice;
             $data['budget'] = $budget;
-            $data['_view'] = 'budget/modifier_view';
+            $data['_view'] = 'budget/modify_view';
             $this->load->view('default_template', $data);
         } else {
             $data= array(
