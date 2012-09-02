@@ -17,8 +17,8 @@
             <td><?php echo $ligne->id; ?></td>
             <td><?php echo $ligne->nom; ?></td>
             <td><?php echo $ligne->description; ?></td>
-            <td><?php echo $ligne->credit; ?></td>
-            <td><?php echo $ligne->debit; ?></td>
+            <td><?php echo $ligne->credit; ?> €</td>
+            <td><?php echo $ligne->debit; ?> €</td>
             <td>
                 <a href="<?php echo site_url('facture/index/'.$ligne->id); ?>">Acc&eacute;der aux factures</a>&nbsp;
                 <a href="<?php echo site_url('ligne/modify/'.$ligne->id.'/'.$id_souscategorie); ?>">Modifier</a>&nbsp;
