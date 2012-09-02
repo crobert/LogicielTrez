@@ -4,13 +4,10 @@ class Login extends CI_Controller
 {
 	public function index()
     {
-        //$this->session->set_flashdata('page', 'login');
-
         $this->load->library('form_validation');
         $this->load->model('user_model');
 
         // Validation du formulaire
-        // TODO : déplacer vers un fichier séparé
         $this->form_validation->set_rules(array(
             array(
                 'field' => 'username',
@@ -23,7 +20,7 @@ class Login extends CI_Controller
                 'rules' => 'required'
             )
         ));
-        $this->form_validation->set_message('required', 'Nom d\'utilisateur et/ou mot de passe incorrect');
+        $this->form_validation->set_message('required', 'Nom d\'utilisateur et/ou mot de passe invalide');
 
         if ($this->form_validation->run() === TRUE) {
             // la 1ère validation est ok, on check dans la base de données
@@ -39,7 +36,7 @@ class Login extends CI_Controller
                 $data['_view'] = 'accueil/index_view';
                 $this->load->view('default_template', $data);
             } else {
-                //$this->session->set_flashdata('error', 'credentials_error');
+                $this->session->set_flashdata('error', 'Nom d\'utilisateur et/ou mot de passe invalide');
                 $data['_view'] = 'login/login_view';
                 $this->load->view('default_template', $data);
             }
@@ -52,6 +49,7 @@ class Login extends CI_Controller
     function logout()
     {
         $this->session->sess_destroy();
+        $this->session->set_flashdata('warning', 'Vous &ecirc;tes maintenant d&eacute;connect&eacute;');
         redirect('login/index');
     }
 }

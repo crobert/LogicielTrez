@@ -19,6 +19,7 @@ class User extends MY_Auth
     public function add()
     {
         $this->load->library('form_validation');
+        $this->form_validation->set_error_delimiters('<div class="alert alert-error">', '</div>');
 
         $this->form_validation->set_rules(array(
             array(
@@ -62,6 +63,7 @@ class User extends MY_Auth
     public function modify($id)
     {
         $this->load->library('form_validation');
+        $this->form_validation->set_error_delimiters('<div class="alert alert-error">', '</div>');
 
         $this->form_validation->set_rules(array(
             array(
@@ -105,7 +107,7 @@ class User extends MY_Auth
     public function delete($id)
     {
         if ($id == $this->session->userdata('user_id')) {
-            $this->session->set_flashdata('alert', 'Vous ne pouvez pas supprimer l\'utilisateur avec lequel vous &ecirc;tes connect&eacute;');
+            $this->session->set_flashdata('error', 'Vous ne pouvez pas supprimer l\'utilisateur avec lequel vous &ecirc;tes connect&eacute;');
             redirect('user');
         } else {
             $this->user_model->delete_user($id);
