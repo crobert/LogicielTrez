@@ -1,21 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Budget extends MY_Auth
+class Budget extends MY_Breadcrumb
 {
     public function index($id_exercice)
     {
         $this->load->model('budget_model');
         $data['budgets'] = $this->budget_model->get_budget_by_exercice($id_exercice);
 
-        $data['breadcrumbs'] = array(
-            0 => array(
-              'name' => 'Budget',
-              'link' => site_url('exercice/index')
-            ),
-            1 => array(
-                'name' => $id_exercice,
-            )
-        );
+        $this->set_breadcrumb('exercice', 'Exercice '.$id_exercice, 'exercice/index/'.$id_exercice);
+        $this->set_breadcrumb('budget', 'Budgets');
+
         $data['id_exercice'] = $id_exercice;
         $data['_view'] = 'budget/list_view';
         $this->load->view('default_template', $data);
