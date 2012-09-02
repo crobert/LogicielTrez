@@ -1,4 +1,4 @@
-<h1>Liste des Catégories</h1>
+<h1>Liste des cat&eacute;gories</h1>
 
 <table class="table table-stripped table-hover">
     <thead>
@@ -24,4 +24,9 @@
         <?php endforeach; ?>
     </tbody>
 </table>
-<a href="<?php echo site_url().'categorie/add/'.$id_budget;?>"><input class="btn" value="Créer une categorie" /></a>
+
+<div>
+    <a href="<?php echo site_url('categorie/add/'.$id_budget); ?>" class='btn btn-primary'>
+        <i class="icon-plus"></i> Ajouter une cat&eacute;gorie
+    </a>
+</div>
