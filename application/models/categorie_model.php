@@ -9,6 +9,11 @@ class Categorie_model extends CI_Model
         $sql = 'SELECT * FROM categorie WHERE id = ?';
 		return $this->db->query($sql, array($id))->row();
     }
+    public function get_categorie_by_budget($id)
+    {
+        $sql = 'SELECT * FROM categorie WHERE id_budget = ?';
+		return $this->db->query($sql, array($id))->result();
+    }
     public function list_categorie()
     {
         $sql = 'SELECT * FROM categorie';
