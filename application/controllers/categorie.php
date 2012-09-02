@@ -19,14 +19,11 @@ class Categorie extends MY_Auth
 		$this->form_validation->set_rules('nom', 'Nom', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('description', 'Description', 'trim|required|xss_clean');
 
-		if($this->form_validation->run() == FALSE)
-		{
+		if($this->form_validation->run() === FALSE) {
 			$data['id_budget'] = $id_budget;
 			$data['_view'] = 'categorie/nouveau_view';
 			$this->load->view('default_template', $data);
-		}
-		else
-		{
+		} else	{
 			$data= array(
 					'nom' => $this->input->post('nom'), 
 					'description' => $this->input->post('description'), 
@@ -48,15 +45,12 @@ class Categorie extends MY_Auth
 		$this->form_validation->set_rules('nom', 'Nom', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('description', 'Description', 'trim|required|xss_clean');
 
-		if($this->form_validation->run() == FALSE)
-		{
+		if($this->form_validation->run() === FALSE)	{
 			$data['id_budget'] = $id_budget;
 			$data['categorie'] = $categorie;
 			$data['_view'] = 'categorie/modifier_view';
 			$this->load->view('default_template', $data);
-		}
-		else
-		{
+		} else {
 			$data= array(
 					'nom' => $this->input->post('nom'), 
 					'description' => $this->input->post('description'), 

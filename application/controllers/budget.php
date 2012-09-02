@@ -22,7 +22,7 @@ class Budget extends MY_Breadcrumb
         $this->form_validation->set_rules('nom', 'Nom', 'trim|required|xss_clean');
 
 
-        if($this->form_validation->run() == FALSE) {
+        if($this->form_validation->run() === FALSE) {
             $data['id_exercice'] = $id_exercice;
             $data['_view'] = 'budget/nouveau_view';
             $this->load->view('default_template', $data);
@@ -49,7 +49,7 @@ class Budget extends MY_Breadcrumb
         $this->load->library('form_validation');
         $this->form_validation->set_rules('nom', 'Nom', 'trim|required|xss_clean');
 
-        if($this->form_validation->run() == FALSE) {
+        if($this->form_validation->run() === FALSE) {
 			$data['id_exercice'] = $id_exercice;
             $data['budget'] = $budget;
             $data['_view'] = 'budget/modifier_view';
