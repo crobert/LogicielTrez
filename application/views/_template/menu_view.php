@@ -5,7 +5,6 @@
                 <ul class="nav">
                     <li><a href="<?php echo site_url('exercice/index');?>">Budget</a></li>
                     <li><a href="<?php echo site_url('user/index');?>">Utilisateurs</a></li>
-                    <li><a href="<?php echo site_url('categorie/index');?>">Catégories</a></li>
                 </ul>
             </div>
         </div>
