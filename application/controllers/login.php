@@ -33,8 +33,7 @@ class Login extends CI_Controller
                     'username' => $user->username
                 ));
 
-                $data['_view'] = 'accueil/index_view';
-                $this->load->view('default_template', $data);
+                redirect('accueil/index');
             } else {
                 $this->session->set_flashdata('error', 'Nom d\'utilisateur et/ou mot de passe invalide');
                 $data['_view'] = 'login/login_view';
