@@ -14,11 +14,11 @@
             <td><?php echo $budget->id; ?></td>
             <td><?php echo $budget->nom; ?></td>
             <td>
-                <a href="<?php echo site_url().'budget/modify/'.$budget->id;?>">Modifier</a>&nbsp;
-                <a href="<?php echo site_url().'budget/delete/'.$budget->id;?>">Supprimer</a>
+                <a href="<?php echo site_url().'budget/modify/'.$budget->id.'/'.$budget->id_exercice;?>">Modifier</a>&nbsp;
+                <a href="<?php echo site_url().'budget/delete/'.$budget->id.'/'.$budget->id_exercice;?>">Supprimer</a>
             </td>
         </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
-<a href="<?php echo site_url();?>budget/add"><input class="btn" value="Créer un budget" /></a>
+<a href="<?php echo site_url().'budget/add/'.$id_exercice;?>"><input class="btn" value="Créer un budget" /></a>

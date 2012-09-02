@@ -16,21 +16,22 @@ class Budget extends MY_Auth
                 'name' => $id_exercice,
             )
         );
-
+        $data['id_exercice'] = $id_exercice;
         $data['_view'] = 'budget/list_view';
         $this->load->view('default_template', $data);
     }
 
-    public function add()
+    public function add($id_exercice)
     {
         //Règles pour tous les champs
         $this->load->library('form_validation');
         $this->form_validation->set_rules('nom', 'Nom', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('id_exercice', 'Exercice', 'trim|required|numeric|xss_clean');
+
 
         if($this->form_validation->run() == FALSE)
         {
 
+            $data['id_exercice'] = $id_exercice;
             $data['_view'] = 'budget/nouveau_view';
             $this->load->view('default_template', $data);
         }
@@ -38,27 +39,26 @@ class Budget extends MY_Auth
         {
             $data= array(
                 'nom' => $this->input->post('nom'),
-                'id_exercice' => $this->input->post('id_exercice')
+                'id_exercice' => $id_exercice
             );
             $this->load->model('budget_model');
             $this->budget_model->add_budget($data);
-            redirect('budget/index/'.$id, 'refresh');
+            redirect('budget/index/'.$id_exercice, 'refresh');
         }
 
     }
 
-    public function modify($id)
+    public function modify($id, $id_exercice)
     {
         $this->load->model('budget_model');
         $budget = $this->budget_model->get_budget($id);
         //Règles pour tous les champs
         $this->load->library('form_validation');
         $this->form_validation->set_rules('nom', 'Nom', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('id_exercice', 'Exercice', 'trim|required|numeric|xss_clean');
-
 
         if($this->form_validation->run() == FALSE)
         {
+			$data['id_exercice'] = $id_exercice;
             $data['budget'] = $budget;
             $data['_view'] = 'budget/modifier_view';
             $this->load->view('default_template', $data);
@@ -66,20 +66,18 @@ class Budget extends MY_Auth
         else
         {
             $data= array(
-                'nom' => $this->input->post('nom'),
-                'id_exercice' => $this->input->post('id_exercice')
+                'nom' => $this->input->post('nom')
             );
-
             $this->budget_model->modify_budget($id, $data);
-            redirect('budget/index/'.$id, 'refresh');
+            redirect('budget/index/'.$id_exercice, 'refresh');
         }
 
     }
 
-    public function delete($id)
+    public function delete($id, $id_exercice)
     {
         $this->load->model('budget_model');
         $this->budget_model->delete_budget($id);
-        redirect('budget', 'refresh');
+        redirect('budget/index/'.$id_exercice, 'refresh');
     }
 }
