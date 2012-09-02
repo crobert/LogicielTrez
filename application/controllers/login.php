@@ -47,6 +47,7 @@ class Login extends CI_Controller
 
     function logout()
     {
+        $this->session->userdata = array();
         $this->session->sess_destroy();
         $this->session->set_flashdata('warning', 'Vous &ecirc;tes maintenant d&eacute;connect&eacute;');
         redirect('login/index');
