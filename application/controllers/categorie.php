@@ -23,7 +23,7 @@ class Categorie extends MY_Breadcrumb
 
 		if($this->form_validation->run() === FALSE) {
 			$data['id_budget'] = $id_budget;
-			$data['_view'] = 'categorie/nouveau_view';
+			$data['_view'] = 'categorie/add_view';
 			$this->load->view('default_template', $data);
 		} else	{
 			$data= array(
@@ -50,7 +50,7 @@ class Categorie extends MY_Breadcrumb
 		if($this->form_validation->run() === FALSE)	{
 			$data['id_budget'] = $id_budget;
 			$data['categorie'] = $categorie;
-			$data['_view'] = 'categorie/modifier_view';
+			$data['_view'] = 'categorie/modify_view';
 			$this->load->view('default_template', $data);
 		} else {
 			$data= array(

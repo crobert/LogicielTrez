@@ -6,7 +6,7 @@
             <th>Id</th>
             <th>Nom</th>
             <th>Description</th>
-            <th width="150"></th>
+            <th width="320"></th>
         </tr>
     </thead>
     <tbody>
@@ -16,7 +16,7 @@
             <td><?php echo $categorie->nom; ?></td>
             <td><?php echo $categorie->description; ?></td>
             <td>
-                <a href="<?php echo site_url().'souscategorie/index/'.$categorie->id;?>">Accéder&nbsp;aux&nbsp;sous&nbsp;catégories</a>&nbsp;
+                <a href="<?php echo site_url().'souscategorie/index/'.$categorie->id;?>">Accéder&nbsp;aux&nbsp;sous-catégories</a>&nbsp;
                 <a href="<?php echo site_url().'categorie/modify/'.$categorie->id.'/'.$id_budget;?>">Modifier</a>&nbsp;
                 <a href="<?php echo site_url().'categorie/delete/'.$categorie->id.'/'.$id_budget;?>">Supprimer</a>
             </td>
