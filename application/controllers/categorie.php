@@ -1,11 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Categorie extends MY_Auth
+class Categorie extends MY_Breadcrumb
 {
 	public function index($id_budget)
 	{
 		$this->load->model('categorie_model');
 		$data['categories'] = $this->categorie_model->get_categorie_by_budget($id_budget); 
+
+        $this->set_breadcrumb('budget', 'Budget '.$id_budget, 'budget/index/'.$id_budget);
+        $this->set_breadcrumb('categorie', 'Categories');
 		
 		$data['id_budget'] = $id_budget;
         $data['_view'] = 'categorie/list_view';
