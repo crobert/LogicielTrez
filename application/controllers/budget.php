@@ -33,7 +33,7 @@ class Budget extends MY_Breadcrumb
 
             $this->load->model('budget_model');
             $this->budget_model->add_budget($data);
-
+            $this->session->set_flashdata('success', 'Budget ajout&eacute;');
             redirect('budget/index/'.$id_exercice, 'refresh');
         }
 
@@ -59,6 +59,7 @@ class Budget extends MY_Breadcrumb
             );
 
             $this->budget_model->modify_budget($id, $data);
+            $this->session->set_flashdata('success', 'Exercice modifi&eacute;');
             redirect('budget/index/'.$id_exercice, 'refresh');
         }
     }
@@ -67,6 +68,7 @@ class Budget extends MY_Breadcrumb
     {
         $this->load->model('budget_model');
         $this->budget_model->delete_budget($id);
+        $this->session->set_flashdata('success', 'Exercice supprim&eacute;');
         redirect('budget/index/'.$id_exercice, 'refresh');
     }
 }

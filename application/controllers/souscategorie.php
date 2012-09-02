@@ -32,8 +32,9 @@ class Souscategorie extends MY_Breadcrumb
 					'id_categorie' => $id_categorie
 			);
 		$this->load->model('souscategorie_model');
-			$this->souscategorie_model->add_souscategorie($data); 
-			redirect('souscategorie/index/'.$id_categorie, 'refresh');
+			$this->souscategorie_model->add_souscategorie($data);
+            $this->session->set_flashdata('success', 'Sous-cat&eacute;gorie ajout&eacute;e');
+            redirect('souscategorie/index/'.$id_categorie, 'refresh');
 		}
 		
 	}
@@ -59,8 +60,9 @@ class Souscategorie extends MY_Breadcrumb
 					'id_categorie' => $id_categorie
 			);
 			
-			$this->souscategorie_model->modify_souscategorie($id, $data); 
-			redirect('souscategorie/index/'.$id_categorie, 'refresh');
+			$this->souscategorie_model->modify_souscategorie($id, $data);
+            $this->session->set_flashdata('success', 'Sous-cat&eacute;gorie modifi&eacute;e');
+            redirect('souscategorie/index/'.$id_categorie, 'refresh');
 		}
 		
 	}
@@ -68,7 +70,8 @@ class Souscategorie extends MY_Breadcrumb
 	public function delete($id, $id_categorie)
 	{
 		$this->load->model('souscategorie_model');
-		$this->souscategorie_model->delete_souscategorie($id); 
-		redirect('souscategorie/index/'.$id_categorie, 'refresh');
+		$this->souscategorie_model->delete_souscategorie($id);
+        $this->session->set_flashdata('success', 'Sous-cat&eacute;gorie supprim&eacute;e');
+        redirect('souscategorie/index/'.$id_categorie, 'refresh');
 	}
 }

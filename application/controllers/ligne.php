@@ -36,8 +36,9 @@ class Ligne extends MY_Breadcrumb
 					'id_souscategorie' => $id_souscategorie
 			);
 			$this->load->model('ligne_model');
-			$this->ligne_model->add_ligne($data); 
-			redirect('ligne/index/'.$id_souscategorie, 'refresh');
+			$this->ligne_model->add_ligne($data);
+            $this->session->set_flashdata('success', 'Ligne ajout&eacute;e');
+            redirect('ligne/index/'.$id_souscategorie, 'refresh');
 		}
 		
 	}
@@ -67,8 +68,9 @@ class Ligne extends MY_Breadcrumb
 					'id_souscategorie' => $id_souscategorie
 			);
 			
-			$this->ligne_model->modify_ligne($id, $data); 
-			redirect('ligne/index/'.$id_souscategorie, 'refresh');
+			$this->ligne_model->modify_ligne($id, $data);
+            $this->session->set_flashdata('success', 'Ligne modifi&eacute;e');
+            redirect('ligne/index/'.$id_souscategorie, 'refresh');
 		}
 		
 	}
@@ -76,7 +78,8 @@ class Ligne extends MY_Breadcrumb
 	public function delete($id, $id_souscategorie)
 	{
 		$this->load->model('ligne_model');
-		$this->ligne_model->delete_ligne($id); 
-		redirect('ligne/index/'.$id_souscategorie, 'refresh');
+		$this->ligne_model->delete_ligne($id);
+        $this->session->set_flashdata('success', 'Ligne supprim&eacute;e');
+        redirect('ligne/index/'.$id_souscategorie, 'refresh');
 	}
 }

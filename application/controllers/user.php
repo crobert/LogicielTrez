@@ -111,6 +111,7 @@ class User extends MY_Auth
             redirect('user');
         } else {
             $this->user_model->delete_user($id);
+            $this->session->set_flashdata('success', 'Utilisateur supprim&eacute;');
             redirect('user');
         }
     }

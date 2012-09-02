@@ -31,8 +31,9 @@ class Exercice extends MY_Breadcrumb
 					'annee_2' => $this->input->post('annee_2')
 			);
 			$this->load->model('exercice_model');
-			$this->exercice_model->add_exercice($data); 
-			redirect('exercice', 'refresh');
+			$this->exercice_model->add_exercice($data);
+            $this->session->set_flashdata('success', 'Exercice ajout&eacute;');
+            redirect('exercice', 'refresh');
 		}
 		
 	}
@@ -58,8 +59,10 @@ class Exercice extends MY_Breadcrumb
 					'annee_2' => $this->input->post('annee_2')
 			);
 			
-			$this->exercice_model->modify_exercice($id, $data); 
-			redirect('exercice', 'refresh');
+			$this->exercice_model->modify_exercice($id, $data);
+            $this->session->set_flashdata('success', 'Exercice modifi&eacute;');
+
+            redirect('exercice', 'refresh');
 		}
 		
 	}
@@ -67,7 +70,8 @@ class Exercice extends MY_Breadcrumb
 	public function delete($id)
 	{
 		$this->load->model('exercice_model');
-		$this->exercice_model->delete_exercice($id); 
-		redirect('exercice', 'refresh');
+		$this->exercice_model->delete_exercice($id);
+        $this->session->set_flashdata('success', 'Exercice supprim&eacute;');
+        redirect('exercice', 'refresh');
 	}
 }

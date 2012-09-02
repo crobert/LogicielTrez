@@ -32,8 +32,9 @@ class Categorie extends MY_Breadcrumb
 					'id_budget' => $id_budget
 			);
 		$this->load->model('categorie_model');
-			$this->categorie_model->add_categorie($data); 
-			redirect('categorie/index/'.$id_budget, 'refresh');
+			$this->categorie_model->add_categorie($data);
+            $this->session->set_flashdata('success', 'Cat&eacute;gorie ajout&eacute;e');
+            redirect('categorie/index/'.$id_budget, 'refresh');
 		}
 		
 	}
@@ -59,8 +60,9 @@ class Categorie extends MY_Breadcrumb
 					'id_budget' => $id_budget
 			);
 			
-			$this->categorie_model->modify_categorie($id, $data); 
-			redirect('categorie/index/'.$id_budget, 'refresh');
+			$this->categorie_model->modify_categorie($id, $data);
+            $this->session->set_flashdata('success', 'Cat&eacute;gorie modifi&eacute;e');
+            redirect('categorie/index/'.$id_budget, 'refresh');
 		}
 		
 	}
@@ -68,7 +70,8 @@ class Categorie extends MY_Breadcrumb
 	public function delete($id, $id_budget)
 	{
 		$this->load->model('categorie_model');
-		$this->categorie_model->delete_categorie($id); 
-		redirect('categorie/index/'.$id_budget, 'refresh');
+		$this->categorie_model->delete_categorie($id);
+        $this->session->set_flashdata('success', 'Cat&eacute;gorie supprim&eacute;e');
+        redirect('categorie/index/'.$id_budget, 'refresh');
 	}
 }
