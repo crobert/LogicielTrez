@@ -1,12 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Souscategorie extends MY_Auth
+class Souscategorie extends MY_Breadcrumb
 {
 	public function index($id_categorie)
 	{
 		$this->load->model('souscategorie_model');
 		$data['souscategories'] = $this->souscategorie_model->get_souscategorie_by_categorie($id_categorie); 
-		
+
+        $this->set_breadcrumb('categorie', 'Categorie '.$id_categorie, 'categorie/index/'.$id_categorie);
+        $this->set_breadcrumb('souscategorie', 'Sous Categories');
+
 		$data['id_categorie'] = $id_categorie;
         $data['_view'] = 'souscategorie/list_view';
         $this->load->view('default_template', $data);
