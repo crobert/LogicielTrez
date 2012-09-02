@@ -1,4 +1,4 @@
-<h1>Liste des Catégories Saoules</h1>
+<h1>Liste des sous-cat&eacute;gories</h1>
 
 <table class="table table-stripped table-hover">
     <thead>
@@ -24,4 +24,10 @@
         <?php endforeach; ?>
     </tbody>
 </table>
-<a href="<?php echo site_url().'souscategorie/add/'.$id_categorie;?>"><input class="btn" value="Créer une sous categorie" /></a>
+
+<div>
+    <a href="<?php echo site_url('souscategorie/add/'.$id_categorie); ?>" class='btn btn-primary'>
+        <i class="icon-plus"></i> Ajouter une sous-cat&eacute;gorie
+    </a>
+</div>
+

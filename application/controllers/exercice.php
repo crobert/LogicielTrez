@@ -22,7 +22,7 @@ class Exercice extends MY_Breadcrumb
 		$this->form_validation->set_rules('annee_2', 'Année d\'encore avant', 'trim|required|numeric|min_length[4]|max_length[4]|xss_clean');
 
 		if($this->form_validation->run() === FALSE)	{
-            $data['_view'] = 'exercice/nouveau_view';
+            $data['_view'] = 'exercice/add_view';
             $this->load->view('default_template', $data);
 		} else {
 			$data= array(
