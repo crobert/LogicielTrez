@@ -6,7 +6,7 @@
 <div class="control-group">
     <label class="control-label" for="edition">&Eacute;dition</label>
     <div class="controls">
-        <input type="number" id="edition" placeholder="Num&eacute;ro de l'&eacute;dition" name="edition" value="<?php echo set_value('edition', $exercice->edition);?>" require /d>
+        <input type="number" id="edition" placeholder="Num&eacute;ro de l'&eacute;dition" name="edition" value="<?php echo set_value('edition', $exercice->edition);?>" required />
     </div>
 </div>
 <div class="control-group">
