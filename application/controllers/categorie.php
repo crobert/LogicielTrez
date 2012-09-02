@@ -7,10 +7,9 @@ class Categorie extends MY_Breadcrumb
 		$this->load->model('categorie_model');
 		$data['categories'] = $this->categorie_model->get_categorie_by_budget($id_budget); 
 
-        $this->set_breadcrumb('budget', 'Budget '.$id_budget, 'budget/index/'.$id_budget);
-        $this->set_breadcrumb('categorie', 'Categories');
-		
-		$data['id_budget'] = $id_budget;
+        $this->set_breadcrumb('categorie', 'Cat&eacute;gories de '.$id_budget, 'categorie/index/'.$id_budget);
+
+        $data['id_budget'] = $id_budget;
         $data['_view'] = 'categorie/list_view';
         $this->load->view('default_template', $data);
 	}

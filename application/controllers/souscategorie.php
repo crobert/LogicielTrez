@@ -7,10 +7,9 @@ class Souscategorie extends MY_Breadcrumb
 		$this->load->model('souscategorie_model');
 		$data['souscategories'] = $this->souscategorie_model->get_souscategorie_by_categorie($id_categorie); 
 
-        $this->set_breadcrumb('categorie', 'Categorie '.$id_categorie, 'categorie/index/'.$id_categorie);
-        $this->set_breadcrumb('souscategorie', 'Sous Categories');
+        $this->set_breadcrumb('souscategorie', 'Sous-cat&eacute;gories de '.$id_categorie, 'souscategorie/index/'.$id_categorie);
 
-		$data['id_categorie'] = $id_categorie;
+        $data['id_categorie'] = $id_categorie;
         $data['_view'] = 'souscategorie/list_view';
         $this->load->view('default_template', $data);
 	}
