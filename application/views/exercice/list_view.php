@@ -18,9 +18,9 @@
             <td><?php echo $exercice->annee_1; ?></td>
             <td><?php echo $exercice->annee_2; ?></td>
             <td>
-                <a href="<?php echo site_url().'budget/index/'.$exercice->id;?>">Acc&eacute;der aux budgets</a>&nbsp; 
-                <a href="<?php echo site_url().'exercice/modify/'.$exercice->id;?>">Modifier</a>&nbsp;
-                <a href="<?php echo site_url().'exercice/delete/'.$exercice->id;?>">Supprimer</a>
+                <a href="<?php echo site_url('budget/index/'.$exercice->id); ?>">Acc&eacute;der aux budgets</a>&nbsp;
+                <a href="<?php echo site_url('exercice/modify/'.$exercice->id); ?>">Modifier</a>&nbsp;
+                <a href="<?php echo site_url('exercice/delete/'.$exercice->id); ?>">Supprimer</a>
             </td>
         </tr>
         <?php endforeach; ?>
