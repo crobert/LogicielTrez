@@ -1,11 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Exercice extends MY_Auth
+class Exercice extends MY_Breadcrumb
 {
 	public function index()
 	{
 		$this->load->model('exercice_model');
-		$data['exercices'] = $this->exercice_model->list_exercice(); 
+		$data['exercices'] = $this->exercice_model->list_exercice();
+
+        $this->set_breadcrumb('exercice', 'Exercices', 'exercice/index');
 		
         $data['_view'] = 'exercice/list_view';
         $this->load->view('default_template', $data);
