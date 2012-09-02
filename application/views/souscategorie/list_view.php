@@ -6,7 +6,7 @@
             <th>Id</th>
             <th>Nom</th>
             <th>Description</th>
-            <th width="150"></th>
+            <th width="260"></th>
         </tr>
     </thead>
     <tbody>

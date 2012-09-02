@@ -23,7 +23,7 @@ class Souscategorie extends MY_Breadcrumb
 
 		if($this->form_validation->run() == FALSE) {
 			$data['id_categorie'] = $id_categorie;
-			$data['_view'] = 'souscategorie/nouveau_view';
+			$data['_view'] = 'souscategorie/add_view';
 			$this->load->view('default_template', $data);
 		} else {
 			$data= array(
@@ -50,7 +50,7 @@ class Souscategorie extends MY_Breadcrumb
 		if($this->form_validation->run() == FALSE) {
 			$data['id_categorie'] = $id_categorie;
 			$data['souscategorie'] = $souscategorie;
-			$data['_view'] = 'souscategorie/modifier_view';
+			$data['_view'] = 'souscategorie/modify_view';
 			$this->load->view('default_template', $data);
 		} else {
 			$data= array(
