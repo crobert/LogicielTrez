@@ -44,12 +44,12 @@ class Exercice extends MY_Breadcrumb
 		//Règles pour tous les champs
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('edition', 'Edition', 'trim|required|numeric|xss_clean');
-		$this->form_validation->set_rules('annee_1', 'Année d\'avant', 'trim|required|numeric|min_length[4]|max_length[4]|xss_clean');
-		$this->form_validation->set_rules('annee_2', 'Année d\'encore avant', 'trim|required|numeric|min_length[4]|max_length[4]|xss_clean');
+		$this->form_validation->set_rules('annee_1', 'Année 1', 'trim|required|numeric|min_length[4]|max_length[4]|xss_clean');
+		$this->form_validation->set_rules('annee_2', 'Année 2', 'trim|required|numeric|min_length[4]|max_length[4]|xss_clean');
 
 		if($this->form_validation->run() === FALSE)	{
             $data['exercice'] = $exercice;
-            $data['_view'] = 'exercice/modifier_view';
+            $data['_view'] = 'exercice/modify_view';
             $this->load->view('default_template', $data);
 		} else {
 			$data= array(

@@ -5,9 +5,9 @@
         <tr>
             <th>Id</th>
             <th>Edition</th>
-            <th>Ann&eacute;e d'avant</th>
-            <th>Ann&eacute;e d'encore avant</th>
-            <th width="150"></th>
+            <th>Ann&eacute;e 1</th>
+            <th>Ann&eacute;e 2</th>
+            <th width="280"></th>
         </tr>
     </thead>
     <tbody>
