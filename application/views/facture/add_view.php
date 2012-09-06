@@ -30,11 +30,11 @@
 <div class="control-group">
     <label class="control-label" for="methode_paiement">M&eacute;thode de paiement</label>
     <div class="controls">
-        <input type="text" id="methode_paiement" placeholder="Methode paiement" name="methode_paiement" value="<?php echo set_value('methode_paiement');?>" required />
+        <input type="text" id="methode_paiement" placeholder="Methode paiement" name="methode_paiement" value="<?php echo set_value('methode_paiement');?>" />
     </div>
 </div>
 <div class="control-group">
-    <label class="control-label" for="date">Date</label>
+    <label class="control-label" for="date">Date de facturation</label>
     <div class="controls">
         <input type="text" id="date" placeholder="Date" name="date" value="<?php echo set_value('date');?>" required />
     </div>
@@ -48,13 +48,13 @@
 <div class="control-group">
     <label class="control-label" for="commentaire">Commentaire</label>
     <div class="controls">
-        <input type="text" id="commentaire" placeholder="Commentaire" name="commentaire" value="<?php echo set_value('commentaire');?>" />
+        <textarea id="commentaire" placeholder="Commentaire sur cette facture" name="commentaire" value="<?php echo set_value('commentaire'); ?>"></textarea>
     </div>
 </div>
 <div class="control-group">
     <label class="control-label" for="tiers">Tiers</label>
     <div class="controls">
-		<select id="tiers" name="tiers" data-placeholder="Veuillez choisir un tiers...">
+		<select id="tiers" name="tiers" required>
             <?php foreach ($tiers as $t) { ?>
                 <option value="<?php echo $t->id;?>"><?php echo $t->nom;?></option>
             <?php } ?>
@@ -72,6 +72,6 @@
 <script type="text/javascript">
     $(document).ready(function() {
         // transform select into the chosen one
-        $('#tiers').chosen();
+        $('#tiers').chosen({no_results_text: "Pas de r&eacute;sultats"});
     });
 </script>

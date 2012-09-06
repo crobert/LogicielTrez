@@ -108,6 +108,7 @@ CREATE TABLE `facture` (
   `commentaire` MEDIUMTEXT NULL DEFAULT NULL,
   `id_ligne` INTEGER NOT NULL,
   `id_tiers` INTEGER NOT NULL,
+  `ref_paiement` VARCHAR(150) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
 KEY (`id_ligne`),
 KEY (`id_tiers`)
@@ -204,9 +205,9 @@ DROP TABLE IF EXISTS `config_classe_tva`;
 		
 CREATE TABLE `config_classe_tva` (
   `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `taux` INTEGER NOT NULL DEFAULT 0,
+  `taux` DECIMAL NOT NULL DEFAULT 0,
   `nom` VARCHAR(100) NOT NULL DEFAULT 'NULL',
-  `actif` INTEGER NOT NULL DEFAULT 0,
+  `actif` INTEGER NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`)
 );
 
@@ -222,6 +223,21 @@ CREATE TABLE `config_type_facture` (
   `abbr` VARCHAR(5) NULL DEFAULT NULL,
   `nom` VARCHAR(100) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'config'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `config`;
+		
+CREATE TABLE `config` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `key` VARCHAR(100) NOT NULL DEFAULT 'NULL',
+  `value` VARCHAR(100) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+KEY (`key`)
 );
 
 -- ---
@@ -255,6 +271,7 @@ ALTER TABLE `categories_users` ADD FOREIGN KEY (id_categorie) REFERENCES `catego
 -- ALTER TABLE `config_methode_paiement` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `config_classe_tva` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `config_type_facture` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `config` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ---
 -- Test Data
@@ -270,8 +287,8 @@ ALTER TABLE `categories_users` ADD FOREIGN KEY (id_categorie) REFERENCES `catego
 -- ('','','','');
 -- INSERT INTO `ligne` (`id`,`nom`,`description`,`debit`,`credit`,`id_souscategorie`) VALUES
 -- ('','','','','','');
--- INSERT INTO `facture` (`id`,`type`,`numero`,`objet`,`montant`,`methode_paiement`,`date`,`date_paiement`,`commentaire`,`id_ligne`,`id_tiers`) VALUES
--- ('','','','','','','','','','','');
+-- INSERT INTO `facture` (`id`,`type`,`numero`,`objet`,`montant`,`methode_paiement`,`date`,`date_paiement`,`commentaire`,`id_ligne`,`id_tiers`,`ref_paiement`) VALUES
+-- ('','','','','','','','','','','','');
 -- INSERT INTO `tiers` (`id`,`nom`,`telephone`,`mail`,`fax`,`adresse`,`responsable`,`rib`,`ordre_cheque`,`commentaire`) VALUES
 -- ('','','','','','','','','','');
 -- INSERT INTO `user` (`id`,`login`,`password`,`type`) VALUES
@@ -285,5 +302,7 @@ ALTER TABLE `categories_users` ADD FOREIGN KEY (id_categorie) REFERENCES `catego
 -- INSERT INTO `config_classe_tva` (`id`,`taux`,`nom`,`actif`) VALUES
 -- ('','','','');
 -- INSERT INTO `config_type_facture` (`id`,`abbr`,`nom`) VALUES
+-- ('','','');
+-- INSERT INTO `config` (`id`,`key`,`value`) VALUES
 -- ('','','');
 

@@ -34,7 +34,7 @@ class facture extends MY_Breadcrumb
 		$this->form_validation->set_rules('date', 'Date', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('date_paiement', 'Date de paiement', 'trim|xss_clean');
 		$this->form_validation->set_rules('commentaire', 'Commentaire', 'trim|xss_clean');
-		$this->form_validation->set_rules('id_tiers', 'Tiers', 'trim|numeric|xss_clean');
+		$this->form_validation->set_rules('tiers', 'Tiers', 'required|trim|numeric|xss_clean');
 
 		if($this->form_validation->run() == FALSE) {
 			$this->load->model('tiers_model');
@@ -51,7 +51,7 @@ class facture extends MY_Breadcrumb
 				$datePaiement = new DateTime($this->input->post('date_paiement'));
 				$date_paiement = $datePaiement->format('Y-m-d');
 			} else {
-				$datePaiement = NULL;
+                $date_paiement = NULL;
 			}
 			$data = array(
 					'type' => $this->input->post('type'), 
@@ -63,7 +63,7 @@ class facture extends MY_Breadcrumb
 					'date_paiement' => $date_paiement,
 					'commentaire' => $this->input->post('commentaire'),
 					'id_ligne' => $id_ligne,
-					'id_tiers' => $this->input->post('id_tiers')
+					'id_tiers' => $this->input->post('tiers')
 			);
 
 			$this->facture_model->add_facture($data); 
@@ -89,14 +89,16 @@ class facture extends MY_Breadcrumb
 		$this->form_validation->set_rules('date', 'Date', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('date_paiement', 'Date de paiement', 'trim|xss_clean');
 		$this->form_validation->set_rules('commentaire', 'Commentaire', 'trim|xss_clean');
-		$this->form_validation->set_rules('id_tiers', 'Tiers', 'trim|numeric|xss_clean');
+		$this->form_validation->set_rules('tiers', 'Tiers', 'required|trim|numeric|xss_clean');
 
 		if($this->form_validation->run() == FALSE) {
 			$this->load->model('tiers_model');
+
 			$data['id_ligne'] = $id_ligne;
 			$data['tiers'] = $this->tiers_model->list_tiers();
 			$data['facture'] = $facture;
 			$data['_view'] = 'facture/modify_view';
+
 			$this->load->view('default_template', $data);
 		} else {
 			$date = new dateTime ($this->input->post('date'));
@@ -104,7 +106,7 @@ class facture extends MY_Breadcrumb
 				$datePaiement = new dateTime ($this->input->post('date_paiement')); 
 				$date_paiement = $datePaiement->format('Y-m-d');
 			}else{
-				$datePaiement = NULL;
+                $date_paiement = NULL;
 			}
 			$data= array(
 					'type' => $this->input->post('type'), 
@@ -113,10 +115,10 @@ class facture extends MY_Breadcrumb
 					'montant' => $this->input->post('montant'),
 					'methode_paiement' => $this->input->post('methode_paiement'),
 					'date' => $date->format('Y-m-d'),
-					'date_paiement' => $datePaiement,
+					'date_paiement' => $date_paiement,
 					'commentaire' => $this->input->post('commentaire'),
 					'id_ligne' => $id_ligne,
-					'id_tiers' => $this->input->post('id_tiers')
+					'id_tiers' => $this->input->post('tiers')
 			);
 			$this->facture_model->modify_facture($id, $data);
 			$this->session->set_flashdata('success', 'Facture modifi&eacute;e'); 
