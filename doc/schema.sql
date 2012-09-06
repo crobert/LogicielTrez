@@ -183,6 +183,48 @@ KEY (`id_categorie`),
 );
 
 -- ---
+-- Table 'config_methode_paiement'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `config_methode_paiement`;
+		
+CREATE TABLE `config_methode_paiement` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `value` VARCHAR(100) NOT NULL DEFAULT 'NULL',
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'config_classe_tva'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `config_classe_tva`;
+		
+CREATE TABLE `config_classe_tva` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `taux` INTEGER NOT NULL DEFAULT 0,
+  `nom` VARCHAR(100) NOT NULL DEFAULT 'NULL',
+  `actif` INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'config_type_facture'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `config_type_facture`;
+		
+CREATE TABLE `config_type_facture` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `abbr` VARCHAR(5) NULL DEFAULT NULL,
+  `nom` VARCHAR(100) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
 -- Foreign Keys 
 -- ---
 
@@ -210,6 +252,9 @@ ALTER TABLE `categories_users` ADD FOREIGN KEY (id_categorie) REFERENCES `catego
 -- ALTER TABLE `user` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `tva` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `categories_users` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `config_methode_paiement` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `config_classe_tva` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `config_type_facture` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ---
 -- Test Data
@@ -234,5 +279,11 @@ ALTER TABLE `categories_users` ADD FOREIGN KEY (id_categorie) REFERENCES `catego
 -- INSERT INTO `tva` (`id`,`type`,`montant_ht`,`montant_tva`,`id_facture`) VALUES
 -- ('','','','','');
 -- INSERT INTO `categories_users` (`id`,`id_user`,`id_categorie`) VALUES
+-- ('','','');
+-- INSERT INTO `config_methode_paiement` (`id`,`value`) VALUES
+-- ('','');
+-- INSERT INTO `config_classe_tva` (`id`,`taux`,`nom`,`actif`) VALUES
+-- ('','','','');
+-- INSERT INTO `config_type_facture` (`id`,`abbr`,`nom`) VALUES
 -- ('','','');
 

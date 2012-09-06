@@ -52,12 +52,12 @@
     </div>
 </div>
 <div class="control-group">
-    <label class="control-label" for="id_tiers">Tiers</label>
+    <label class="control-label" for="tiers">Tiers</label>
     <div class="controls">
-		<select id="id_tiers">
-		<?php foreach ($tiers as $t) { ?>
-			<option value="<?php echo $t->nom;?>"><?php echo $t->nom;?></option>
-		<?php } ?>
+		<select id="tiers" name="tiers" data-placeholder="Veuillez choisir un tiers...">
+            <?php foreach ($tiers as $t) { ?>
+                <option value="<?php echo $t->id;?>"><?php echo $t->nom;?></option>
+            <?php } ?>
 		</select>
     </div>
 </div>
@@ -68,3 +68,10 @@
     </div>
 </div>
 <?php echo form_close(); ?>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // transform select into the chosen one
+        $('#tiers').chosen();
+    });
+</script>
