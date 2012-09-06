@@ -26,10 +26,10 @@ class Config_model extends CI_Model
     }
     public function modify_config($config, $id, $data)
     {
-        $this->db->where('id', $id)->update('config_'.$config,, $data);
+        $this->db->where('id', $id)->update('config_'.$config, $data);
     }
     public function delete_config($config, $id)
     {
-        $this->db->delete('config_'.$config,, array('id' => $id));
+        $this->db->delete('config_'.$config, array('id' => $id));
     }
 }
