@@ -1,6 +1,6 @@
 -- Table 'session'
 
-DROP TABLE IF EXISTS `session` 
+DROP TABLE IF EXISTS `session` ;
 
 CREATE TABLE IF NOT EXISTS  `session` (
 session_id varchar(40) DEFAULT '0' NOT NULL,
