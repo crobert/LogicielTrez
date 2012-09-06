@@ -72,6 +72,6 @@
 <script type="text/javascript">
     $(document).ready(function() {
         // transform select into the chosen one
-        $('#tiers').chosen();
+        $('#tiers').chosen({no_results_text: "Pas de r&eacute;sultats"});
     });
 </script>
