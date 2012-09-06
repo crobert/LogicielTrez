@@ -12,7 +12,7 @@
 <div class="control-group">
     <label class="control-label" for="description">Description</label>
     <div class="controls">
-        <input type="text" id="description" placeholder="Description de la ligne" name="description" value="<?php echo set_value('description', $ligne->description); ?>" required />
+        <input type="text" id="description" placeholder="Description de la ligne" name="description" value="<?php echo set_value('description', $ligne->description); ?>" />
     </div>
 </div>
 <div class="control-group">

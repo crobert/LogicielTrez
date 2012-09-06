@@ -12,13 +12,13 @@
 <div class="control-group">
     <label class="control-label" for="annee_1">Ann&eacute;e 1</label>
     <div class="controls">
-        <input type="number" id="annee_1" placeholder="Ann&eacute;e de d&eacute;but" name="annee_1" value="<?php echo set_value('annee_1', $exercice->annee_1);?>" required />
+        <input type="number" id="annee_1" placeholder="Ann&eacute;e de d&eacute;but" name="annee_1" value="<?php echo set_value('annee_1', $exercice->annee_1);?>" />
     </div>
 </div>
 <div class="control-group">
     <label class="control-label" for="annee_2">Ann&eacute;e 2</label>
     <div class="controls">
-        <input type="number" id="annee_2" placeholder="Ann&eacute;e de fin" name="annee_2" value="<?php echo set_value('annee_2', $exercice->annee_2);?>" required />
+        <input type="number" id="annee_2" placeholder="Ann&eacute;e de fin" name="annee_2" value="<?php echo set_value('annee_2', $exercice->annee_2);?>" />
     </div>
 </div>
 <div class="control-group">
