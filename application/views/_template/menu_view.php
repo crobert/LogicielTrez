@@ -6,6 +6,7 @@
                     <li><a href="<?php echo site_url('exercice/index');?>">Exercices</a></li>
                     <li><a href="<?php echo site_url('tiers/index');?>">Tiers</a></li>
                     <li><a href="<?php echo site_url('user/index');?>">Utilisateurs</a></li>
+                    <li><a href="<?php echo site_url('config/index');?>">Config</a></li>
                 </ul>
             </div>
         </div>
