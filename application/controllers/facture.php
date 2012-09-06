@@ -38,32 +38,37 @@ class facture extends MY_Breadcrumb
 
 		if($this->form_validation->run() == FALSE) {
 			$this->load->model('tiers_model');
+
 			$data['id_ligne'] = $id_ligne;
 			$data['tiers'] = $this->tiers_model->list_tiers();
 			$data['_view'] = 'facture/add_view';
+
 			$this->load->view('default_template', $data);
 		} else {
-			$date = new dateTime ($this->input->post('date'));
-			if ($this->input->post('date_paiement' != '')){
-				$datePaiement = new dateTime ($this->input->post('date_paiement')); 
+			$date = new DateTime ($this->input->post('date'));
+
+			if ($this->input->post('date_paiement' != '')) {
+				$datePaiement = new DateTime($this->input->post('date_paiement'));
 				$date_paiement = $datePaiement->format('Y-m-d');
-			}else{
+			} else {
 				$datePaiement = NULL;
 			}
-			$data= array(
+			$data = array(
 					'type' => $this->input->post('type'), 
 					'numero' => $this->input->post('numero'), 
 					'objet' => $this->input->post('objet'),
 					'montant' => $this->input->post('montant'),
 					'methode_paiement' => $this->input->post('methode_paiement'),
 					'date' => $date->format('Y-m-d'),
-					'date_paiement' => $datePaiement,
+					'date_paiement' => $date_paiement,
 					'commentaire' => $this->input->post('commentaire'),
 					'id_ligne' => $id_ligne,
 					'id_tiers' => $this->input->post('id_tiers')
 			);
+
 			$this->facture_model->add_facture($data); 
-			$this->session->set_flashdata('success', 'Facture ajout&eacute;e'); 
+			$this->session->set_flashdata('success', 'Facture ajout&eacute;e');
+
 			redirect('facture/index/'.$id_ligne, 'refresh');
 		}
 		
