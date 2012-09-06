@@ -226,6 +226,21 @@ CREATE TABLE `config_type_facture` (
 );
 
 -- ---
+-- Table 'config'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `config`;
+		
+CREATE TABLE `config` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `key` VARCHAR(100) NOT NULL DEFAULT 'NULL',
+  `value` VARCHAR(100) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+KEY (`key`)
+);
+
+-- ---
 -- Foreign Keys 
 -- ---
 
@@ -256,6 +271,7 @@ ALTER TABLE `categories_users` ADD FOREIGN KEY (id_categorie) REFERENCES `catego
 -- ALTER TABLE `config_methode_paiement` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `config_classe_tva` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `config_type_facture` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `config` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ---
 -- Test Data
@@ -286,5 +302,7 @@ ALTER TABLE `categories_users` ADD FOREIGN KEY (id_categorie) REFERENCES `catego
 -- INSERT INTO `config_classe_tva` (`id`,`taux`,`nom`,`actif`) VALUES
 -- ('','','','');
 -- INSERT INTO `config_type_facture` (`id`,`abbr`,`nom`) VALUES
+-- ('','','');
+-- INSERT INTO `config` (`id`,`key`,`value`) VALUES
 -- ('','','');
 

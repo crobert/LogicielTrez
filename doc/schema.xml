@@ -325,4 +325,21 @@
 <part>id</part>
 </key>
 </table>
+<table x="1010" y="908" name="config">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="key" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>'NULL'</default></row>
+<row name="value" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<key type="INDEX" name="">
+<part>key</part>
+</key>
+</table>
 </sql>
