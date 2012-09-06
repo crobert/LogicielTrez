@@ -13,7 +13,7 @@ class facture extends MY_Breadcrumb
 	{
 		$data['factures'] = $this->facture_model->get_facture_by_ligne($id_ligne); 
 
-        $this->set_breadcrumb('facture', 'factures de '.$id_ligne, 'facture/index/'.$id_ligne);
+        $this->set_breadcrumb('facture', 'Factures de '.$id_ligne, 'facture/index/'.$id_ligne);
 
         $data['id_ligne'] = $id_ligne;
         $data['_view'] = 'facture/list_view';
