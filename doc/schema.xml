@@ -172,6 +172,9 @@
 <datatype>INTEGER</datatype>
 <relation table="tiers" row="id" />
 </row>
+<row name="ref_paiement" null="1" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -296,14 +299,14 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="taux" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>DECIMAL</datatype>
 <default>0</default></row>
 <row name="nom" null="0" autoincrement="0">
 <datatype>VARCHAR(100)</datatype>
 <default>'NULL'</default></row>
 <row name="actif" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>0</default></row>
+<default>1</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
