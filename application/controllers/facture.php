@@ -37,7 +37,9 @@ class facture extends MY_Breadcrumb
 		$this->form_validation->set_rules('id_tiers', 'Tiers', 'trim|numeric|xss_clean');
 
 		if($this->form_validation->run() == FALSE) {
+			$this->load->model('tiers_model');
 			$data['id_ligne'] = $id_ligne;
+			$data['tiers'] = $this->tiers_model->list_tiers();
 			$data['_view'] = 'facture/add_view';
 			$this->load->view('default_template', $data);
 		} else {
@@ -85,7 +87,9 @@ class facture extends MY_Breadcrumb
 		$this->form_validation->set_rules('id_tiers', 'Tiers', 'trim|numeric|xss_clean');
 
 		if($this->form_validation->run() == FALSE) {
+			$this->load->model('tiers_model');
 			$data['id_ligne'] = $id_ligne;
+			$data['tiers'] = $this->tiers_model->list_tiers();
 			$data['facture'] = $facture;
 			$data['_view'] = 'facture/modify_view';
 			$this->load->view('default_template', $data);

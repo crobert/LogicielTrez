@@ -54,7 +54,10 @@
 <div class="control-group">
     <label class="control-label" for="id_tiers">Tiers</label>
     <div class="controls">
-        <input type="text" id="id_tiers" placeholder="Tiers" name="id_tiers" value="<?php echo set_value('id_tiers', $facture->id_tiers);?>" required />
+    	<select id="id_tiers">
+		<?php foreach ($tiers as $t) { ?>
+			<option value="<?php echo $t->nom;?>"><?php echo $t->nom;?></option>
+		<?php } ?>
     </div>
 </div>
 <div class="control-group">
