@@ -25,7 +25,9 @@ class facture extends MY_Breadcrumb
 		//Règles pour tous les champs
 		$this->load->library('form_validation');
 		$this->form_validation->set_error_delimiters('<div class="alert alert-error">', '</div>');
-		
+
+        // TODO : à quoi servent les trim ?
+        // + regarder pour virer les xss_clean
 		$this->form_validation->set_rules('type', 'Type', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('numero', 'Num&eacute;ro', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('objet', 'Objet', 'trim|required|xss_clean');
@@ -33,7 +35,8 @@ class facture extends MY_Breadcrumb
 		$this->form_validation->set_rules('methode_paiement', 'M&eacute;thode de paiement', 'trim|xss_clean');
 		$this->form_validation->set_rules('date', 'Date', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('date_paiement', 'Date de paiement', 'trim|xss_clean');
-		$this->form_validation->set_rules('commentaire', 'Commentaire', 'trim|xss_clean');
+        $this->form_validation->set_rules('ref_paiement', 'R&eacute;f&eacute;rence du paiement', 'trim');
+        $this->form_validation->set_rules('commentaire', 'Commentaire', 'trim|xss_clean');
 		$this->form_validation->set_rules('tiers', 'Tiers', 'required|trim|numeric|xss_clean');
 
 		if($this->form_validation->run() == FALSE) {
@@ -61,7 +64,8 @@ class facture extends MY_Breadcrumb
 					'methode_paiement' => $this->input->post('methode_paiement'),
 					'date' => $date->format('Y-m-d'),
 					'date_paiement' => $date_paiement,
-					'commentaire' => $this->input->post('commentaire'),
+                    'ref_paiement' => $this->input->post('ref_paiement'),
+                    'commentaire' => $this->input->post('commentaire'),
 					'id_ligne' => $id_ligne,
 					'id_tiers' => $this->input->post('tiers')
 			);
@@ -88,7 +92,8 @@ class facture extends MY_Breadcrumb
 		$this->form_validation->set_rules('methode_paiement', 'M&eacute;thode de paiement', 'trim|xss_clean');
 		$this->form_validation->set_rules('date', 'Date', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('date_paiement', 'Date de paiement', 'trim|xss_clean');
-		$this->form_validation->set_rules('commentaire', 'Commentaire', 'trim|xss_clean');
+        $this->form_validation->set_rules('ref_paiement', 'R&eacute;f&eacute;rence du paiement', 'trim');
+        $this->form_validation->set_rules('commentaire', 'Commentaire', 'trim|xss_clean');
 		$this->form_validation->set_rules('tiers', 'Tiers', 'required|trim|numeric|xss_clean');
 
 		if($this->form_validation->run() == FALSE) {
@@ -116,7 +121,8 @@ class facture extends MY_Breadcrumb
 					'methode_paiement' => $this->input->post('methode_paiement'),
 					'date' => $date->format('Y-m-d'),
 					'date_paiement' => $date_paiement,
-					'commentaire' => $this->input->post('commentaire'),
+                    'ref_paiement' => $this->input->post('ref_paiement'),
+                    'commentaire' => $this->input->post('commentaire'),
 					'id_ligne' => $id_ligne,
 					'id_tiers' => $this->input->post('tiers')
 			);

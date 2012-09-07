@@ -46,6 +46,12 @@
     </div>
 </div>
 <div class="control-group">
+    <label class="control-label" for="ref_paiement">R&eacute;f. paiement</label>
+    <div class="controls">
+        <input type="text" id="ref_paiement" placeholder="Num&eacute;ro de ch&egrave;que ou de virement" name="ref_paiement" value="<?php echo set_value('ref_paiement');?>" />
+    </div>
+</div>
+<div class="control-group">
     <label class="control-label" for="commentaire">Commentaire</label>
     <div class="controls">
         <textarea id="commentaire" placeholder="Commentaire sur cette facture" name="commentaire" value="<?php echo set_value('commentaire'); ?>"></textarea>
