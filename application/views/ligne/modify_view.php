@@ -30,7 +30,7 @@
 <div class="control-group">
     <div class="controls">
         <button type="submit" class="btn btn-primary">Modifier</button>
-        <a href="<?php echo site_url('exercice/index/'.$id_souscategorie);?>" class="btn btn-danger">Annuler</a>
+        <a href="<?php echo site_url('ligne/index/'.$id_souscategorie);?>" class="btn btn-danger">Annuler</a>
     </div>
 </div>
 <?php echo form_close(); ?>

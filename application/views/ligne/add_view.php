@@ -1,4 +1,4 @@
-<h1>Ajouter un exercice</h1>
+<h1>Ajouter une ligne</h1>
 
 <?php echo validation_errors(); ?>
 
