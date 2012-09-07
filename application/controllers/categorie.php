@@ -39,7 +39,7 @@ class Categorie extends MY_Breadcrumb
 		
 	}
 	
-	public function modify($id, $id_budget)
+	public function edit($id, $id_budget)
 	{
 		$this->load->model('categorie_model');
 		$categorie = $this->categorie_model->get_categorie($id); 
@@ -51,7 +51,7 @@ class Categorie extends MY_Breadcrumb
 		if($this->form_validation->run() === FALSE)	{
 			$data['id_budget'] = $id_budget;
 			$data['categorie'] = $categorie;
-			$data['_view'] = 'categorie/modify_view';
+			$data['_view'] = 'categorie/edit_view';
 			$this->load->view('default_template', $data);
 		} else {
 			$data= array(
@@ -60,7 +60,7 @@ class Categorie extends MY_Breadcrumb
 					'id_budget' => $id_budget
 			);
 			
-			$this->categorie_model->modify_categorie($id, $data);
+			$this->categorie_model->edit_categorie($id, $data);
             $this->session->set_flashdata('success', 'Cat&eacute;gorie modifi&eacute;e');
             redirect('categorie/index/'.$id_budget, 'refresh');
 		}

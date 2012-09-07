@@ -24,7 +24,7 @@ class budget_model extends CI_Model
         $this->db->insert('budget', $data); 
         return $this->db->insert_id(); // va retourner l'id (MySQL seulement)
     }
-    public function modify_budget($id, $data)
+    public function edit_budget($id, $data)
     {
         $this->db->where('id', $id)->update('budget', $data);
         return $id;

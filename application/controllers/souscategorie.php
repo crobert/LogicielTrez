@@ -39,7 +39,7 @@ class Souscategorie extends MY_Breadcrumb
 		
 	}
 	
-	public function modify($id, $id_categorie)
+	public function edit($id, $id_categorie)
 	{
 		$this->load->model('souscategorie_model');
 		$souscategorie = $this->souscategorie_model->get_souscategorie($id); 
@@ -51,7 +51,7 @@ class Souscategorie extends MY_Breadcrumb
 		if($this->form_validation->run() == FALSE) {
 			$data['id_categorie'] = $id_categorie;
 			$data['souscategorie'] = $souscategorie;
-			$data['_view'] = 'souscategorie/modify_view';
+			$data['_view'] = 'souscategorie/edit_view';
 			$this->load->view('default_template', $data);
 		} else {
 			$data= array(
@@ -60,7 +60,7 @@ class Souscategorie extends MY_Breadcrumb
 					'id_categorie' => $id_categorie
 			);
 			
-			$this->souscategorie_model->modify_souscategorie($id, $data);
+			$this->souscategorie_model->edit_souscategorie($id, $data);
             $this->session->set_flashdata('success', 'Sous-cat&eacute;gorie modifi&eacute;e');
             redirect('souscategorie/index/'.$id_categorie, 'refresh');
 		}

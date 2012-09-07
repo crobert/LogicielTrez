@@ -6,7 +6,7 @@
             <th>Id</th>
             <th>Nom</th>
             <th>Description</th>
-            <th width="260"></th>
+            <th width="70"></th>
         </tr>
     </thead>
     <tbody>
@@ -16,9 +16,14 @@
             <td><?php echo $souscategorie->nom; ?></td>
             <td><?php echo $souscategorie->description; ?></td>
             <td>
-                <a href="<?php echo site_url().'ligne/index/'.$souscategorie->id;?>">Accéder&nbsp;aux&nbsp;lignes</a>&nbsp;
-                <a href="<?php echo site_url().'souscategorie/modify/'.$souscategorie->id.'/'.$id_categorie;?>">Modifier</a>&nbsp;
-                <a href="<?php echo site_url().'souscategorie/delete/'.$souscategorie->id.'/'.$id_categorie;?>">Supprimer</a>
+                <div class="btn-group">
+                    <a class="btn btn-small" href="<?php echo site_url('ligne/index/'.$souscategorie->id); ?>" title="Accéder aux lignes"><i class="icon-download"></i></a>
+                    <a class="btn btn-small" href="<?php echo site_url('souscategorie/edit/'.$souscategorie->id.'/'.$id_categorie); ?>" title="&Eacute;diter"><i class="icon-pencil"></i></a>
+                    <a class="btn btn-small"
+                       href="<?php echo site_url('souscategorie/delete/'.$souscategorie->id.'/'.$id_categorie); ?>"
+                       onclick="return window.confirm('Êtes-vous sur de vouloir supprimer la sous-cat&eacute;gorie <?php echo $souscategorie->nom; ?> ?');"
+                       title="Supprimer"><i class="icon-remove"></i></a>
+                </div>
             </td>
         </tr>
         <?php endforeach; ?>

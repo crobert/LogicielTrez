@@ -43,7 +43,7 @@ class Ligne extends MY_Breadcrumb
 		
 	}
 	
-	public function modify($id, $id_souscategorie)
+	public function edit($id, $id_souscategorie)
 	{
 		$this->load->model('ligne_model');
 		$ligne = $this->ligne_model->get_ligne($id); 
@@ -57,7 +57,7 @@ class Ligne extends MY_Breadcrumb
 		if($this->form_validation->run() == FALSE) {
 			$data['id_souscategorie'] = $id_souscategorie;
 			$data['ligne'] = $ligne;
-			$data['_view'] = 'ligne/modify_view';
+			$data['_view'] = 'ligne/edit_view';
 			$this->load->view('default_template', $data);
 		} else {
 			$data= array(
@@ -68,7 +68,7 @@ class Ligne extends MY_Breadcrumb
 					'id_souscategorie' => $id_souscategorie
 			);
 			
-			$this->ligne_model->modify_ligne($id, $data);
+			$this->ligne_model->edit_ligne($id, $data);
             $this->session->set_flashdata('success', 'Ligne modifi&eacute;e');
             redirect('ligne/index/'.$id_souscategorie, 'refresh');
 		}

@@ -1,8 +1,8 @@
-<h1>Modifier la sous-cat&eacute;gorie <?php echo $souscategorie->nom; ?></h1>
+<h1>&Eacute;diter la sous-cat&eacute;gorie <?php echo $souscategorie->nom; ?></h1>
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('souscategorie/modify/'.$souscategorie->id.'/'.$id_categorie, array('class' => 'form-horizontal')); ?>
+<?php echo form_open('souscategorie/edit/'.$souscategorie->id.'/'.$id_categorie, array('class' => 'form-horizontal')); ?>
 <div class="control-group">
     <label class="control-label" for="nom">Nom</label>
     <div class="controls">
@@ -17,7 +17,7 @@
 </div>
 <div class="control-group">
     <div class="controls">
-        <button type="submit" class="btn btn-primary">Modifier</button>
+        <button type="submit" class="btn btn-primary">&Eacute;diter</button>
         <a href="<?php echo site_url('souscategorie/index/'.$id_categorie);?>" class="btn btn-danger">Annuler</a>
     </div>
 </div>

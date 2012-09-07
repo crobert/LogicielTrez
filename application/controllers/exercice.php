@@ -38,7 +38,7 @@ class Exercice extends MY_Breadcrumb
 		
 	}
 	
-	public function modify($id)
+	public function edit($id)
 	{
 		$this->load->model('exercice_model');
 		$exercice = $this->exercice_model->get_exercice($id); 
@@ -50,7 +50,7 @@ class Exercice extends MY_Breadcrumb
 
 		if($this->form_validation->run() === FALSE)	{
             $data['exercice'] = $exercice;
-            $data['_view'] = 'exercice/modify_view';
+            $data['_view'] = 'exercice/edit_view';
             $this->load->view('default_template', $data);
 		} else {
 			$data= array(
@@ -59,7 +59,7 @@ class Exercice extends MY_Breadcrumb
 					'annee_2' => $this->input->post('annee_2')
 			);
 			
-			$this->exercice_model->modify_exercice($id, $data);
+			$this->exercice_model->edit_exercice($id, $data);
             $this->session->set_flashdata('success', 'Exercice modifi&eacute;');
 
             redirect('exercice', 'refresh');

@@ -19,7 +19,7 @@ class Exercice_model extends CI_Model
         $this->db->insert('exercice', $data); 
         return $this->db->insert_id(); // va retourner l'id (MySQL seulement)
     }
-    public function modify_exercice($id, $data)
+    public function edit_exercice($id, $data)
     {
         $this->db->where('id', $id)->update('exercice', $data);
         return $id;

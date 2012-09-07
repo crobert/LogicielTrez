@@ -60,7 +60,7 @@ class User extends MY_Auth
         }
     }
 
-    public function modify($id)
+    public function edit($id)
     {
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<div class="alert alert-error">', '</div>');
@@ -93,13 +93,13 @@ class User extends MY_Auth
                 'type' => $this->input->post('type')
             );
             $this->input->post('password') && $query_data['password'] = $this->input->post('password');
-            $this->user_model->modify_user($id, $query_data);
+            $this->user_model->edit_user($id, $query_data);
 
             $this->session->set_flashdata('success', 'Utilisateur modifi&eacute;');
             redirect('user/index');
         } else {
             $data = $this->user_model->get_user($id, 'array');
-            $data['_view'] = 'user/modify_view';
+            $data['_view'] = 'user/edit_view';
             $this->load->view('default_template', $data);
         }
     }

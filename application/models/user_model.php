@@ -40,7 +40,7 @@ class User_model extends CI_Model
 
         return $this->db->insert_id();
     }
-    public function modify_user($id, $data)
+    public function edit_user($id, $data)
     {
         if (isset($data['password'])) {
             $data['password'] = $this->hash_password($data['password']);

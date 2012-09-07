@@ -24,7 +24,7 @@ class Config_model extends CI_Model
 
         return $this->db->insert_id(); // va retourner l'id (MySQL seulement)
     }
-    public function modify_config($config, $id, $data)
+    public function edit_config($config, $id, $data)
     {
         $this->db->where('id', $id)->update('config_'.$config, $data);
     }

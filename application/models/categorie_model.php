@@ -24,7 +24,7 @@ class Categorie_model extends CI_Model
         $this->db->insert('categorie', $data); 
         return $this->db->insert_id(); // va retourner l'id (MySQL seulement)
     }
-    public function modify_categorie($id, $data)
+    public function edit_categorie($id, $data)
     {
         $this->db->where('id', $id)->update('categorie', $data);
         return $id;

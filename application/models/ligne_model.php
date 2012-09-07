@@ -24,7 +24,7 @@ class ligne_model extends CI_Model
         $this->db->insert('ligne', $data); 
         return $this->db->insert_id(); // va retourner l'id (MySQL seulement)
     }
-    public function modify_ligne($id, $data)
+    public function edit_ligne($id, $data)
     {
         $this->db->where('id', $id)->update('ligne', $data);
         return $id;

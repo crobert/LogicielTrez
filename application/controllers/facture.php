@@ -78,7 +78,7 @@ class facture extends MY_Breadcrumb
 		
 	}
 	
-	public function modify($id, $id_ligne)
+	public function edit($id, $id_ligne)
 	{
 		$facture = $this->facture_model->get_facture($id); 
 		//Règles pour tous les champs
@@ -102,7 +102,7 @@ class facture extends MY_Breadcrumb
 			$data['id_ligne'] = $id_ligne;
 			$data['tiers'] = $this->tiers_model->list_tiers();
 			$data['facture'] = $facture;
-			$data['_view'] = 'facture/modify_view';
+			$data['_view'] = 'facture/edit_view';
 
 			$this->load->view('default_template', $data);
 		} else {
@@ -126,7 +126,7 @@ class facture extends MY_Breadcrumb
 					'id_ligne' => $id_ligne,
 					'id_tiers' => $this->input->post('tiers')
 			);
-			$this->facture_model->modify_facture($id, $data);
+			$this->facture_model->edit_facture($id, $data);
 			$this->session->set_flashdata('success', 'Facture modifi&eacute;e'); 
 			redirect('facture/index/'.$id_ligne, 'refresh');
 		}

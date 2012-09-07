@@ -6,7 +6,7 @@
             <th>Id</th>
             <th>Nom d'utilisateur</th>
             <th>Type</th>
-            <th width="150"></th>
+            <th width="50"></th>
         </tr>
     </thead>
     <tbody>
@@ -16,8 +16,13 @@
             <td><?php echo $user->username; ?></td>
             <td><?php echo $user->type; ?></td>
             <td>
-                <a href="<?php echo site_url('user/modify/'.$user->id); ?>">Modifier</a>&nbsp;
-                <a href="<?php echo site_url('user/delete/'.$user->id); ?>" onclick="return window.confirm('Êtes-vous sur de vouloir supprimer l\'utilisateur <?php echo $user->username; ?> ?');">Supprimer</a>
+                <div class="btn-group">
+                    <a class="btn btn-small" href="<?php echo site_url('user/edit/'.$user->id); ?>" title="&Eacute;diter"><i class="icon-pencil"></i></a>
+                    <a class="btn btn-small"
+                       href="<?php echo site_url('user/delete/'.$user->id); ?>"
+                       onclick="return window.confirm('Êtes-vous sur de vouloir supprimer l\'utilisateur <?php echo $user->username; ?> ?');"
+                       title="Supprimer"><i class="icon-remove"></i></a>
+                </div>
             </td>
         </tr>
         <?php endforeach; ?>

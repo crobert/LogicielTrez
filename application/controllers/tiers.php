@@ -92,7 +92,7 @@ class Tiers extends MY_Auth
         }
     }
 
-    public function modify($id)
+    public function edit($id)
     {
         $this->load->library('form_validation');
         $this->load->helper('email');
@@ -151,13 +151,13 @@ class Tiers extends MY_Auth
                 'ordre_cheque' => $this->input->post('ordre_cheque'),
                 'commentaire' => $this->input->post('commentaire')
             );
-            $this->tiers_model->modify_tiers($id, $query_data);
+            $this->tiers_model->edit_tiers($id, $query_data);
 
             $this->session->set_flashdata('success', 'Tiers modifi&eacute;');
             redirect('tiers/index');
         } else {
             $data['tiers'] = $this->tiers_model->get_tiers($id);
-            $data['_view'] = 'tiers/modify_view';
+            $data['_view'] = 'tiers/edit_view';
             $this->load->view('default_template', $data);
         }
     }

@@ -8,7 +8,7 @@
             <th>Description</th>
             <th>Cr&eacute;dit</th>
             <th>D&eacute;bit</th>
-            <th width="280"></th>
+            <th width="70"></th>
         </tr>
     </thead>
     <tbody>
@@ -20,9 +20,14 @@
             <td><?php echo $ligne->credit; ?> €</td>
             <td><?php echo $ligne->debit; ?> €</td>
             <td>
-                <a href="<?php echo site_url('facture/index/'.$ligne->id); ?>">Acc&eacute;der aux factures</a>&nbsp;
-                <a href="<?php echo site_url('ligne/modify/'.$ligne->id.'/'.$id_souscategorie); ?>">Modifier</a>&nbsp;
-                <a href="<?php echo site_url('ligne/delete/'.$ligne->id.'/'.$id_souscategorie); ?>">Supprimer</a>
+                <div class="btn-group">
+                    <a class="btn btn-small" href="<?php echo site_url('facture/index/'.$ligne->id); ?>" title="Accéder aux factures"><i class="icon-download"></i></a>
+                    <a class="btn btn-small" href="<?php echo site_url('ligne/edit/'.$ligne->id.'/'.$id_souscategorie); ?>" title="&Eacute;diter"><i class="icon-pencil"></i></a>
+                    <a class="btn btn-small"
+                       href="<?php echo site_url('ligne/delete/'.$ligne->id.'/'.$id_souscategorie); ?>"
+                       onclick="return window.confirm('Êtes-vous sur de vouloir supprimer la ligne <?php echo $ligne->nom; ?> ?');"
+                       title="Supprimer"><i class="icon-remove"></i></a>
+                </div>
             </td>
         </tr>
         <?php endforeach; ?>

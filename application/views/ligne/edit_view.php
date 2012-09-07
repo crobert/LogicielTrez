@@ -1,8 +1,8 @@
-<h1>Modifier la ligne <?php echo $ligne->nom; ?></h1>
+<h1>&Eacute;diter la ligne <?php echo $ligne->nom; ?></h1>
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('ligne/modify/'.$ligne->id.'/'.$id_souscategorie, array('class' => 'form-horizontal')); ?>
+<?php echo form_open('ligne/edit/'.$ligne->id.'/'.$id_souscategorie, array('class' => 'form-horizontal')); ?>
 <div class="control-group">
     <label class="control-label" for="nom">Nom</label>
     <div class="controls">
@@ -29,7 +29,7 @@
 </div>
 <div class="control-group">
     <div class="controls">
-        <button type="submit" class="btn btn-primary">Modifier</button>
+        <button type="submit" class="btn btn-primary">&Eacute;diter</button>
         <a href="<?php echo site_url('ligne/index/'.$id_souscategorie);?>" class="btn btn-danger">Annuler</a>
     </div>
 </div>

@@ -7,7 +7,7 @@
             <th>Edition</th>
             <th>Ann&eacute;e 1</th>
             <th>Ann&eacute;e 2</th>
-            <th width="280"></th>
+            <th width="70"></th>
         </tr>
     </thead>
     <tbody>
@@ -18,9 +18,14 @@
             <td><?php echo $exercice->annee_1; ?></td>
             <td><?php echo $exercice->annee_2; ?></td>
             <td>
-                <a href="<?php echo site_url('budget/index/'.$exercice->id); ?>">Acc&eacute;der aux budgets</a>&nbsp;
-                <a href="<?php echo site_url('exercice/modify/'.$exercice->id); ?>">Modifier</a>&nbsp;
-                <a href="<?php echo site_url('exercice/delete/'.$exercice->id); ?>">Supprimer</a>
+                <div class="btn-group">
+                    <a class="btn btn-small" href="<?php echo site_url('budget/index/'.$exercice->id); ?>" title="Acc&eacute;der aux budgets"><i class="icon-download"></i></a>
+                    <a class="btn btn-small" href="<?php echo site_url('exercice/edit/'.$exercice->id); ?>" title="&Eacute;diter"><i class="icon-pencil"></i></a>
+                    <a class="btn btn-small"
+                       href="<?php echo site_url('exercice/delete/'.$exercice->id); ?>"
+                       onclick="return window.confirm('Êtes-vous sur de vouloir supprimer l\'exercice <?php echo $exercice->edition; ?> ?');"
+                       title="Supprimer"><i class="icon-remove"></i></a>
+                </div>
             </td>
         </tr>
         <?php endforeach; ?>

@@ -1,8 +1,8 @@
-<h1>Modifier l'utilisateur <?php echo $username; ?></h1>
+<h1>&Eacute;diter l'utilisateur <?php echo $username; ?></h1>
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('user/modify/'.$id, array('class' => 'form-horizontal')); ?>
+<?php echo form_open('user/edit/'.$id, array('class' => 'form-horizontal')); ?>
 <div class="control-group">
     <label class="control-label" for="inputUsername">Nom d'utilisateur</label>
     <div class="controls">
@@ -29,7 +29,7 @@
 </div>
 <div class="control-group">
     <div class="controls">
-        <button type="submit" class="btn btn-primary">Modifier</button>
+        <button type="submit" class="btn btn-primary">&Eacute;diter</button>
         <a href="<?php echo site_url('user/index');?>" class="btn btn-danger">Annuler</a>
     </div>
 </div>

@@ -24,7 +24,7 @@ class Souscategorie_model extends CI_Model
         $this->db->insert('souscategorie', $data); 
         return $this->db->insert_id(); // va retourner l'id (MySQL seulement)
     }
-    public function modify_souscategorie($id, $data)
+    public function edit_souscategorie($id, $data)
     {
         $this->db->where('id', $id)->update('souscategorie', $data);
         return $id;

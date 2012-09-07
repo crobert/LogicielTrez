@@ -24,7 +24,7 @@ class Tiers_model extends CI_Model
 
         return $this->db->insert_id(); // va retourner l'id (MySQL seulement)
     }
-    public function modify_tiers($id, $data)
+    public function edit_tiers($id, $data)
     {
         $this->db->where('id', $id)->update('tiers', $data);
     }

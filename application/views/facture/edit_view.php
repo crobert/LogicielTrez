@@ -1,8 +1,8 @@
-<h1>Modifier une facture</h1>
+<h1>&Eacute;diter une facture</h1>
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('facture/modify/'.$facture->id.'/'.$id_ligne, array('class' => 'form-horizontal')); ?>
+<?php echo form_open('facture/edit/'.$facture->id.'/'.$id_ligne, array('class' => 'form-horizontal')); ?>
 <div class="control-group">
     <label class="control-label" for="type">Type</label>
     <div class="controls">
@@ -69,7 +69,7 @@
 </div>
 <div class="control-group">
     <div class="controls">
-        <button type="submit" class="btn btn-primary">Modifier</button>
+        <button type="submit" class="btn btn-primary">&Eacute;diter</button>
         <a href="<?php echo site_url('facture/index/'.$id_ligne);?>" class="btn btn-danger">Annuler</a>
     </div>
 </div>

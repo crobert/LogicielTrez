@@ -24,7 +24,7 @@ class facture_model extends CI_Model
         $this->db->insert('facture', $data); 
         return $this->db->insert_id(); // va retourner l'id (MySQL seulement)
     }
-    public function modify_facture($id, $data)
+    public function edit_facture($id, $data)
     {
         $this->db->where('id', $id)->update('facture', $data);
         return $id;

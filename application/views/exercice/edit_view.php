@@ -1,8 +1,8 @@
-<h1>Modifier l'exercice de l'&eacute;dition <?php echo $exercice->edition; ?></h1>
+<h1>&Eacute;diter l'exercice de l'&eacute;dition <?php echo $exercice->edition; ?></h1>
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('exercice/modify/'.$exercice->id, array('class' => 'form-horizontal')); ?>
+<?php echo form_open('exercice/edit/'.$exercice->id, array('class' => 'form-horizontal')); ?>
 <div class="control-group">
     <label class="control-label" for="edition">&Eacute;dition</label>
     <div class="controls">
@@ -23,7 +23,7 @@
 </div>
 <div class="control-group">
     <div class="controls">
-        <button type="submit" class="btn btn-primary">Modifier</button>
+        <button type="submit" class="btn btn-primary">&Eacute;diter</button>
         <a href="<?php echo site_url('exercice/index');?>" class="btn btn-danger">Annuler</a>
     </div>
 </div>

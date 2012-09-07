@@ -38,7 +38,7 @@ class Budget extends MY_Breadcrumb
 
     }
 
-    public function modify($id, $id_exercice)
+    public function edit($id, $id_exercice)
     {
         $this->load->model('budget_model');
         $budget = $this->budget_model->get_budget($id);
@@ -50,14 +50,14 @@ class Budget extends MY_Breadcrumb
         if($this->form_validation->run() === FALSE) {
 			$data['id_exercice'] = $id_exercice;
             $data['budget'] = $budget;
-            $data['_view'] = 'budget/modify_view';
+            $data['_view'] = 'budget/edit_view';
             $this->load->view('default_template', $data);
         } else {
             $data= array(
                 'nom' => $this->input->post('nom')
             );
 
-            $this->budget_model->modify_budget($id, $data);
+            $this->budget_model->edit_budget($id, $data);
             $this->session->set_flashdata('success', 'Exercice modifi&eacute;');
             redirect('budget/index/'.$id_exercice, 'refresh');
         }
