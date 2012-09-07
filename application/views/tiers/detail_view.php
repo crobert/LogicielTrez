@@ -43,7 +43,7 @@
 
 
 <div>
-    <a href="<?php echo site_url('tiers/add'); ?>" class='btn btn-primary'>
+    <a href="<?php echo site_url('tiers/index'); ?>" class='btn btn-primary'>
         Retour &agrave; la liste des tiers
     </a>
     <a href="<?php echo site_url('tiers/modify/'.$tiers->id); ?>" class='btn'>
