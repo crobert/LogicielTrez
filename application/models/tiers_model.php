@@ -6,7 +6,7 @@ class Tiers_model extends CI_Model
       */
     public function get_tiers($id)
     {
-        $sql = 'SELECT * FROM tiers WHERE id = ?';
+        $sql = 'SELECT * FROM tiers WHERE trs_id = ?';
         $query = $this->db->query($sql, array($id));
 
         return $query->row();
@@ -26,10 +26,10 @@ class Tiers_model extends CI_Model
     }
     public function edit_tiers($id, $data)
     {
-        $this->db->where('id', $id)->update('tiers', $data);
+        $this->db->where('trs_id', $id)->update('tiers', $data);
     }
     public function delete_tiers($id)
     {
-        $this->db->delete('tiers', array('id' => $id));
+        $this->db->delete('tiers', array('trs_id' => $id));
     }
 }

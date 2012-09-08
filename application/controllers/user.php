@@ -46,9 +46,9 @@ class User extends MY_Auth
 
         if ($this->form_validation->run() === TRUE) {
             $query_data = array(
-                'login' => $this->input->post('username'),
-                'password' => $this->input->post('password'),
-                'type' => $this->input->post('type'),
+                'usr_username' => $this->input->post('username'),
+                'usr_password' => $this->input->post('password'),
+                'usr_type' => $this->input->post('type'),
             );
             $this->user_model->add_user($query_data);
 
@@ -89,16 +89,16 @@ class User extends MY_Auth
 
         if ($this->form_validation->run() === TRUE) {
             $query_data = array(
-                'login' => $this->input->post('username'),
-                'type' => $this->input->post('type')
+                'usr_username' => $this->input->post('username'),
+                'usr_type' => $this->input->post('type')
             );
-            $this->input->post('password') && $query_data['password'] = $this->input->post('password');
+            $this->input->post('password') && $query_data['usr_password'] = $this->input->post('password');
             $this->user_model->edit_user($id, $query_data);
 
             $this->session->set_flashdata('success', 'Utilisateur modifi&eacute;');
             redirect('user/index');
         } else {
-            $data = $this->user_model->get_user($id, 'array');
+            $data['user'] = $this->user_model->get_user($id);
             $data['_view'] = 'user/edit_view';
             $this->load->view('default_template', $data);
         }

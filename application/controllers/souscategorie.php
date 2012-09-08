@@ -27,9 +27,9 @@ class Souscategorie extends MY_Breadcrumb
 			$this->load->view('default_template', $data);
 		} else {
 			$data= array(
-					'nom' => $this->input->post('nom'), 
-					'description' => $this->input->post('description'), 
-					'id_categorie' => $id_categorie
+					'sct_nom' => $this->input->post('nom'),
+					'sct_description' => $this->input->post('description'),
+					'sct_id_categorie' => $id_categorie
 			);
 		$this->load->model('souscategorie_model');
 			$this->souscategorie_model->add_souscategorie($data);
@@ -55,9 +55,9 @@ class Souscategorie extends MY_Breadcrumb
 			$this->load->view('default_template', $data);
 		} else {
 			$data= array(
-					'nom' => $this->input->post('nom'), 
-					'description' => $this->input->post('description'), 
-					'id_categorie' => $id_categorie
+					'sct_nom' => $this->input->post('nom'),
+					'sct_description' => $this->input->post('description'),
+					'sct_id_categorie' => $id_categorie
 			);
 			
 			$this->souscategorie_model->edit_souscategorie($id, $data);

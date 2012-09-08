@@ -2,11 +2,11 @@
 class User_model extends CI_Model
 {
     // retourne un objet utilisateur si le couple login/pass est ok
-    public function validate_credentials($login, $password)
+    public function validate_credentials($username, $password)
     {
         // best practice : utiliser une requête préparée
-        $sql = 'SELECT id, login AS username FROM user WHERE login = ? AND password = ?';
-        $data = array($login, $this->hash_password($password));
+        $sql = 'SELECT usr_id, usr_username FROM user WHERE usr_username = ? AND usr_password = ?';
+        $data = array($username, $this->hash_password($password));
         $query = $this->db->query($sql, $data);
 
         return $query->row();
@@ -15,26 +15,23 @@ class User_model extends CI_Model
     /*
       * CRUD avec un item
       */
-    public function get_user($id, $type = 'object')
+    public function get_user($id)
     {
-        $sql = 'SELECT id, login AS username, type FROM user WHERE id = ?';
+        $sql = 'SELECT usr_id, usr_username, usr_type FROM user WHERE usr_id = ?';
         $query = $this->db->query($sql, array($id));
 
-        if ($type === 'array') {
-            return $query->row_array();
-        }
         return $query->row();
     }
     public function list_user()
     {
-        $sql = 'SELECT id, login AS username, type FROM user';
+        $sql = 'SELECT usr_id, usr_username, usr_type FROM user';
         $query = $this->db->query($sql);
 
         return $query->result();
     }
     public function add_user($data)
     {
-        $data['password'] = $this->hash_password($data['password']);
+        $data['usr_password'] = $this->hash_password($data['usr_password']);
 
         $this->db->insert('user', $data); // va retourner l'id (MySQL seulement)
 
@@ -42,15 +39,15 @@ class User_model extends CI_Model
     }
     public function edit_user($id, $data)
     {
-        if (isset($data['password'])) {
-            $data['password'] = $this->hash_password($data['password']);
+        if (isset($data['usr_password'])) {
+            $data['usr_password'] = $this->hash_password($data['usr_password']);
         }
 
-        $this->db->where('id', $id)->update('user', $data);
+        $this->db->where('usr_id', $id)->update('user', $data);
     }
     public function delete_user($id)
     {
-        $this->db->delete('user', array('id' => $id));
+        $this->db->delete('user', array('usr_id' => $id));
     }
 
     /*
@@ -64,5 +61,4 @@ class User_model extends CI_Model
 
         return do_hash($this->config->item('encryption_key').$password);
     }
-
 }

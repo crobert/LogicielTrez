@@ -26,8 +26,7 @@ class facture extends MY_Breadcrumb
 		$this->load->library('form_validation');
 		$this->form_validation->set_error_delimiters('<div class="alert alert-error">', '</div>');
 
-        // TODO : à quoi servent les trim ?
-        // + regarder pour virer les xss_clean
+        // TODO : regarder pour virer les xss_clean
 		$this->form_validation->set_rules('type', 'Type', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('numero', 'Num&eacute;ro', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('objet', 'Objet', 'trim|required|xss_clean');
@@ -57,17 +56,17 @@ class facture extends MY_Breadcrumb
                 $date_paiement = NULL;
 			}
 			$data = array(
-					'type' => $this->input->post('type'), 
-					'numero' => $this->input->post('numero'), 
-					'objet' => $this->input->post('objet'),
-					'montant' => $this->input->post('montant'),
-					'methode_paiement' => $this->input->post('methode_paiement'),
-					'date' => $date->format('Y-m-d'),
-					'date_paiement' => $date_paiement,
-                    'ref_paiement' => $this->input->post('ref_paiement'),
-                    'commentaire' => $this->input->post('commentaire'),
-					'id_ligne' => $id_ligne,
-					'id_tiers' => $this->input->post('tiers')
+					'fac_type' => $this->input->post('type'),
+					'fac_numero' => $this->input->post('numero'),
+					'fac_objet' => $this->input->post('objet'),
+					'fac_montant' => $this->input->post('montant'),
+					'fac_methode_paiement' => $this->input->post('methode_paiement'),
+					'fac_date' => $date->format('Y-m-d'),
+					'fac_date_paiement' => $date_paiement,
+                    'fac_ref_paiement' => $this->input->post('ref_paiement'),
+                    'fac_commentaire' => $this->input->post('commentaire'),
+					'fac_id_ligne' => $id_ligne,
+					'fac_id_tiers' => $this->input->post('tiers')
 			);
 
 			$this->facture_model->add_facture($data); 
@@ -114,17 +113,17 @@ class facture extends MY_Breadcrumb
                 $date_paiement = NULL;
 			}
 			$data= array(
-					'type' => $this->input->post('type'), 
-					'numero' => $this->input->post('numero'), 
-					'objet' => $this->input->post('objet'),
-					'montant' => $this->input->post('montant'),
-					'methode_paiement' => $this->input->post('methode_paiement'),
-					'date' => $date->format('Y-m-d'),
-					'date_paiement' => $date_paiement,
-                    'ref_paiement' => $this->input->post('ref_paiement'),
-                    'commentaire' => $this->input->post('commentaire'),
-					'id_ligne' => $id_ligne,
-					'id_tiers' => $this->input->post('tiers')
+					'fac_type' => $this->input->post('type'),
+					'fac_numero' => $this->input->post('numero'),
+					'fac_objet' => $this->input->post('objet'),
+					'fac_montant' => $this->input->post('montant'),
+					'fac_methode_paiement' => $this->input->post('methode_paiement'),
+					'fac_date' => $date->format('Y-m-d'),
+					'fac_date_paiement' => $date_paiement,
+                    'fac_ref_paiement' => $this->input->post('ref_paiement'),
+                    'fac_commentaire' => $this->input->post('commentaire'),
+					'fac_id_ligne' => $id_ligne,
+					'fac_id_tiers' => $this->input->post('tiers')
 			);
 			$this->facture_model->edit_facture($id, $data);
 			$this->session->set_flashdata('success', 'Facture modifi&eacute;e'); 

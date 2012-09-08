@@ -13,16 +13,16 @@
     <tbody>
         <?php foreach ($factures as $facture): ?>
         <tr>
-            <td><?php echo $facture->type; ?></td>
-            <td><?php echo $facture->numero; ?></td>
-            <td><?php echo $facture->objet; ?></td>
-            <td><?php echo $facture->montant; ?> €</td>
+            <td><?php echo $facture->fac_type; ?></td>
+            <td><?php echo $facture->fac_numero; ?></td>
+            <td><?php echo $facture->fac_objet; ?></td>
+            <td><?php echo $facture->fac_montant; ?> €</td>
             <td>
                 <div class="btn-group">
-                    <a class="btn btn-small" href="<?php echo site_url('facture/edit/'.$facture->id.'/'.$id_ligne); ?>" title="&Eacute;diter"><i class="icon-pencil"></i></a>
+                    <a class="btn btn-small" href="<?php echo site_url('facture/edit/'.$facture->fac_id.'/'.$id_ligne); ?>" title="&Eacute;diter"><i class="icon-pencil"></i></a>
                     <a class="btn btn-small"
-                       href="<?php echo site_url('facture/delete/'.$facture->id.'/'.$id_ligne); ?>"
-                       onclick="return window.confirm('Êtes-vous sur de vouloir supprimer la facture <?php echo $facture->numero; ?> ?');"
+                       href="<?php echo site_url('facture/delete/'.$facture->fac_id.'/'.$id_ligne); ?>"
+                       onclick="return window.confirm('Êtes-vous sur de vouloir supprimer la facture <?php echo $facture->fac_numero; ?> ?');"
                        title="Supprimer"><i class="icon-remove"></i></a>
                 </div>
             </td>

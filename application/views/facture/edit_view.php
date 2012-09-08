@@ -1,60 +1,60 @@
-<h1>&Eacute;diter une facture</h1>
+<h1>&Eacute;diter la facture <?php echo $facture->fac_numero; ?></h1>
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('facture/edit/'.$facture->id.'/'.$id_ligne, array('class' => 'form-horizontal')); ?>
+<?php echo form_open('facture/edit/'.$facture->fac_id.'/'.$id_ligne, array('class' => 'form-horizontal')); ?>
 <div class="control-group">
     <label class="control-label" for="type">Type</label>
     <div class="controls">
-        <input type="text" id="type" placeholder="Type" name="type" value="<?php echo set_value('type', $facture->type);?>" required />
+        <input type="text" id="type" placeholder="Type" name="type" value="<?php echo set_value('type', $facture->fac_type);?>" required />
     </div>
 </div>
 <div class="control-group">
     <label class="control-label" for="numero">Num&eacute;ro</label>
     <div class="controls">
-        <input type="text" id="numero" placeholder="Numero" name="numero" value="<?php echo set_value('numero', $facture->numero);?>" required />
+        <input type="text" id="numero" placeholder="Numero" name="numero" value="<?php echo set_value('numero', $facture->fac_numero);?>" required />
     </div>
 </div>
 <div class="control-group">
     <label class="control-label" for="objet">Objet</label>
     <div class="controls">
-        <input type="text" id="objet" placeholder="Objet" name="objet" value="<?php echo set_value('objet', $facture->objet);?>" required />
+        <input type="text" id="objet" placeholder="Objet" name="objet" value="<?php echo set_value('objet', $facture->fac_objet);?>" required />
     </div>
 </div>
 <div class="control-group">
     <label class="control-label" for="montant">Montant</label>
     <div class="controls">
-        <input type="text" id="montant" placeholder="Montant" name="montant" value="<?php echo set_value('montant', $facture->montant);?>" required />
+        <input type="text" id="montant" placeholder="Montant" name="montant" value="<?php echo set_value('montant', $facture->fac_montant);?>" required />
     </div>
 </div>
 <div class="control-group">
     <label class="control-label" for="methode_paiement">M&eacute;thode de paiement</label>
     <div class="controls">
-        <input type="text" id="methode_paiement" placeholder="Methode paiement" name="methode_paiement" value="<?php echo set_value('methode_paiement', $facture->methode_paiement);?>" />
+        <input type="text" id="methode_paiement" placeholder="Methode paiement" name="methode_paiement" value="<?php echo set_value('methode_paiement', $facture->fac_methode_paiement);?>" />
     </div>
 </div>
 <div class="control-group">
     <label class="control-label" for="date">Date de facturation</label>
     <div class="controls">
-        <input type="text" id="date" placeholder="Date" name="date" value="<?php echo set_value('date', $facture->date);?>" required />
+        <input type="text" id="date" placeholder="Date de la facture" name="date" value="<?php echo set_value('date', $facture->fac_date);?>" required />
     </div>
 </div>
 <div class="control-group">
     <label class="control-label" for="date_paiement">Date de paiement</label>
     <div class="controls">
-        <input type="text" id="date_paiement" placeholder="Date paiement" name="date_paiement" value="<?php echo set_value('date_paiement', $facture->date_paiement);?>" />
+        <input type="text" id="date_paiement" placeholder="Date paiement" name="date_paiement" value="<?php echo set_value('date_paiement', $facture->fac_date_paiement);?>" />
     </div>
 </div>
 <div class="control-group">
     <label class="control-label" for="ref_paiement">R&eacute;f. paiement</label>
     <div class="controls">
-        <input type="text" id="ref_paiement" placeholder="Num&eacute;ro de ch&egrave;que ou de virement" name="ref_paiement" value="<?php echo set_value('ref_paiement', $facture->ref_paiement);?>" />
+        <input type="text" id="ref_paiement" placeholder="Num&eacute;ro de ch&egrave;que ou de virement" name="ref_paiement" value="<?php echo set_value('ref_paiement', $facture->fac_ref_paiement);?>" />
     </div>
 </div>
 <div class="control-group">
     <label class="control-label" for="commentaire">Commentaire</label>
     <div class="controls">
-        <textarea id="commentaire" placeholder="Commentaire sur cette facture" name="commentaire" value="<?php echo set_value('commentaire', $facture->commentaire); ?>"></textarea>
+        <textarea id="commentaire" placeholder="Commentaire sur cette facture" name="commentaire" value="<?php echo set_value('commentaire', $facture->fac_commentaire); ?>"></textarea>
     </div>
 </div>
 <div class="control-group">
@@ -62,7 +62,7 @@
     <div class="controls">
         <select id="tiers" name="tiers" required>
             <?php foreach ($tiers as $t) { ?>
-                <option value="<?php echo $t->id;?>"<?php if ($t->id === set_value('id_tiers', $facture->id_tiers)) {echo 'selected';} ?>><?php echo $t->nom;?></option>
+                <option value="<?php echo $t->trs_id;?>"<?php if ($t->trs_id === set_value('id_tiers', $facture->fac_id_tiers)) {echo 'selected';} ?>><?php echo $t->trs_nom;?></option>
             <?php } ?>
         </select>
     </div>

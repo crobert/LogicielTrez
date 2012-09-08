@@ -6,12 +6,12 @@ class Souscategorie_model extends CI_Model
       */
     public function get_souscategorie($id)
     {
-        $sql = 'SELECT * FROM souscategorie WHERE id = ?';
+        $sql = 'SELECT * FROM souscategorie WHERE sct_id = ?';
 		return $this->db->query($sql, array($id))->row();
     }
     public function get_souscategorie_by_categorie($id)
     {
-        $sql = 'SELECT * FROM souscategorie WHERE id_categorie = ?';
+        $sql = 'SELECT * FROM souscategorie WHERE sct_id_categorie = ?';
 		return $this->db->query($sql, array($id))->result();
     }
     public function list_souscategorie()
@@ -26,12 +26,12 @@ class Souscategorie_model extends CI_Model
     }
     public function edit_souscategorie($id, $data)
     {
-        $this->db->where('id', $id)->update('souscategorie', $data);
+        $this->db->where('sct_id', $id)->update('souscategorie', $data);
         return $id;
     }
     public function delete_souscategorie($id)
     {
-        $this->db->delete('souscategorie', array('id' => $id));
+        $this->db->delete('souscategorie', array('sct_id' => $id));
         return $id;
     }
 

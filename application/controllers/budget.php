@@ -25,9 +25,9 @@ class Budget extends MY_Breadcrumb
             $data['_view'] = 'budget/add_view';
             $this->load->view('default_template', $data);
         } else {
-            $data= array(
-                'nom' => $this->input->post('nom'),
-                'id_exercice' => $id_exercice
+            $data = array(
+                'bud_nom' => $this->input->post('nom'),
+                'bud_id_exercice' => $id_exercice
             );
 
             $this->load->model('budget_model');
@@ -53,8 +53,8 @@ class Budget extends MY_Breadcrumb
             $data['_view'] = 'budget/edit_view';
             $this->load->view('default_template', $data);
         } else {
-            $data= array(
-                'nom' => $this->input->post('nom')
+            $data = array(
+                'bud_nom' => $this->input->post('nom')
             );
 
             $this->budget_model->edit_budget($id, $data);

@@ -6,12 +6,12 @@ class Categorie_model extends CI_Model
       */
     public function get_categorie($id)
     {
-        $sql = 'SELECT * FROM categorie WHERE id = ?';
+        $sql = 'SELECT * FROM categorie WHERE cat_id = ?';
 		return $this->db->query($sql, array($id))->row();
     }
     public function get_categorie_by_budget($id)
     {
-        $sql = 'SELECT * FROM categorie WHERE id_budget = ?';
+        $sql = 'SELECT * FROM categorie WHERE cat_id_budget = ?';
 		return $this->db->query($sql, array($id))->result();
     }
     public function list_categorie()
@@ -26,12 +26,12 @@ class Categorie_model extends CI_Model
     }
     public function edit_categorie($id, $data)
     {
-        $this->db->where('id', $id)->update('categorie', $data);
+        $this->db->where('cat_id', $id)->update('categorie', $data);
         return $id;
     }
     public function delete_categorie($id)
     {
-        $this->db->delete('categorie', array('id' => $id));
+        $this->db->delete('categorie', array('cat_id' => $id));
         return $id;
     }
 

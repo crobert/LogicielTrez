@@ -29,8 +29,8 @@ class Login extends CI_Controller
             if ($user) {
                 $this->session->set_userdata(array(
                     'logged' => TRUE,
-                    'user_id' => $user->id,
-                    'username' => $user->username
+                    'user_id' => $user->usr_id,
+                    'username' => $user->usr_username
                 ));
 
                 redirect('accueil/index');

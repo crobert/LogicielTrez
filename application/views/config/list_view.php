@@ -12,10 +12,10 @@
         <tbody>  
           <?php foreach ($tva as $t) { ?>
           <tr>  
-            <td><?php echo $t->id;?></td>  
-            <td><?php echo $t->nom;?> </td>  
-            <td><?php echo $t->taux;?></td>  
-            <td><?php echo $t->actif;?></td>  
+            <td><?php echo $t->cfg_id;?></td>  
+            <td><?php echo $t->cfg_nom;?> </td>  
+            <td><?php echo $t->cfg_taux;?></td>  
+            <td><?php echo $t->cfg_actif;?></td>  
           </tr>  
            <?php } ?>
 	</tbody> 
@@ -34,9 +34,9 @@
         <tbody>  
 			<?php foreach ($type_facture as $t) { ?>
 			<tr>  
-				<td><?php echo $t->id;?></td>  
-				<td><?php echo $t->abbr ;?></td>  
-				<td><?php echo $t->nom;?></td>  
+				<td><?php echo $t->cfg_id;?></td>  
+				<td><?php echo $t->cfg_abbr ;?></td>  
+				<td><?php echo $t->cfg_nom;?></td>  
 			</tr>  
 			<?php } ?>
 	</tbody> 
@@ -55,8 +55,8 @@
           
           <?php foreach ($methode_paiement as $m) { ?>
           <tr>  
-				<td><?php echo $m->id;?></td>  
-				<td><?php echo $m->value;?> </td>   
+				<td><?php echo $m->cfg_id;?></td>
+				<td><?php echo $m->cfg_value;?> </td>
            </tr>   
            <?php } ?>
           

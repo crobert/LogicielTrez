@@ -36,7 +36,7 @@
 <div class="control-group">
     <label class="control-label" for="date">Date de facturation</label>
     <div class="controls">
-        <input type="text" id="date" placeholder="Date" name="date" value="<?php echo set_value('date');?>" required />
+        <input type="text" id="date" placeholder="Date de la facture" name="date" value="<?php echo set_value('date');?>" required />
     </div>
 </div>
 <div class="control-group">
@@ -62,7 +62,7 @@
     <div class="controls">
 		<select id="tiers" name="tiers" required>
             <?php foreach ($tiers as $t) { ?>
-                <option value="<?php echo $t->id;?>"><?php echo $t->nom;?></option>
+                <option value="<?php echo $t->trs_id;?>"><?php echo $t->trs_nom;?></option>
             <?php } ?>
 		</select>
     </div>

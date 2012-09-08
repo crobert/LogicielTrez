@@ -13,17 +13,17 @@
     <tbody>
         <?php foreach ($exercices as $exercice): ?>
         <tr>
-            <td><?php echo $exercice->id; ?></td>
-            <td><?php echo $exercice->edition; ?></td>
-            <td><?php echo $exercice->annee_1; ?></td>
-            <td><?php echo $exercice->annee_2; ?></td>
+            <td><?php echo $exercice->exe_id; ?></td>
+            <td><?php echo $exercice->exe_edition; ?></td>
+            <td><?php echo $exercice->exe_annee_1; ?></td>
+            <td><?php echo $exercice->exe_annee_2; ?></td>
             <td>
                 <div class="btn-group">
-                    <a class="btn btn-small" href="<?php echo site_url('budget/index/'.$exercice->id); ?>" title="Acc&eacute;der aux budgets"><i class="icon-download"></i></a>
-                    <a class="btn btn-small" href="<?php echo site_url('exercice/edit/'.$exercice->id); ?>" title="&Eacute;diter"><i class="icon-pencil"></i></a>
+                    <a class="btn btn-small" href="<?php echo site_url('budget/index/'.$exercice->exe_id); ?>" title="Acc&eacute;der aux budgets"><i class="icon-download"></i></a>
+                    <a class="btn btn-small" href="<?php echo site_url('exercice/edit/'.$exercice->exe_id); ?>" title="&Eacute;diter"><i class="icon-pencil"></i></a>
                     <a class="btn btn-small"
-                       href="<?php echo site_url('exercice/delete/'.$exercice->id); ?>"
-                       onclick="return window.confirm('Êtes-vous sur de vouloir supprimer l\'exercice <?php echo $exercice->edition; ?> ?');"
+                       href="<?php echo site_url('exercice/delete/'.$exercice->exe_id); ?>"
+                       onclick="return window.confirm('Êtes-vous sur de vouloir supprimer l\'exercice <?php echo $exercice->exe_edition; ?> ?');"
                        title="Supprimer"><i class="icon-remove"></i></a>
                 </div>
             </td>

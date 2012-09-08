@@ -26,9 +26,9 @@ class Exercice extends MY_Breadcrumb
             $this->load->view('default_template', $data);
 		} else {
 			$data= array(
-					'edition' => $this->input->post('edition'), 
-					'annee_1' => $this->input->post('annee_1'), 
-					'annee_2' => $this->input->post('annee_2')
+					'exe_edition' => $this->input->post('edition'),
+					'exe_annee_1' => $this->input->post('annee_1'),
+					'exe_annee_2' => $this->input->post('annee_2')
 			);
 			$this->load->model('exercice_model');
 			$this->exercice_model->add_exercice($data);
@@ -54,9 +54,9 @@ class Exercice extends MY_Breadcrumb
             $this->load->view('default_template', $data);
 		} else {
 			$data= array(
-					'edition' => $this->input->post('edition'), 
-					'annee_1' => $this->input->post('annee_1'), 
-					'annee_2' => $this->input->post('annee_2')
+					'exe_edition' => $this->input->post('edition'),
+					'exe_annee_1' => $this->input->post('annee_1'),
+					'exe_annee_2' => $this->input->post('annee_2')
 			);
 			
 			$this->exercice_model->edit_exercice($id, $data);

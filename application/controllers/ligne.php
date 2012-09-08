@@ -29,11 +29,11 @@ class Ligne extends MY_Breadcrumb
 			$this->load->view('default_template', $data);
 		} else {
 			$data= array(
-					'nom' => $this->input->post('nom'), 
-					'description' => $this->input->post('description'), 
-					'debit' => $this->input->post('debit'),
-					'credit' => $this->input->post('credit'),
-					'id_souscategorie' => $id_souscategorie
+					'lig_nom' => $this->input->post('nom'),
+					'lig_description' => $this->input->post('description'),
+					'lig_debit' => $this->input->post('debit'),
+					'lig_credit' => $this->input->post('credit'),
+					'lig_id_souscategorie' => $id_souscategorie
 			);
 			$this->load->model('ligne_model');
 			$this->ligne_model->add_ligne($data);
@@ -61,11 +61,11 @@ class Ligne extends MY_Breadcrumb
 			$this->load->view('default_template', $data);
 		} else {
 			$data= array(
-					'nom' => $this->input->post('nom'), 
-					'description' => $this->input->post('description'), 
-					'debit' => $this->input->post('debit'),
-					'credit' => $this->input->post('credit'),
-					'id_souscategorie' => $id_souscategorie
+					'lig_nom' => $this->input->post('nom'),
+					'lig_description' => $this->input->post('description'),
+					'lig_debit' => $this->input->post('debit'),
+					'lig_credit' => $this->input->post('credit'),
+					'lig_id_souscategorie' => $id_souscategorie
 			);
 			
 			$this->ligne_model->edit_ligne($id, $data);

@@ -12,16 +12,16 @@
     <tbody>
         <?php foreach ($categories as $categorie): ?>
         <tr>
-            <td><?php echo $categorie->id; ?></td>
-            <td><?php echo $categorie->nom; ?></td>
-            <td><?php echo $categorie->description; ?></td>
+            <td><?php echo $categorie->cat_id; ?></td>
+            <td><?php echo $categorie->cat_nom; ?></td>
+            <td><?php echo $categorie->cat_description; ?></td>
             <td>
                 <div class="btn-group">
-                    <a class="btn btn-small" href="<?php echo site_url('souscategorie/index/'.$categorie->id); ?>" title="Accéder aux sous-catégories"><i class="icon-download"></i></a>
-                    <a class="btn btn-small" href="<?php echo site_url('categorie/edit/'.$categorie->id.'/'.$id_budget); ?>" title="&Eacute;diter"><i class="icon-pencil"></i></a>
+                    <a class="btn btn-small" href="<?php echo site_url('souscategorie/index/'.$categorie->cat_id); ?>" title="Accéder aux sous-catégories"><i class="icon-download"></i></a>
+                    <a class="btn btn-small" href="<?php echo site_url('categorie/edit/'.$categorie->cat_id.'/'.$id_budget); ?>" title="&Eacute;diter"><i class="icon-pencil"></i></a>
                     <a class="btn btn-small"
-                       href="<?php echo site_url('categorie/delete/'.$categorie->id.'/'.$id_budget); ?>"
-                       onclick="return window.confirm('Êtes-vous sur de vouloir supprimer la cat&eacute;gorie <?php echo $categorie->nom; ?> ?');"
+                       href="<?php echo site_url('categorie/delete/'.$categorie->cat_id.'/'.$id_budget); ?>"
+                       onclick="return window.confirm('Êtes-vous sur de vouloir supprimer la cat&eacute;gorie <?php echo $categorie->cat_nom; ?> ?');"
                        title="Supprimer"><i class="icon-remove"></i></a>
                 </div>
             </td>

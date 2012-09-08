@@ -1,30 +1,30 @@
-<h1>&Eacute;diter la ligne <?php echo $ligne->nom; ?></h1>
+<h1>&Eacute;diter la ligne <?php echo $ligne->lig_nom; ?></h1>
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('ligne/edit/'.$ligne->id.'/'.$id_souscategorie, array('class' => 'form-horizontal')); ?>
+<?php echo form_open('ligne/edit/'.$ligne->lig_id.'/'.$id_souscategorie, array('class' => 'form-horizontal')); ?>
 <div class="control-group">
     <label class="control-label" for="nom">Nom</label>
     <div class="controls">
-		<input type="text" id="nom" placeholder="Intitul&eacute; de la ligne" name="nom" value="<?php echo set_value('edition', $ligne->nom);?>" required />
+		<input type="text" id="nom" placeholder="Intitul&eacute; de la ligne" name="nom" value="<?php echo set_value('edition', $ligne->lig_nom);?>" required />
     </div>
 </div>
 <div class="control-group">
     <label class="control-label" for="description">Description</label>
     <div class="controls">
-        <input type="text" id="description" placeholder="Description de la ligne" name="description" value="<?php echo set_value('description', $ligne->description); ?>" />
+        <input type="text" id="description" placeholder="Description de la ligne" name="description" value="<?php echo set_value('description', $ligne->lig_description); ?>" />
     </div>
 </div>
 <div class="control-group">
     <label class="control-label" for="debit">D&eacute;bit</label>
     <div class="controls">
-        <input type="number" id="debit" placeholder="D&eacute;bit" name="debit" value="<?php echo set_value('debit', $ligne->debit); ?>" required />
+        <input type="number" id="debit" placeholder="D&eacute;bit" name="debit" value="<?php echo set_value('debit', $ligne->lig_debit); ?>" required />
     </div>
 </div>
 <div class="control-group">
     <label class="control-label" for="credit">Cr&eacute;dit</label>
     <div class="controls">
-        <input type="number" id="credit" placeholder="Cr&eacute;dit" name="credit" value="<?php echo set_value('credit', $ligne->credit); ?>" required />
+        <input type="number" id="credit" placeholder="Cr&eacute;dit" name="credit" value="<?php echo set_value('credit', $ligne->lig_credit); ?>" required />
     </div>
 </div>
 <div class="control-group">

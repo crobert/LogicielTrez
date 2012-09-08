@@ -33,313 +33,313 @@
             <type label="Bit" length="0" sql="bit" quote=""/>
         </group>
     </datatypes><table x="93" y="82" name="exercice">
-<row name="id" null="1" autoincrement="1">
+<row name="exe_id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="edition" null="1" autoincrement="0">
+<row name="exe_edition" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="annee_1" null="1" autoincrement="0">
+<row name="exe_annee_1" null="1" autoincrement="0">
 <datatype>YEAR</datatype>
 <default>NULL</default></row>
-<row name="annee_2" null="1" autoincrement="0">
+<row name="exe_annee_2" null="1" autoincrement="0">
 <datatype>YEAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
-<part>id</part>
+<part>exe_id</part>
 </key>
 </table>
 <table x="362" y="99" name="budget">
-<row name="id" null="0" autoincrement="1">
+<row name="bud_id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
-<row name="nom" null="1" autoincrement="0">
+<row name="bud_nom" null="1" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 <default>NULL</default></row>
-<row name="id_exercice" null="1" autoincrement="0">
+<row name="bud_id_exercice" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="exercice" row="id" />
+<default>NULL</default><relation table="exercice" row="exe_id" />
 </row>
 <key type="PRIMARY" name="">
-<part>id</part>
+<part>bud_id</part>
 </key>
 <key type="INDEX" name="">
-<part>id_exercice</part>
+<part>bud_id_exercice</part>
 </key>
 </table>
 <table x="609" y="72" name="categorie">
-<row name="id" null="0" autoincrement="1">
+<row name="cat_id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
-<row name="nom" null="1" autoincrement="0">
+<row name="cat_nom" null="1" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 <default>NULL</default></row>
-<row name="description" null="1" autoincrement="0">
+<row name="cat_description" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default></row>
-<row name="id_budget" null="0" autoincrement="0">
+<row name="cat_id_budget" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<relation table="budget" row="id" />
+<relation table="budget" row="bud_id" />
 </row>
 <key type="PRIMARY" name="">
-<part>id</part>
+<part>cat_id</part>
 </key>
 <key type="INDEX" name="">
-<part>id_budget</part>
+<part>cat_id_budget</part>
 </key>
 </table>
 <table x="983" y="76" name="souscategorie">
-<row name="id" null="1" autoincrement="1">
+<row name="sct_id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="nom" null="1" autoincrement="0">
+<row name="sct_nom" null="1" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 <default>NULL</default></row>
-<row name="description" null="1" autoincrement="0">
+<row name="sct_description" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default></row>
-<row name="id_categorie" null="0" autoincrement="0">
+<row name="sct_id_categorie" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<relation table="categorie" row="id" />
+<relation table="categorie" row="cat_id" />
 </row>
 <key type="PRIMARY" name="">
-<part>id</part>
+<part>sct_id</part>
 </key>
 <key type="INDEX" name="">
-<part>id_categorie</part>
+<part>sct_id_categorie</part>
 </key>
 </table>
-<table x="1073" y="294" name="ligne">
-<row name="id" null="0" autoincrement="1">
+<table x="1005" y="299" name="ligne">
+<row name="lig_id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
-<row name="nom" null="1" autoincrement="0">
+<row name="lig_nom" null="1" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 <default>NULL</default></row>
-<row name="description" null="1" autoincrement="0">
+<row name="lig_description" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default></row>
-<row name="debit" null="1" autoincrement="0">
+<row name="lig_debit" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="credit" null="1" autoincrement="0">
+<row name="lig_credit" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="id_souscategorie" null="1" autoincrement="0">
+<row name="lig_id_souscategorie" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="souscategorie" row="id" />
+<default>NULL</default><relation table="souscategorie" row="sct_id" />
 </row>
 <key type="PRIMARY" name="">
-<part>id</part>
+<part>lig_id</part>
 </key>
 <key type="INDEX" name="">
-<part>id_souscategorie</part>
+<part>lig_id_souscategorie</part>
 </key>
 </table>
 <table x="661" y="356" name="facture">
-<row name="id" null="0" autoincrement="1">
+<row name="fac_id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
-<row name="type" null="1" autoincrement="0">
+<row name="fac_type" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="numero" null="1" autoincrement="0">
+<row name="fac_numero" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="objet" null="1" autoincrement="0">
+<row name="fac_objet" null="1" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 <default>NULL</default></row>
-<row name="montant" null="1" autoincrement="0">
+<row name="fac_montant" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="methode_paiement" null="1" autoincrement="0">
+<row name="fac_methode_paiement" null="1" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 <default>NULL</default></row>
-<row name="date" null="1" autoincrement="0">
+<row name="fac_date" null="1" autoincrement="0">
 <datatype>DATE</datatype>
 <default>NULL</default></row>
-<row name="date_paiement" null="1" autoincrement="0">
+<row name="fac_date_paiement" null="1" autoincrement="0">
 <datatype>DATE</datatype>
 <default>NULL</default></row>
-<row name="commentaire" null="1" autoincrement="0">
+<row name="fac_commentaire" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default></row>
-<row name="id_ligne" null="0" autoincrement="0">
+<row name="fac_id_ligne" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<relation table="ligne" row="id" />
+<relation table="ligne" row="lig_id" />
 </row>
-<row name="id_tiers" null="0" autoincrement="0">
+<row name="fac_id_tiers" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<relation table="tiers" row="id" />
+<relation table="tiers" row="trs_id" />
 </row>
-<row name="ref_paiement" null="1" autoincrement="0">
+<row name="fac_ref_paiement" null="1" autoincrement="0">
 <datatype>VARCHAR(150)</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
-<part>id</part>
+<part>fac_id</part>
 </key>
 <key type="INDEX" name="">
-<part>id_ligne</part>
+<part>fac_id_ligne</part>
 </key>
 <key type="INDEX" name="">
-<part>id_tiers</part>
+<part>fac_id_tiers</part>
 </key>
 </table>
 <table x="261" y="549" name="tiers">
-<row name="id" null="0" autoincrement="1">
+<row name="trs_id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
-<row name="nom" null="1" autoincrement="0">
+<row name="trs_nom" null="1" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 <default>NULL</default></row>
-<row name="telephone" null="1" autoincrement="0">
+<row name="trs_telephone" null="1" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 <default>NULL</default></row>
-<row name="mail" null="1" autoincrement="0">
+<row name="trs_mail" null="1" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 <default>NULL</default></row>
-<row name="fax" null="1" autoincrement="0">
+<row name="trs_fax" null="1" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 <default>NULL</default></row>
-<row name="adresse" null="1" autoincrement="0">
+<row name="trs_adresse" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default></row>
-<row name="responsable" null="1" autoincrement="0">
+<row name="trs_responsable" null="1" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 <default>NULL</default></row>
-<row name="rib" null="1" autoincrement="0">
+<row name="trs_rib" null="1" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 <default>NULL</default></row>
-<row name="ordre_cheque" null="1" autoincrement="0">
+<row name="trs_ordre_cheque" null="1" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 <default>NULL</default></row>
-<row name="commentaire" null="1" autoincrement="0">
+<row name="trs_commentaire" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
-<part>id</part>
+<part>trs_id</part>
 </key>
 </table>
 <table x="135" y="301" name="user">
-<row name="id" null="0" autoincrement="1">
+<row name="usr_id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
-<row name="login" null="1" autoincrement="0">
+<row name="usr_username" null="1" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 <default>NULL</default></row>
-<row name="password" null="1" autoincrement="0">
+<row name="usr_password" null="1" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 <default>NULL</default></row>
-<row name="type" null="1" autoincrement="0">
+<row name="usr_type" null="1" autoincrement="0">
 <datatype>VARCHAR(25)</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
-<part>id</part>
+<part>usr_id</part>
 </key>
 </table>
 <table x="1016" y="655" name="tva">
-<row name="id" null="0" autoincrement="1">
+<row name="tva_id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
-<row name="type" null="1" autoincrement="0">
+<row name="tva_type" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="montant_ht" null="1" autoincrement="0">
+<row name="tva_montant_ht" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="montant_tva" null="1" autoincrement="0">
+<row name="tva_montant_tva" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="id_facture" null="0" autoincrement="0">
+<row name="tva_id_facture" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<relation table="facture" row="id" />
+<relation table="facture" row="fac_id" />
 </row>
 <key type="PRIMARY" name="">
-<part>id</part>
+<part>tva_id</part>
 </key>
 <key type="INDEX" name="">
-<part>id_facture</part>
+<part>tva_id_facture</part>
 </key>
 </table>
 <table x="360" y="290" name="categories_users">
-<row name="id" null="0" autoincrement="1">
+<row name="cat_usr_id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
-<row name="id_user" null="0" autoincrement="0">
+<row name="cat_usr_id_user" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<relation table="user" row="id" />
+<relation table="user" row="usr_id" />
 </row>
-<row name="id_categorie" null="0" autoincrement="0">
+<row name="cat_usr_id_categorie" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<relation table="categorie" row="id" />
+<relation table="categorie" row="cat_id" />
 </row>
 <key type="INDEX" name="">
-<part>id_user</part>
+<part>cat_usr_id_user</part>
 </key>
 <key type="INDEX" name="">
-<part>id_categorie</part>
+<part>cat_usr_id_categorie</part>
 </key>
 <key type="PRIMARY" name="">
-<part>id</part>
+<part>cat_usr_id</part>
 </key>
 </table>
 <table x="238" y="894" name="config_methode_paiement">
-<row name="id" null="1" autoincrement="1">
+<row name="cmp_id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="value" null="0" autoincrement="0">
+<row name="cmp_value" null="0" autoincrement="0">
 <datatype>VARCHAR(100)</datatype>
 <default>'NULL'</default></row>
 <key type="PRIMARY" name="">
-<part>id</part>
+<part>cmp_id</part>
 </key>
 </table>
 <table x="528" y="896" name="config_classe_tva">
-<row name="id" null="1" autoincrement="1">
+<row name="cct_id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="taux" null="0" autoincrement="0">
+<row name="cct_taux" null="0" autoincrement="0">
 <datatype>DECIMAL</datatype>
 <default>0</default></row>
-<row name="nom" null="0" autoincrement="0">
+<row name="cct_nom" null="0" autoincrement="0">
 <datatype>VARCHAR(100)</datatype>
 <default>'NULL'</default></row>
-<row name="actif" null="0" autoincrement="0">
+<row name="cct_actif" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>1</default></row>
 <key type="PRIMARY" name="">
-<part>id</part>
+<part>cct_id</part>
 </key>
 </table>
 <table x="761" y="902" name="config_type_facture">
-<row name="id" null="1" autoincrement="1">
+<row name="ctf_id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="abbr" null="1" autoincrement="0">
+<row name="ctf_abbr" null="1" autoincrement="0">
 <datatype>VARCHAR(5)</datatype>
 <default>NULL</default></row>
-<row name="nom" null="1" autoincrement="0">
+<row name="ctf_nom" null="1" autoincrement="0">
 <datatype>VARCHAR(100)</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
-<part>id</part>
+<part>ctf_id</part>
 </key>
 </table>
 <table x="1010" y="908" name="config">
-<row name="id" null="1" autoincrement="1">
+<row name="cfg_id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="key" null="0" autoincrement="0">
+<row name="cfg_key" null="0" autoincrement="0">
 <datatype>VARCHAR(100)</datatype>
 <default>'NULL'</default></row>
-<row name="value" null="1" autoincrement="0">
+<row name="cfg_value" null="1" autoincrement="0">
 <datatype>VARCHAR(100)</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
-<part>id</part>
+<part>cfg_id</part>
 </key>
 <key type="INDEX" name="">
-<part>key</part>
+<part>cfg_key</part>
 </key>
 </table>
 </sql>

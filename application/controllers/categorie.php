@@ -27,9 +27,9 @@ class Categorie extends MY_Breadcrumb
 			$this->load->view('default_template', $data);
 		} else	{
 			$data= array(
-					'nom' => $this->input->post('nom'), 
-					'description' => $this->input->post('description'), 
-					'id_budget' => $id_budget
+					'cat_nom' => $this->input->post('nom'),
+					'cat_description' => $this->input->post('description'),
+					'cat_id_budget' => $id_budget
 			);
 		$this->load->model('categorie_model');
 			$this->categorie_model->add_categorie($data);
@@ -55,9 +55,9 @@ class Categorie extends MY_Breadcrumb
 			$this->load->view('default_template', $data);
 		} else {
 			$data= array(
-					'nom' => $this->input->post('nom'), 
-					'description' => $this->input->post('description'), 
-					'id_budget' => $id_budget
+					'cat_nom' => $this->input->post('nom'),
+					'cat_description' => $this->input->post('description'),
+					'cat_id_budget' => $id_budget
 			);
 			
 			$this->categorie_model->edit_categorie($id, $data);

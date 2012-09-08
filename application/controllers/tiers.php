@@ -72,15 +72,15 @@ class Tiers extends MY_Auth
 
         if ($this->form_validation->run() === TRUE) {
             $query_data = array(
-                'nom' => $this->input->post('nom'),
-                'responsable' => $this->input->post('responsable'),
-                'telephone' => $this->input->post('telephone'),
-                'fax' => $this->input->post('fax'),
-                'mail' => $this->input->post('mail'),
-                'adresse' => $this->input->post('adresse'),
-                'rib' => $this->input->post('rib'),
-                'ordre_cheque' => $this->input->post('ordre_cheque'),
-                'commentaire' => $this->input->post('commentaire')
+                'trs_nom' => $this->input->post('nom'),
+                'trs_responsable' => $this->input->post('responsable'),
+                'trs_telephone' => $this->input->post('telephone'),
+                'trs_fax' => $this->input->post('fax'),
+                'trs_mail' => $this->input->post('mail'),
+                'trs_adresse' => $this->input->post('adresse'),
+                'trs_rib' => $this->input->post('rib'),
+                'trs_ordre_cheque' => $this->input->post('ordre_cheque'),
+                'trs_commentaire' => $this->input->post('commentaire')
             );
             $this->tiers_model->add_tiers($query_data);
 
@@ -141,15 +141,15 @@ class Tiers extends MY_Auth
 
         if ($this->form_validation->run() === TRUE) {
             $query_data = array(
-                'nom' => $this->input->post('nom'),
-                'responsable' => $this->input->post('responsable'),
-                'telephone' => $this->input->post('telephone'),
-                'fax' => $this->input->post('fax'),
-                'mail' => $this->input->post('mail'),
-                'adresse' => $this->input->post('adresse'),
-                'rib' => $this->input->post('rib'),
-                'ordre_cheque' => $this->input->post('ordre_cheque'),
-                'commentaire' => $this->input->post('commentaire')
+                'trs_nom' => $this->input->post('nom'),
+                'trs_responsable' => $this->input->post('responsable'),
+                'trs_telephone' => $this->input->post('telephone'),
+                'trs_fax' => $this->input->post('fax'),
+                'trs_mail' => $this->input->post('mail'),
+                'trs_adresse' => $this->input->post('adresse'),
+                'trs_rib' => $this->input->post('rib'),
+                'trs_ordre_cheque' => $this->input->post('ordre_cheque'),
+                'trs_commentaire' => $this->input->post('commentaire')
             );
             $this->tiers_model->edit_tiers($id, $query_data);
 

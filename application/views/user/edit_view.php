@@ -1,12 +1,12 @@
-<h1>&Eacute;diter l'utilisateur <?php echo $username; ?></h1>
+<h1>&Eacute;diter l'utilisateur <?php echo $user->usr_username; ?></h1>
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('user/edit/'.$id, array('class' => 'form-horizontal')); ?>
+<?php echo form_open('user/edit/'.$user->usr_id, array('class' => 'form-horizontal')); ?>
 <div class="control-group">
     <label class="control-label" for="inputUsername">Nom d'utilisateur</label>
     <div class="controls">
-        <input type="text" id="inputUsername" placeholder="Nom d'utilisateur" name="username" value="<?php echo set_value('username', $username); ?>" required>
+        <input type="text" id="inputUsername" placeholder="Nom d'utilisateur" name="username" value="<?php echo set_value('username', $user->usr_username); ?>" required>
     </div>
 </div>
 <div class="control-group">
@@ -24,7 +24,7 @@
 <div class="control-group">
     <label class="control-label" for="inputType">Type</label>
     <div class="controls">
-        <input type="text" id="inputType" placeholder="admin" name="type" value="<?php echo set_value('type', $type); ?>" required>
+        <input type="text" id="inputType" placeholder="admin" name="type" value="<?php echo set_value('type', $user->usr_type); ?>" required>
     </div>
 </div>
 <div class="control-group">

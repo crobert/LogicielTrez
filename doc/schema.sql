@@ -17,11 +17,11 @@
 DROP TABLE IF EXISTS `exercice`;
 		
 CREATE TABLE `exercice` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `edition` INTEGER NULL DEFAULT NULL,
-  `annee_1` YEAR NULL DEFAULT NULL,
-  `annee_2` YEAR NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `exe_id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `exe_edition` INTEGER NULL DEFAULT NULL,
+  `exe_annee_1` YEAR NULL DEFAULT NULL,
+  `exe_annee_2` YEAR NULL DEFAULT NULL,
+  PRIMARY KEY (`exe_id`)
 );
 
 -- ---
@@ -32,11 +32,11 @@ CREATE TABLE `exercice` (
 DROP TABLE IF EXISTS `budget`;
 		
 CREATE TABLE `budget` (
-  `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `nom` VARCHAR(255) NULL DEFAULT NULL,
-  `id_exercice` INTEGER NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-KEY (`id_exercice`)
+  `bud_id` INTEGER NOT NULL AUTO_INCREMENT,
+  `bud_nom` VARCHAR(255) NULL DEFAULT NULL,
+  `bud_id_exercice` INTEGER NULL DEFAULT NULL,
+  PRIMARY KEY (`bud_id`),
+KEY (`bud_id_exercice`)
 );
 
 -- ---
@@ -47,12 +47,12 @@ KEY (`id_exercice`)
 DROP TABLE IF EXISTS `categorie`;
 		
 CREATE TABLE `categorie` (
-  `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `nom` VARCHAR(255) NULL DEFAULT NULL,
-  `description` MEDIUMTEXT NULL DEFAULT NULL,
-  `id_budget` INTEGER NOT NULL,
-  PRIMARY KEY (`id`),
-KEY (`id_budget`)
+  `cat_id` INTEGER NOT NULL AUTO_INCREMENT,
+  `cat_nom` VARCHAR(255) NULL DEFAULT NULL,
+  `cat_description` MEDIUMTEXT NULL DEFAULT NULL,
+  `cat_id_budget` INTEGER NOT NULL,
+  PRIMARY KEY (`cat_id`),
+KEY (`cat_id_budget`)
 );
 
 -- ---
@@ -63,12 +63,12 @@ KEY (`id_budget`)
 DROP TABLE IF EXISTS `souscategorie`;
 		
 CREATE TABLE `souscategorie` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `nom` VARCHAR(255) NULL DEFAULT NULL,
-  `description` MEDIUMTEXT NULL DEFAULT NULL,
-  `id_categorie` INTEGER NOT NULL,
-  PRIMARY KEY (`id`),
-KEY (`id_categorie`)
+  `sct_id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `sct_nom` VARCHAR(255) NULL DEFAULT NULL,
+  `sct_description` MEDIUMTEXT NULL DEFAULT NULL,
+  `sct_id_categorie` INTEGER NOT NULL,
+  PRIMARY KEY (`sct_id`),
+KEY (`sct_id_categorie`)
 );
 
 -- ---
@@ -79,14 +79,14 @@ KEY (`id_categorie`)
 DROP TABLE IF EXISTS `ligne`;
 		
 CREATE TABLE `ligne` (
-  `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `nom` VARCHAR(255) NULL DEFAULT NULL,
-  `description` MEDIUMTEXT NULL DEFAULT NULL,
-  `debit` INTEGER NULL DEFAULT NULL,
-  `credit` INTEGER NULL DEFAULT NULL,
-  `id_souscategorie` INTEGER NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-KEY (`id_souscategorie`)
+  `lig_id` INTEGER NOT NULL AUTO_INCREMENT,
+  `lig_nom` VARCHAR(255) NULL DEFAULT NULL,
+  `lig_description` MEDIUMTEXT NULL DEFAULT NULL,
+  `lig_debit` INTEGER NULL DEFAULT NULL,
+  `lig_credit` INTEGER NULL DEFAULT NULL,
+  `lig_id_souscategorie` INTEGER NULL DEFAULT NULL,
+  PRIMARY KEY (`lig_id`),
+KEY (`lig_id_souscategorie`)
 );
 
 -- ---
@@ -97,21 +97,21 @@ KEY (`id_souscategorie`)
 DROP TABLE IF EXISTS `facture`;
 		
 CREATE TABLE `facture` (
-  `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `type` INTEGER NULL DEFAULT NULL,
-  `numero` INTEGER NULL DEFAULT NULL,
-  `objet` VARCHAR(255) NULL DEFAULT NULL,
-  `montant` INTEGER NULL DEFAULT NULL,
-  `methode_paiement` VARCHAR(255) NULL DEFAULT NULL,
-  `date` DATE NULL DEFAULT NULL,
-  `date_paiement` DATE NULL DEFAULT NULL,
-  `commentaire` MEDIUMTEXT NULL DEFAULT NULL,
-  `id_ligne` INTEGER NOT NULL,
-  `id_tiers` INTEGER NOT NULL,
-  `ref_paiement` VARCHAR(150) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-KEY (`id_ligne`),
-KEY (`id_tiers`)
+  `fac_id` INTEGER NOT NULL AUTO_INCREMENT,
+  `fac_type` INTEGER NULL DEFAULT NULL,
+  `fac_numero` INTEGER NULL DEFAULT NULL,
+  `fac_objet` VARCHAR(255) NULL DEFAULT NULL,
+  `fac_montant` INTEGER NULL DEFAULT NULL,
+  `fac_methode_paiement` VARCHAR(255) NULL DEFAULT NULL,
+  `fac_date` DATE NULL DEFAULT NULL,
+  `fac_date_paiement` DATE NULL DEFAULT NULL,
+  `fac_commentaire` MEDIUMTEXT NULL DEFAULT NULL,
+  `fac_id_ligne` INTEGER NOT NULL,
+  `fac_id_tiers` INTEGER NOT NULL,
+  `fac_ref_paiement` VARCHAR(150) NULL DEFAULT NULL,
+  PRIMARY KEY (`fac_id`),
+KEY (`fac_id_ligne`),
+KEY (`fac_id_tiers`)
 );
 
 -- ---
@@ -122,17 +122,17 @@ KEY (`id_tiers`)
 DROP TABLE IF EXISTS `tiers`;
 		
 CREATE TABLE `tiers` (
-  `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `nom` VARCHAR(255) NULL DEFAULT NULL,
-  `telephone` VARCHAR(255) NULL DEFAULT NULL,
-  `mail` VARCHAR(255) NULL DEFAULT NULL,
-  `fax` VARCHAR(255) NULL DEFAULT NULL,
-  `adresse` MEDIUMTEXT NULL DEFAULT NULL,
-  `responsable` VARCHAR(255) NULL DEFAULT NULL,
-  `rib` VARCHAR(255) NULL DEFAULT NULL,
-  `ordre_cheque` VARCHAR(255) NULL DEFAULT NULL,
-  `commentaire` MEDIUMTEXT NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `trs_id` INTEGER NOT NULL AUTO_INCREMENT,
+  `trs_nom` VARCHAR(255) NULL DEFAULT NULL,
+  `trs_telephone` VARCHAR(255) NULL DEFAULT NULL,
+  `trs_mail` VARCHAR(255) NULL DEFAULT NULL,
+  `trs_fax` VARCHAR(255) NULL DEFAULT NULL,
+  `trs_adresse` MEDIUMTEXT NULL DEFAULT NULL,
+  `trs_responsable` VARCHAR(255) NULL DEFAULT NULL,
+  `trs_rib` VARCHAR(255) NULL DEFAULT NULL,
+  `trs_ordre_cheque` VARCHAR(255) NULL DEFAULT NULL,
+  `trs_commentaire` MEDIUMTEXT NULL DEFAULT NULL,
+  PRIMARY KEY (`trs_id`)
 );
 
 -- ---
@@ -143,11 +143,11 @@ CREATE TABLE `tiers` (
 DROP TABLE IF EXISTS `user`;
 		
 CREATE TABLE `user` (
-  `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `login` VARCHAR(255) NULL DEFAULT NULL,
-  `password` VARCHAR(255) NULL DEFAULT NULL,
-  `type` VARCHAR(25) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `usr_id` INTEGER NOT NULL AUTO_INCREMENT,
+  `usr_username` VARCHAR(255) NULL DEFAULT NULL,
+  `usr_password` VARCHAR(255) NULL DEFAULT NULL,
+  `usr_type` VARCHAR(25) NULL DEFAULT NULL,
+  PRIMARY KEY (`usr_id`)
 );
 
 -- ---
@@ -158,13 +158,13 @@ CREATE TABLE `user` (
 DROP TABLE IF EXISTS `tva`;
 		
 CREATE TABLE `tva` (
-  `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `type` INTEGER NULL DEFAULT NULL,
-  `montant_ht` INTEGER NULL DEFAULT NULL,
-  `montant_tva` INTEGER NULL DEFAULT NULL,
-  `id_facture` INTEGER NOT NULL,
-  PRIMARY KEY (`id`),
-KEY (`id_facture`)
+  `tva_id` INTEGER NOT NULL AUTO_INCREMENT,
+  `tva_type` INTEGER NULL DEFAULT NULL,
+  `tva_montant_ht` INTEGER NULL DEFAULT NULL,
+  `tva_montant_tva` INTEGER NULL DEFAULT NULL,
+  `tva_id_facture` INTEGER NOT NULL,
+  PRIMARY KEY (`tva_id`),
+KEY (`tva_id_facture`)
 );
 
 -- ---
@@ -175,12 +175,12 @@ KEY (`id_facture`)
 DROP TABLE IF EXISTS `categories_users`;
 		
 CREATE TABLE `categories_users` (
-  `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `id_user` INTEGER NOT NULL,
-  `id_categorie` INTEGER NOT NULL,
-KEY (`id_user`),
-KEY (`id_categorie`),
-  PRIMARY KEY (`id`)
+  `cat_usr_id` INTEGER NOT NULL AUTO_INCREMENT,
+  `cat_usr_id_user` INTEGER NOT NULL,
+  `cat_usr_id_categorie` INTEGER NOT NULL,
+KEY (`cat_usr_id_user`),
+KEY (`cat_usr_id_categorie`),
+  PRIMARY KEY (`cat_usr_id`)
 );
 
 -- ---
@@ -191,9 +191,9 @@ KEY (`id_categorie`),
 DROP TABLE IF EXISTS `config_methode_paiement`;
 		
 CREATE TABLE `config_methode_paiement` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `value` VARCHAR(100) NOT NULL DEFAULT 'NULL',
-  PRIMARY KEY (`id`)
+  `cfg_id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `cfg_value` VARCHAR(100) NOT NULL DEFAULT 'NULL',
+  PRIMARY KEY (`cfg_id`)
 );
 
 -- ---
@@ -204,11 +204,11 @@ CREATE TABLE `config_methode_paiement` (
 DROP TABLE IF EXISTS `config_classe_tva`;
 		
 CREATE TABLE `config_classe_tva` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `taux` DECIMAL NOT NULL DEFAULT 0,
-  `nom` VARCHAR(100) NOT NULL DEFAULT 'NULL',
-  `actif` INTEGER NOT NULL DEFAULT 1,
-  PRIMARY KEY (`id`)
+  `cfg_id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `cfg_taux` DECIMAL NOT NULL DEFAULT 0,
+  `cfg_nom` VARCHAR(100) NOT NULL DEFAULT 'NULL',
+  `cfg_actif` INTEGER NOT NULL DEFAULT 1,
+  PRIMARY KEY (`cfg_id`)
 );
 
 -- ---
@@ -219,10 +219,10 @@ CREATE TABLE `config_classe_tva` (
 DROP TABLE IF EXISTS `config_type_facture`;
 		
 CREATE TABLE `config_type_facture` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `abbr` VARCHAR(5) NULL DEFAULT NULL,
-  `nom` VARCHAR(100) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `cfg_id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `cfg_abbr` VARCHAR(5) NULL DEFAULT NULL,
+  `cfg_nom` VARCHAR(100) NULL DEFAULT NULL,
+  PRIMARY KEY (`cfg_id`)
 );
 
 -- ---
@@ -233,26 +233,26 @@ CREATE TABLE `config_type_facture` (
 DROP TABLE IF EXISTS `config`;
 		
 CREATE TABLE `config` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `key` VARCHAR(100) NOT NULL DEFAULT 'NULL',
-  `value` VARCHAR(100) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-KEY (`key`)
+  `cfg_id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `cfg_key` VARCHAR(100) NOT NULL DEFAULT 'NULL',
+  `cfg_value` VARCHAR(100) NULL DEFAULT NULL,
+  PRIMARY KEY (`cfg_id`),
+KEY (`cfg_key`)
 );
 
 -- ---
 -- Foreign Keys 
 -- ---
 
-ALTER TABLE `budget` ADD FOREIGN KEY (id_exercice) REFERENCES `exercice` (`id`);
-ALTER TABLE `categorie` ADD FOREIGN KEY (id_budget) REFERENCES `budget` (`id`);
-ALTER TABLE `souscategorie` ADD FOREIGN KEY (id_categorie) REFERENCES `categorie` (`id`);
-ALTER TABLE `ligne` ADD FOREIGN KEY (id_souscategorie) REFERENCES `souscategorie` (`id`);
-ALTER TABLE `facture` ADD FOREIGN KEY (id_ligne) REFERENCES `ligne` (`id`);
-ALTER TABLE `facture` ADD FOREIGN KEY (id_tiers) REFERENCES `tiers` (`id`);
-ALTER TABLE `tva` ADD FOREIGN KEY (id_facture) REFERENCES `facture` (`id`);
-ALTER TABLE `categories_users` ADD FOREIGN KEY (id_user) REFERENCES `user` (`id`);
-ALTER TABLE `categories_users` ADD FOREIGN KEY (id_categorie) REFERENCES `categorie` (`id`);
+ALTER TABLE `budget` ADD FOREIGN KEY (bud_id_exercice) REFERENCES `exercice` (`exe_id`);
+ALTER TABLE `categorie` ADD FOREIGN KEY (cat_id_budget) REFERENCES `budget` (`bud_id`);
+ALTER TABLE `souscategorie` ADD FOREIGN KEY (sct_id_categorie) REFERENCES `categorie` (`cat_id`);
+ALTER TABLE `ligne` ADD FOREIGN KEY (lig_id_souscategorie) REFERENCES `souscategorie` (`sct_id`);
+ALTER TABLE `facture` ADD FOREIGN KEY (fac_id_ligne) REFERENCES `ligne` (`lig_id`);
+ALTER TABLE `facture` ADD FOREIGN KEY (fac_id_tiers) REFERENCES `tiers` (`trs_id`);
+ALTER TABLE `tva` ADD FOREIGN KEY (tva_id_facture) REFERENCES `facture` (`fac_id`);
+ALTER TABLE `categories_users` ADD FOREIGN KEY (cat_usr_id_user) REFERENCES `user` (`usr_id`);
+ALTER TABLE `categories_users` ADD FOREIGN KEY (cat_usr_id_categorie) REFERENCES `categorie` (`cat_id`);
 
 -- ---
 -- Table Properties
@@ -277,32 +277,32 @@ ALTER TABLE `categories_users` ADD FOREIGN KEY (id_categorie) REFERENCES `catego
 -- Test Data
 -- ---
 
--- INSERT INTO `exercice` (`id`,`edition`,`annee_1`,`annee_2`) VALUES
+-- INSERT INTO `exercice` (`exe_id`,`exe_edition`,`exe_annee_1`,`exe_annee_2`) VALUES
 -- ('','','','');
--- INSERT INTO `budget` (`id`,`nom`,`id_exercice`) VALUES
+-- INSERT INTO `budget` (`bud_id`,`bud_nom`,`bud_id_exercice`) VALUES
 -- ('','','');
--- INSERT INTO `categorie` (`id`,`nom`,`description`,`id_budget`) VALUES
+-- INSERT INTO `categorie` (`cat_id`,`cat_nom`,`cat_description`,`cat_id_budget`) VALUES
 -- ('','','','');
--- INSERT INTO `souscategorie` (`id`,`nom`,`description`,`id_categorie`) VALUES
+-- INSERT INTO `souscategorie` (`sct_id`,`sct_nom`,`sct_description`,`sct_id_categorie`) VALUES
 -- ('','','','');
--- INSERT INTO `ligne` (`id`,`nom`,`description`,`debit`,`credit`,`id_souscategorie`) VALUES
+-- INSERT INTO `ligne` (`lig_id`,`lig_nom`,`lig_description`,`lig_debit`,`lig_credit`,`lig_id_souscategorie`) VALUES
 -- ('','','','','','');
--- INSERT INTO `facture` (`id`,`type`,`numero`,`objet`,`montant`,`methode_paiement`,`date`,`date_paiement`,`commentaire`,`id_ligne`,`id_tiers`,`ref_paiement`) VALUES
+-- INSERT INTO `facture` (`fac_id`,`fac_type`,`fac_numero`,`fac_objet`,`fac_montant`,`fac_methode_paiement`,`fac_date`,`fac_date_paiement`,`fac_commentaire`,`fac_id_ligne`,`fac_id_tiers`,`fac_ref_paiement`) VALUES
 -- ('','','','','','','','','','','','');
--- INSERT INTO `tiers` (`id`,`nom`,`telephone`,`mail`,`fax`,`adresse`,`responsable`,`rib`,`ordre_cheque`,`commentaire`) VALUES
+-- INSERT INTO `tiers` (`trs_id`,`trs_nom`,`trs_telephone`,`trs_mail`,`trs_fax`,`trs_adresse`,`trs_responsable`,`trs_rib`,`trs_ordre_cheque`,`trs_commentaire`) VALUES
 -- ('','','','','','','','','','');
--- INSERT INTO `user` (`id`,`login`,`password`,`type`) VALUES
+-- INSERT INTO `user` (`usr_id`,`usr_username`,`usr_password`,`usr_type`) VALUES
 -- ('','','','');
--- INSERT INTO `tva` (`id`,`type`,`montant_ht`,`montant_tva`,`id_facture`) VALUES
+-- INSERT INTO `tva` (`tva_id`,`tva_type`,`tva_montant_ht`,`tva_montant_tva`,`tva_id_facture`) VALUES
 -- ('','','','','');
--- INSERT INTO `categories_users` (`id`,`id_user`,`id_categorie`) VALUES
+-- INSERT INTO `categories_users` (`cat_usr_id`,`cat_usr_id_user`,`cat_usr_id_categorie`) VALUES
 -- ('','','');
--- INSERT INTO `config_methode_paiement` (`id`,`value`) VALUES
+-- INSERT INTO `config_methode_paiement` (`cfg_id`,`cfg_value`) VALUES
 -- ('','');
--- INSERT INTO `config_classe_tva` (`id`,`taux`,`nom`,`actif`) VALUES
+-- INSERT INTO `config_classe_tva` (`cfg_id`,`cfg_taux`,`cfg_nom`,`cfg_actif`) VALUES
 -- ('','','','');
--- INSERT INTO `config_type_facture` (`id`,`abbr`,`nom`) VALUES
+-- INSERT INTO `config_type_facture` (`cfg_id`,`cfg_abbr`,`cfg_nom`) VALUES
 -- ('','','');
--- INSERT INTO `config` (`id`,`key`,`value`) VALUES
+-- INSERT INTO `config` (`cfg_id`,`cfg_key`,`cfg_value`) VALUES
 -- ('','','');
 

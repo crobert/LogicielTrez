@@ -11,15 +11,15 @@
     <tbody>
         <?php foreach ($budgets as $budget): ?>
         <tr>
-            <td><?php echo $budget->id; ?></td>
-            <td><?php echo $budget->nom; ?></td>
+            <td><?php echo $budget->bud_id; ?></td>
+            <td><?php echo $budget->bud_nom; ?></td>
             <td>
                 <div class="btn-group">
-                    <a class="btn btn-small" href="<?php echo site_url('categorie/index/'.$budget->id); ?>" title="Accéder aux catégories"><i class="icon-download"></i></a>
-                    <a class="btn btn-small" href="<?php echo site_url('budget/edit/'.$budget->id.'/'.$budget->id_exercice); ?>" title="&Eacute;diter"><i class="icon-pencil"></i></a>
+                    <a class="btn btn-small" href="<?php echo site_url('categorie/index/'.$budget->bud_id); ?>" title="Accéder aux catégories"><i class="icon-download"></i></a>
+                    <a class="btn btn-small" href="<?php echo site_url('budget/edit/'.$budget->bud_id.'/'.$budget->bud_id_exercice); ?>" title="&Eacute;diter"><i class="icon-pencil"></i></a>
                     <a class="btn btn-small"
-                       href="<?php echo site_url('budget/delete/'.$budget->id.'/'.$budget->id_exercice); ?>"
-                       onclick="return window.confirm('Êtes-vous sur de vouloir supprimer le budget <?php echo $budget->nom; ?> ?');"
+                       href="<?php echo site_url('budget/delete/'.$budget->bud_id.'/'.$budget->bud_id_exercice); ?>"
+                       onclick="return window.confirm('Êtes-vous sur de vouloir supprimer le budget <?php echo $budget->bud_nom; ?> ?');"
                        title="Supprimer"><i class="icon-remove"></i></a>
                 </div>
             </td>

@@ -14,18 +14,18 @@
     <tbody>
         <?php foreach ($lignes as $ligne): ?>
         <tr>
-            <td><?php echo $ligne->id; ?></td>
-            <td><?php echo $ligne->nom; ?></td>
-            <td><?php echo $ligne->description; ?></td>
-            <td><?php echo $ligne->credit; ?> €</td>
-            <td><?php echo $ligne->debit; ?> €</td>
+            <td><?php echo $ligne->lig_id; ?></td>
+            <td><?php echo $ligne->lig_nom; ?></td>
+            <td><?php echo $ligne->lig_description; ?></td>
+            <td><?php echo $ligne->lig_credit; ?> €</td>
+            <td><?php echo $ligne->lig_debit; ?> €</td>
             <td>
                 <div class="btn-group">
-                    <a class="btn btn-small" href="<?php echo site_url('facture/index/'.$ligne->id); ?>" title="Accéder aux factures"><i class="icon-download"></i></a>
-                    <a class="btn btn-small" href="<?php echo site_url('ligne/edit/'.$ligne->id.'/'.$id_souscategorie); ?>" title="&Eacute;diter"><i class="icon-pencil"></i></a>
+                    <a class="btn btn-small" href="<?php echo site_url('facture/index/'.$ligne->lig_id); ?>" title="Accéder aux factures"><i class="icon-download"></i></a>
+                    <a class="btn btn-small" href="<?php echo site_url('ligne/edit/'.$ligne->lig_id.'/'.$id_souscategorie); ?>" title="&Eacute;diter"><i class="icon-pencil"></i></a>
                     <a class="btn btn-small"
-                       href="<?php echo site_url('ligne/delete/'.$ligne->id.'/'.$id_souscategorie); ?>"
-                       onclick="return window.confirm('Êtes-vous sur de vouloir supprimer la ligne <?php echo $ligne->nom; ?> ?');"
+                       href="<?php echo site_url('ligne/delete/'.$ligne->lig_id.'/'.$id_souscategorie); ?>"
+                       onclick="return window.confirm('Êtes-vous sur de vouloir supprimer la ligne <?php echo $ligne->lig_nom; ?> ?');"
                        title="Supprimer"><i class="icon-remove"></i></a>
                 </div>
             </td>
