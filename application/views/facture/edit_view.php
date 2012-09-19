@@ -42,7 +42,7 @@
 <div class="control-group">
     <label class="control-label" for="date_paiement">Date de paiement</label>
     <div class="controls">
-        <input type="text" id="date_paiement" placeholder="Date paiement" name="date_paiement" value="<?php echo set_value('date_paiement', $facture->fac_date_paiement);?>" />
+        <input type="text" id="date_paiement" placeholder="Date du paiement (date comptable)" name="date_paiement" value="<?php echo set_value('date_paiement', $facture->fac_date_paiement);?>" />
     </div>
 </div>
 <div class="control-group">
@@ -79,5 +79,13 @@
     $(document).ready(function() {
         // transform select into the chosen one
         $('#tiers').chosen({no_results_text: "Pas de r&eacute;sultats"});
+
+        // datePickers
+        $( "#date" ).datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+        $( "#date_paiement" ).datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
     });
 </script>

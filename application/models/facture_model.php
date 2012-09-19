@@ -7,7 +7,19 @@ class facture_model extends CI_Model
     public function get_facture($id)
     {
         $sql = 'SELECT * FROM facture WHERE fac_id = ?';
-		return $this->db->query($sql, array($id))->row();
+		$facture = $this->db->query($sql, array($id))->row();
+
+        if (! is_null($facture->fac_date)) {
+            $fac_date = new DateTime($facture->fac_date);
+            $facture->fac_date = $fac_date->format('d/m/Y');
+        }
+
+        if (! is_null($facture->fac_date_paiement)) {
+            $fac_date_paiement = new DateTime($facture->fac_date_paiement);
+            $facture->fac_date_paiement = $fac_date_paiement->format('d/m/Y');
+        }
+
+        return $facture;
     }
     public function get_facture_by_ligne($id)
     {

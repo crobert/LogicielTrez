@@ -48,21 +48,19 @@ class facture extends MY_Breadcrumb
 
             $this->load->view('default_template', $data);
 		} else {
-			$date = new DateTime ($this->input->post('date'));
-
-			if ($this->input->post('date_paiement' != '')) {
-				$datePaiement = new DateTime($this->input->post('date_paiement'));
-				$date_paiement = $datePaiement->format('Y-m-d');
-			} else {
+            if ($this->input->post('date_paiement' != '')){
+                $date_paiement = DateTime::createFromFormat('d/m/Y', $this->input->post('date_paiement'))->format('Y-m-d');
+            } else {
                 $date_paiement = NULL;
-			}
+            }
+
 			$data = array(
 					'fac_type' => $this->input->post('type'),
 					'fac_numero' => $this->input->post('numero'),
 					'fac_objet' => $this->input->post('objet'),
 					'fac_montant' => $this->input->post('montant'),
 					'fac_methode_paiement' => $this->input->post('methode_paiement'),
-					'fac_date' => $date->format('Y-m-d'),
+                    'fac_date' => DateTime::createFromFormat('d/m/Y', $this->input->post('date'))->format('Y-m-d'),
 					'fac_date_paiement' => $date_paiement,
                     'fac_ref_paiement' => $this->input->post('ref_paiement'),
                     'fac_commentaire' => $this->input->post('commentaire'),
@@ -107,20 +105,19 @@ class facture extends MY_Breadcrumb
 
 			$this->load->view('default_template', $data);
 		} else {
-			$date = new dateTime ($this->input->post('date'));
 			if ($this->input->post('date_paiement' != '')){
-				$datePaiement = new dateTime ($this->input->post('date_paiement')); 
-				$date_paiement = $datePaiement->format('Y-m-d');
-			}else{
+                $date_paiement = DateTime::createFromFormat('d/m/Y', $this->input->post('date_paiement'))->format('Y-m-d');
+			} else {
                 $date_paiement = NULL;
 			}
-			$data= array(
+
+			$data = array(
 					'fac_type' => $this->input->post('type'),
 					'fac_numero' => $this->input->post('numero'),
 					'fac_objet' => $this->input->post('objet'),
 					'fac_montant' => $this->input->post('montant'),
 					'fac_methode_paiement' => $this->input->post('methode_paiement'),
-					'fac_date' => $date->format('Y-m-d'),
+					'fac_date' => DateTime::createFromFormat('d/m/Y', $this->input->post('date'))->format('Y-m-d'),
 					'fac_date_paiement' => $date_paiement,
                     'fac_ref_paiement' => $this->input->post('ref_paiement'),
                     'fac_commentaire' => $this->input->post('commentaire'),
