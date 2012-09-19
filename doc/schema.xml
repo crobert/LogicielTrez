@@ -299,7 +299,7 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="cct_taux" null="0" autoincrement="0">
-<datatype>DECIMAL(2)</datatype>
+<datatype>DECIMAL(4,2)</datatype>
 <default>0</default></row>
 <row name="cct_nom" null="0" autoincrement="0">
 <datatype>VARCHAR(100)</datatype>

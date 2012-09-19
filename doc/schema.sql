@@ -205,7 +205,7 @@ DROP TABLE IF EXISTS `config_classe_tva`;
 		
 CREATE TABLE `config_classe_tva` (
   `cct_id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `cct_taux` DECIMAL(2) NOT NULL DEFAULT 0,
+  `cct_taux` DECIMAL(4,2) NOT NULL DEFAULT 0,
   `cct_nom` VARCHAR(100) NOT NULL DEFAULT 'NULL',
   `cct_actif` INTEGER NOT NULL DEFAULT 1,
   PRIMARY KEY (`cct_id`)
