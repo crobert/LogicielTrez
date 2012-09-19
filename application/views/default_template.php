@@ -2,7 +2,12 @@
 <html lang="fr">
 <head>
     <?php
-        $this->load->view('_template/header_view');
+        // make sure assets is defined
+        if (! isset($_assets)) {
+            $_assets = array();
+        }
+
+        $this->load->view('_template/header_view', array('assets' => $_assets));
     ?>
 </head>
 <body>
