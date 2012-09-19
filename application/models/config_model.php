@@ -2,10 +2,19 @@
 class Config_model extends CI_Model
 {
     private $config_name;
+    private $prefixe;
+	private $list_prefixe = array(
+		'config_classe_tva' => 'cct_', 
+		'config_methode_paiement' => 'cmp_', 
+		'config_type_facture' => 'ctf_',
+		'config' => 'cfg_'
+	);
 
-    public function __construct($config)
+    public function _populate($config)
     {
         $this->config_name = $config;
+        $this->prefixe = $this->list_prefixe[$config];
+        return $this;
     }
 
     /*
@@ -13,30 +22,31 @@ class Config_model extends CI_Model
       */
     public function get_config($id)
     {
-        $sql = 'SELECT * FROM config_'.$this->config_name.' WHERE cfg_id = ?';
+        $sql = 'SELECT * FROM '.$this->config_name.' WHERE '.$this->prefixe.'id = ?';
         $query = $this->db->query($sql, array($id));
 
         return $query->row();
     }
     public function list_config()
     {
-        $sql = 'SELECT * FROM config_'.$this->config_name;
+        $sql = 'SELECT * FROM '.$this->config_name;
         $query = $this->db->query($sql);
 
         return $query->result();
     }
     public function add_config($data)
     {
-        $this->db->insert('config_'.$this->config_name, $data);
+        $this->db->insert($this->config_name, $data);
 
         return $this->db->insert_id(); // va retourner l'id (MySQL seulement)
     }
     public function edit_config($id, $data)
     {
-        $this->db->where('cfg_id', $id)->update('config_'.$this->config_name, $data);
+        $this->db->where($this->prefixe.'id', $id)->update($this->config_name, $data);
     }
     public function delete_config($id)
     {
-        $this->db->delete('config_'.$this->config_name, array('cfg_id' => $id));
+        $this->db->delete($this->config_name, array($this->prefixe.'id' => $id));
     }
+    
 }
