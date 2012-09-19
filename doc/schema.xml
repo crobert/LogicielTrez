@@ -287,7 +287,7 @@
 <row name="cmp_id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="cmp_value" null="0" autoincrement="0">
+<row name="cmp_nom" null="0" autoincrement="0">
 <datatype>VARCHAR(100)</datatype>
 <default>'NULL'</default></row>
 <key type="PRIMARY" name="">
@@ -299,7 +299,7 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="cct_taux" null="0" autoincrement="0">
-<datatype>DECIMAL</datatype>
+<datatype>DECIMAL(2)</datatype>
 <default>0</default></row>
 <row name="cct_nom" null="0" autoincrement="0">
 <datatype>VARCHAR(100)</datatype>
@@ -315,7 +315,7 @@
 <row name="ctf_id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="ctf_abbr" null="1" autoincrement="0">
+<row name="ctf_abr" null="1" autoincrement="0">
 <datatype>VARCHAR(5)</datatype>
 <default>NULL</default></row>
 <row name="ctf_nom" null="1" autoincrement="0">

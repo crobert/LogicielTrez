@@ -191,9 +191,9 @@ KEY (`cat_usr_id_categorie`),
 DROP TABLE IF EXISTS `config_methode_paiement`;
 		
 CREATE TABLE `config_methode_paiement` (
-  `cfg_id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `cfg_value` VARCHAR(100) NOT NULL DEFAULT 'NULL',
-  PRIMARY KEY (`cfg_id`)
+  `cmp_id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `cmp_nom` VARCHAR(100) NOT NULL DEFAULT 'NULL',
+  PRIMARY KEY (`cmp_id`)
 );
 
 -- ---
@@ -204,11 +204,11 @@ CREATE TABLE `config_methode_paiement` (
 DROP TABLE IF EXISTS `config_classe_tva`;
 		
 CREATE TABLE `config_classe_tva` (
-  `cfg_id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `cfg_taux` DECIMAL NOT NULL DEFAULT 0,
-  `cfg_nom` VARCHAR(100) NOT NULL DEFAULT 'NULL',
-  `cfg_actif` INTEGER NOT NULL DEFAULT 1,
-  PRIMARY KEY (`cfg_id`)
+  `cct_id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `cct_taux` DECIMAL(2) NOT NULL DEFAULT 0,
+  `cct_nom` VARCHAR(100) NOT NULL DEFAULT 'NULL',
+  `cct_actif` INTEGER NOT NULL DEFAULT 1,
+  PRIMARY KEY (`cct_id`)
 );
 
 -- ---
@@ -219,10 +219,10 @@ CREATE TABLE `config_classe_tva` (
 DROP TABLE IF EXISTS `config_type_facture`;
 		
 CREATE TABLE `config_type_facture` (
-  `cfg_id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `cfg_abbr` VARCHAR(5) NULL DEFAULT NULL,
-  `cfg_nom` VARCHAR(100) NULL DEFAULT NULL,
-  PRIMARY KEY (`cfg_id`)
+  `ctf_id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `ctf_abr` VARCHAR(5) NULL DEFAULT NULL,
+  `ctf_nom` VARCHAR(100) NULL DEFAULT NULL,
+  PRIMARY KEY (`ctf_id`)
 );
 
 -- ---
@@ -297,11 +297,11 @@ ALTER TABLE `categories_users` ADD FOREIGN KEY (cat_usr_id_categorie) REFERENCES
 -- ('','','','','');
 -- INSERT INTO `categories_users` (`cat_usr_id`,`cat_usr_id_user`,`cat_usr_id_categorie`) VALUES
 -- ('','','');
--- INSERT INTO `config_methode_paiement` (`cfg_id`,`cfg_value`) VALUES
+-- INSERT INTO `config_methode_paiement` (`cmp_id`,`cmp_nom`) VALUES
 -- ('','');
--- INSERT INTO `config_classe_tva` (`cfg_id`,`cfg_taux`,`cfg_nom`,`cfg_actif`) VALUES
+-- INSERT INTO `config_classe_tva` (`cct_id`,`cct_taux`,`cct_nom`,`cct_actif`) VALUES
 -- ('','','','');
--- INSERT INTO `config_type_facture` (`cfg_id`,`cfg_abbr`,`cfg_nom`) VALUES
+-- INSERT INTO `config_type_facture` (`ctf_id`,`ctf_abr`,`ctf_nom`) VALUES
 -- ('','','');
 -- INSERT INTO `config` (`cfg_id`,`cfg_key`,`cfg_value`) VALUES
 -- ('','','');
