@@ -70,4 +70,18 @@ class Budget extends MY_Breadcrumb
         $this->session->set_flashdata('success', 'Exercice supprim&eacute;');
         redirect('budget/index/'.$id_exercice, 'refresh');
     }
+
+    // afficher un budget à plat, jusqu'aux lignes
+    public function detail($id)
+    {
+        $this->load->model('budget_model');
+
+        $this->set_breadcrumb('categorie', 'D&eacute;tail de '.$id, 'budget/detail/'.$id);
+
+        $data['budget'] = $this->budget_model->get_budget($id);
+        $data['budget_detail'] = $this->budget_model->get_budget_detail($id);
+
+        $data['_view'] = 'budget/detail_view';
+        $this->load->view('default_template', $data);
+    }
 }

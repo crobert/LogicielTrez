@@ -44,8 +44,9 @@ class facture extends MY_Breadcrumb
 			$data['id_ligne'] = $id_ligne;
 			$data['tiers'] = $this->tiers_model->list_tiers();
 			$data['_view'] = 'facture/add_view';
+            $data['_assets'] = array('chosen', 'jquery-ui');
 
-			$this->load->view('default_template', $data);
+            $this->load->view('default_template', $data);
 		} else {
 			$date = new DateTime ($this->input->post('date'));
 
@@ -102,6 +103,7 @@ class facture extends MY_Breadcrumb
 			$data['tiers'] = $this->tiers_model->list_tiers();
 			$data['facture'] = $facture;
 			$data['_view'] = 'facture/edit_view';
+            $data['_assets'] = array('chosen', 'jquery-ui');
 
 			$this->load->view('default_template', $data);
 		} else {

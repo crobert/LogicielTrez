@@ -15,6 +15,7 @@
             <td><?php echo $budget->bud_nom; ?></td>
             <td>
                 <div class="btn-group">
+                    <a class="btn btn-small" href="<?php echo site_url('budget/detail/'.$budget->bud_id); ?>" title="D&eacute;tail"><i class="icon-zoom-in"></i></a>
                     <a class="btn btn-small" href="<?php echo site_url('categorie/index/'.$budget->bud_id); ?>" title="Accéder aux catégories"><i class="icon-download"></i></a>
                     <a class="btn btn-small" href="<?php echo site_url('budget/edit/'.$budget->bud_id.'/'.$budget->bud_id_exercice); ?>" title="&Eacute;diter"><i class="icon-pencil"></i></a>
                     <a class="btn btn-small"
