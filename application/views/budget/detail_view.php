@@ -28,6 +28,7 @@
             </td>
         </tr>
     <?php
+        $id_cat = $ligne->cat_id;
         endif;
 
         if ($ligne->sct_id != $id_sous_cat) :
@@ -40,7 +41,9 @@
             <td>
                 <a class="btn btn-small" href="<?php echo site_url('souscategorie/index/'.$ligne->sct_id); ?>" title="Voir le d&eacute;tail"><i class="icon-zoom-in"></i></a>
             </td>
-        </tr>    <?php
+        </tr>
+    <?php
+        $id_sous_cat = $ligne->sct_id;
         endif;
     ?>
     <tr class="ligne">
