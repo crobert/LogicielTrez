@@ -6,7 +6,11 @@
 <div class="control-group">
     <label class="control-label" for="type">Type</label>
     <div class="controls">
-        <input type="text" id="type" placeholder="Type" name="type" value="<?php echo set_value('type');?>" required />
+		<select id="type" name="type" required>
+            <?php foreach ($type_facture as $tf) { ?>
+                <option value="<?php echo $tf->ctf_id;?>" <?php if(set_value('type') == $tf->ctf_id){echo "selected='selected'";} ?> ><?php echo $tf->ctf_nom;?></option>
+            <?php } ?>
+		</select>
     </div>
 </div>
 <div class="control-group">
@@ -30,7 +34,11 @@
 <div class="control-group">
     <label class="control-label" for="methode_paiement">M&eacute;thode de paiement</label>
     <div class="controls">
-        <input type="text" id="methode_paiement" placeholder="Methode paiement" name="methode_paiement" value="<?php echo set_value('methode_paiement');?>" />
+		<select id="methode_paiement" name="methode_paiement" required>
+            <?php foreach ($methode_paiement as $mp) { ?>
+                <option value="<?php echo $mp->cmp_id;?>" <?php if(set_value('methode_paiement') == $mp->cmp_id){echo "selected='selected'";} ?> ><?php echo $mp->cmp_nom;?></option>
+            <?php } ?>
+		</select>
     </div>
 </div>
 <div class="control-group">
@@ -62,7 +70,7 @@
     <div class="controls">
 		<select id="tiers" name="tiers" required>
             <?php foreach ($tiers as $t) { ?>
-                <option value="<?php echo $t->trs_id;?>"><?php echo $t->trs_nom;?></option>
+                <option value="<?php echo $t->trs_id;?>" <?php if(set_value('tiers') == $t->trs_id){echo "selected='selected'";} ?> ><?php echo $t->trs_nom;?></option>
             <?php } ?>
 		</select>
     </div>
@@ -78,7 +86,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         // transform select into the chosen one
-        $('#tiers').chosen({no_results_text: "Pas de r&eacute;sultats"});
+        $('#tiers, #methode_paiement, #type').chosen({no_results_text: "Pas de r&eacute;sultats"});
 
         // datePickers
         $( "#date" ).datepicker({

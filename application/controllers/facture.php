@@ -41,6 +41,14 @@ class facture extends MY_Breadcrumb
 		if($this->form_validation->run() == FALSE) {
 			$this->load->model('tiers_model');
 
+			//Récupération des configs pour les selects
+			$this->load->model('config_model', 'tva');
+			$this->load->model('config_model', 'paiement');
+			$this->load->model('config_model', 'facture');
+			$data['tva'] = $this->tva->_populate('config_classe_tva')->list_config();
+			$data['methode_paiement'] = $this->paiement->_populate('config_methode_paiement')->list_config();
+			$data['type_facture'] = $this->facture->_populate('config_type_facture')->list_config();
+			
 			$data['id_ligne'] = $id_ligne;
 			$data['tiers'] = $this->tiers_model->list_tiers();
 			$data['_view'] = 'facture/add_view';
@@ -96,6 +104,14 @@ class facture extends MY_Breadcrumb
 
 		if($this->form_validation->run() == FALSE) {
 			$this->load->model('tiers_model');
+
+			//Récupération des configs pour les selects
+			$this->load->model('config_model', 'tva');
+			$this->load->model('config_model', 'paiement');
+			$this->load->model('config_model', 'facture');
+			$data['tva'] = $this->tva->_populate('config_classe_tva')->list_config();
+			$data['methode_paiement'] = $this->paiement->_populate('config_methode_paiement')->list_config();
+			$data['type_facture'] = $this->facture->_populate('config_type_facture')->list_config();
 
 			$data['id_ligne'] = $id_ligne;
 			$data['tiers'] = $this->tiers_model->list_tiers();
