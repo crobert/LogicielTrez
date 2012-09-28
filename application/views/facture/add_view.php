@@ -16,7 +16,7 @@
 <div class="control-group">
     <label class="control-label" for="numero">Num&eacute;ro</label>
     <div class="controls">
-        <input type="text" id="numero" placeholder="Numero" name="numero" value="<?php echo set_value('numero');?>" required />
+        <input type="text" id="numero"  placeholder="Numero" name="numero" value="<?php echo set_value('numero');?>" READONLY />
     </div>
 </div>
 <div class="control-group">
@@ -95,5 +95,19 @@
         $( "#date_paiement" ).datepicker({
             dateFormat: 'dd/mm/yy'
         });
+        $('#type').change(function() {
+			$.ajax({
+                type: "POST",
+                url: "<?php echo site_url()."facture/getNumero/";?>"+$('#type').val(),
+                success: function(numero) //On récupère le nombre de facture
+                {
+					$.each(numero,function(id,num)
+					{
+						$('#numero').val(parseInt(num.val)+1);
+					});
+				}
+			});
+		});
+	$('#type').trigger('change'); 
     });
 </script>

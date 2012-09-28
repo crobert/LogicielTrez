@@ -47,4 +47,18 @@ class facture_model extends CI_Model
         return $id;
     }
 
+	public function getNumeroFacture($budget, $type)
+	{
+        $sql = 'SELECT COUNT(*) as val
+                FROM budget
+                JOIN categorie ON categorie.cat_id_budget = budget.bud_id
+                JOIN souscategorie ON souscategorie.sct_id_categorie = categorie.cat_id
+                JOIN ligne ON ligne.lig_id_souscategorie = souscategorie.sct_id
+                JOIN facture on facture.fac_id_ligne = ligne.lig_id
+                WHERE budget.bud_id = ?
+                AND facture.fac_type = ?';
+        return $this->db->query($sql, array($budget, $type))->result();
+                
+	}
+
 }

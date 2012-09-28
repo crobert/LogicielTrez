@@ -152,4 +152,17 @@ class facture extends MY_Breadcrumb
 		$this->facture_model->delete_facture($id); 
 		redirect('facture/index/'.$id_ligne, 'refresh');
 	}
+
+	public function getNumero($type_facture)
+	{
+		//Récupérer le numéro de facture
+		$this->load->model('facture_model');
+		$str = $this->session->userdata['breadcrumbs']['budget']['link'];
+		$budget_id = end(explode('/', $str));
+		$count = $this->facture_model->getNumeroFacture($budget_id, $type_facture); 
+		header('Content-Type: application/x-json; charset=utf-8');
+        echo(json_encode($count)); 
+	}
+	
+	
 }
